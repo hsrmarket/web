@@ -1,5 +1,32 @@
+sudo: required
 language: node_js
 node_js:
-  - "6"
+- '6'
 install:
-  - npm install
+- npm install
+addons:
+  apt:
+    packages:
+    - sshpass
+after_success:
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then cd ..; fi
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then ls; fi
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then tar -czf package.tgz web; fi
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then export SSHPASS=$DEPLOY_PASS; fi
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then sshpass -e scp -P 15002 -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH;
+  fi
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then sshpass -e ssh -p 15002 $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh; fi
+- if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]];
+  then rm -rf package.tgz; fi
+env:
+  global:
+  - secure: rbUbJKWEeR29dZEh9Fn9IOsuDTkHiFKRW74YVmv7y7HB8MKLrJq9tP6KuLBGbYbDaBhijzQ6nuuF/xg0POZOpOnVrvpLF5yB7JepFm7s4v7aT39/TKqT8A65nXYUKOTFBrsTGDatq1fY+xNIvLo9stfsLPiOo6T4BC3+zyq+YCdp8Ds65hjwXwJZwLN3SNvtB9rpIZA/XWK7oWVy9h3kzBpLovykPPFel5uD7phw41K/dmNiqb2OeOLo29MMZMJqIX2EDuFXiSvWCmNHVjstLLDh0auM29oim+Px1lsWjxmYG83pzJNfqYH1+EvF1bn90RdAKJKBXXEvu69+1GG0NDBuUqJunw8Ffg2g+NE5VtmyBUUGfmrPund1xQ2kk/VwH7tWDJJVh4GOcEfPUFAxxSsfkVmcBCJU6wkdtREKuC7gjQye+o1X0AJ9Gd3YTaZQoUIhdpthKFho0gN9ZxapWfGqmbTs1l651nPJB3kz8sWrQEB23ZYHUk1tmwfFNCiXtpF7Nu0arpfeLV9nMSdeY3AwfnzP9PCBo4tpX/dqgZHzYF1B1DV1OMRHI8+MtDG/Q/YO3LHjEklHVgWCRj78naCAOctNGwfrd3NMRuHJ6B9Zw9gP+4QhkgtnZc/HvQK8Igy6zBGkkouobZ92CEcNwEEOYeygf3VErzuKESOn2mQ=
+  - secure: TULFCpelwMOGuflBmdF0ai6JyF2U0lqmwvIm3+1fTS4owh65F8YR5aB5naAG0y81rdaS7SkghESnPgb5kqsW/PrbhD2FsydUEi0GnXC1V1lm3cAMrDCl0OYywGKqhh0WlNL+VVF5jHKfcYbDcMIzUSyLkp0pRI6ny3WQG/4Zs7/crluGvnQuloQQ+yF2kBHQLu9jE/fkFcsvHNmtbIkg8JmszyH0Qxro8VFl8gfzQwx9NrnvitQFBcro0XDp1hdEn9pFxDaeuJ4J8QD3crlpUx3f2kFKH/8e6NoKVP4amWccjY+Y1m/GtsPa9dTH5Jvyem0gUAyCbsHIL/cFMmVCFULL0vs48EMCEtqS9mB9x5P/pCKxeWDsQTbXDn23vgkGnXLVJi3+24LxQicYxmWhdg/Y/FrXa/V/P4XfF8D8f6mTgeWwzCY30SgpUEvzIkIOFwZdFtw4VAkMMw49cZI2KWvL3StTLsU4wQnrujuigDqep0a62AnTQ8TiF5+Ro0TmJI1RjSI2qZ0lsTmjpTRa/FNgqOj9e9xw/STgP6uOeVKRnex1q3Y3JAzDfH0r5GPxiJrmZjjr4xUvxprf6SewOZWeNQtANH/ospgYFW0zM/t5Bpl+N5Se91LUo7Ir8RQ9eZ5GSVKwjSq9JDFHKj+wbzyc98hne9zhMrfQxs4kYH0=
+  - secure: c5A9J+MKXUooDqaSxpmiIYI90UFERNZKimSvWgE7a/ixW7mMEU8GsExek6wV5uGch0/7D6TCF33pcJon9x4TFpVKkq9HpSaStvzxrrx2KwP9nfdyj5P9DGlE27f0EZ3eztFg9UeF0eARh3aBwv4MGjWzlePxQ9RYZo8h+W5YjvRDd1OUVGaKyvHH3a1FqsNJYR3v1SCURdfW689RdrtsEhXXweczVobjYFby8i/u4uea6bTtnfr0bWHBMDIExxzoiecb0OiDSUKNS3orQD6tz43la1+nzcF7ZsbciMDO/pnndiDM7qQxwakR5GGR8fRcD5f5EtjkKnMW8KQHb80YQXryIL07R8SgJFuSUsJbqZt+aZZ5lGLRumQlXZdG8s1SVnXxJ0pTUXO4F5jxhuLMYCIdgB/Ue7f8oDG6hwumwB0BqhkA9JXA6K53DdaiCfKKsnTJFJyuE+oGm/1U3kTdy+HhV3hHhW/uZkpQLUvA2PHbnN8kAA2TNYNUundAA9lLGBharaTTtzxOc44Q469hNbQ8/i4PJ5kvP2E6eChDRiqsRUgLBCKjsZDEaQj6EoGq6VHrvADjdSS+8DaNWYi9nfj1maf/ueBTswQTI3Y8PmkL2ElT/r0DyhArMOcTEBknvAWh3OgH+/OfB6Ff2fX7Rx3Te2aIODMAQTNKK8Nwycc=
+  - secure: Li/FlZzlaLqUALmp49k4T1ovOjj7zV4pHGtElVtIGNJnhcvl937RHYH+0G4aVIPK5jP6bOHFEcdnxdb6JqQPNc+XfqipAUBKKXCu9rSn2n6WNHDZmnKoBIBEkg4CDRCaOI+glLYFZBp3K4kG8ABGvQJQj+U4NDTZhUFJHaQq3HR6Px7uVX+dpAKYFBBeuG89pwICnOpNi4TUhGEP1wB/9xRzIMBqhZ7LkXGNl7NXdB7PpAJ1KdHljHxuPQkqxSKyCy0BMDqMtmdqEobUz2xoo6Ct2kfZdLR0q+PRrb7rCRW/UEtkbEDeY133ViCcfewvsHfpv2x/yPIsQFJ5BnBaY11Um3cXN/Wfq1VvzlxDotSmuN4YF8tghhKDOfH0nzie9K7lLwQjtd6z5Jqa9L6u8YzfVvMWkSR7EOi5jVq3B66n1fMWHzPi8EpVJA7sEaz8evvuuocOBTooiFgUxmrrnPOT0hrHQgRaJgIt2NeUC+g1AwGhuuam9aHvqXZXgwnzHLNLYk4QO2v6XEYR2+yV3vYGThnRR4nVrx+KMXxQJhYCGy16hIXNhlIZGcWQN7iVIK/dmnbTgo4cHMO1/mxoJM0W3238Ru8BiIimihZ7WBrkr5V0dIZX/cB2L1120qYa6ZPv3H2ZvBGrpsB+6ntAQH6HnCZdEhm4b05FxugZSnA=
