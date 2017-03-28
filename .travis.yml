@@ -6,7 +6,12 @@ install:
 - npm install
 branches:
   only:
-    - master
+  - master
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: aWx/ajUHUcsT/ZPmVbOoLTnzB/POT2WEDecTR7ya1G5AZzZwKQ6dPGtseCBOV9tO8c9T7Riar9GA0WvWyvbJ7DpMpPjnsbUHoy1XqBQSR/ZkwoDEiYVK64W9Mh9Lt5gfOJ3zgu9F7bJ6NCryOLOYqWIaxRB9AhYiCnCie7OkoKbfxasj3lGDrSUjpubMxT1s+IcEWPoTDYTtcFI/bHEBGnzxqDji0CgL4QlaumDOJTrJQyLM6f6gJ+Zx+4vUk9y7hYkY7vhFbPdIVBJbsAoXQsdv8s0bgLMgnbUE+y4BT8ktrDzBDPzQNzDiUd+Q7tG4l9yVvHSdznh8YlWvdiQEvaNNq8+JWjaLIgKoeN/w6yrNh7JeEqtHz+Dp6SftBWZimVOBZfyTLUyDAY4pvc93ppNTRM2Q613FHzkNCBjJUdbM2YgIEq16O0ih7s0+cokt/bdUsyzIO6Xt8vOKujSh2+OzDk95GcEyV4gyCv/gjWG6ewX0r3gvDVuFGtdv1esxO0kGSfOB1jUGUCuLB3TNILxzdi/qTcTRxqDHB0YqE6WBdVP/ORc785pIBkzhasolzF8lnRRqilDIMgXMTT8bX0i+aDcxaQcdbR6CXXu3Uu8qBfuSJbSOtf7wK8RZQ7WNN6bJfozihv++HWBbf/qiTocSFx160Tiqmkev2V4HDBY=
 addons:
   apt:
     packages:

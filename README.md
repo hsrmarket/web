@@ -1,4 +1,4 @@
-# Node.js Hello World Test
-Here will be the WEB-GUI of the HSRmarket Application
+# HSRmarket NodeJS Frontend
+[![Build Status](https://travis-ci.org/hsrmarket/web.svg?branch=master)](https://travis-ci.org/hsrmarket/web)
 
-Right now it's only a test for Node.js
+Here will be the WEB-GUI of the HSRmarket Application
