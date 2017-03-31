@@ -1,0 +1,34 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">HSRmarket</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li class="nav-link">
+                <a href="/">Home</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <h4>List new article</h4>
+        <form method="post" action="/save">
+            <div>
+                <label for="Bookname">Book name:</label>
+                <input id="Bookname" placeholder="Article name" type="text" name="Bookname" required/>
+            </div>
+            <div>
+                <label for="IBANnumber">IBAN number:</label>
+                <input id="IBANnumber" placeholder="IBAN number" type="text" name="IBANnumber" required/>
+            </div>
+            <div>
+                <label for="Autor">Autor:</label>
+                <input id="Autor" placeholder="Autor" type="text" name="Autor" required/>
+            </div>
+            <button type="submit" class="button">Add</button>
+        </form>
+    </div>
+</div>
