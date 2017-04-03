@@ -1,0 +1,41 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">HSRmarket</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li class="nav-link">
+                <a href="/">Home</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <h4>current collection</h4>
+        {{#if books.length}}
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>IBAN number</th>
+                    <th>Autor</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each books}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{iban}}</td>
+                        <td>{{author}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <div> current collection is empty. </div>
+        {{/if}}
+    </div>
+</div>
