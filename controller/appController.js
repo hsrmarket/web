@@ -1,5 +1,5 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var URL = "http://localhost:9000/Books";
+var URL = "http://duernten.forrer.network:9000/Books";
 
 module.exports.showHome = function(req, res) {
     res.render('index');
