@@ -1,0 +1,62 @@
+<nav class="top-bar" >
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">HSRmarket</li>
+            <li class="nav-link">
+                <a href="/">Start</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/books">Books</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/electronics">Electronics</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/officesupplies">Office supplies</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/other">Other</a>
+            </li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+                <a href="#">"USER NAME"</a>
+                <ul class="menu vertical">
+                    <li><a href="#">My Articles</a></li>
+                    <li><a href="#">My Sales</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="row">
+    <div class="column">
+        <h1>{{Heading}}</h1>
+    </div>
+    {{#if data.lenght}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Discription</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{discription}}</td>
+                    <td><button href="/api/articles/{{heading}}/:id">Show</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <div> Currently the list is empty. </div>
+    {{/if}}
+</section>

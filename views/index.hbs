@@ -1,4 +1,4 @@
-<nav class="top-bar">
+<nav class="top-bar" >
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">HSRmarket</li>
@@ -6,16 +6,16 @@
                 <a href="/">Start</a>
             </li>
             <li class="nav-link">
-                <a href="/fetch">Books</a>
+                <a href="/api/articles/books">Books</a>
             </li>
             <li class="nav-link">
-                <a href="/fetch">Electronics</a>
+                <a href="/api/articles/electronics">Electronics</a>
             </li>
             <li class="nav-link">
-                <a href="/fetch">Office supplies</a>
+                <a href="/api/articles/officesupplies">Office supplies</a>
             </li>
             <li class="nav-link">
-                <a href="/fetch">Other</a>
+                <a href="/api/articles/other">Other</a>
             </li>
         </ul>
     </div>
@@ -33,7 +33,8 @@
         </ul>
     </div>
 </nav>
-<section class="row main">
+
+<section class="row align-bottom">
     <div class="column align-self-middle">
         <form method="get" action="/fetch">
             <figure>
@@ -46,13 +47,40 @@
                 <button type="submit" class="button" disabled>Search</button>
             </div>
         </form>
+        <a class="button large success" href="/api/articles/books">Books</a>
+        <a class="button large success" href="/api/articles/electronics">Electronics</a>
+        <a class="button large success" href="/api/articles/officesupplies">Office supplies</a>
+        <a  class="button large success" href="/api/articles/other">Other</a>
     </div>
 </section>
-<footer>
+<section class="row align-bottom">
+    <div class="column align-self-middle">
+        <header>
+            <h1>Recent articles in the market</h1>
+        </header>
+        {{#if articles.length}}
+            <table>
+                <tbody>
+                    {{#each articles}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <div> current collection is empty. </div>
+        {{/if}}
+    </div>
+</section>
+
+<footer class="align-bottom ">
     <div class="wrap row small-up-1 medium-up-3">
-        <div class="column"></div>
+        <figure>
+            <img src="/images/ICON_HSRMARKET_OHNE_TEXT_TRANSPARENT.png" alt="HSRmarket" width="60rem" height="60rem">
+        </figure>
         <div class="column"></div>
         <div class="column"></div>
     </div>
-
 </footer>

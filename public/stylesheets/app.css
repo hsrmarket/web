@@ -1,9 +1,12 @@
+nav {
+    background-color: #BDBDBD;
+}
+
 body {
-    margin: 0;
-    text-align: center;
+    height: 100%;
 }
 
 footer {
     height: 4.5rem;
-    background: #222;
+    background: #C8E6C9;;
 }
