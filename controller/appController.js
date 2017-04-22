@@ -96,8 +96,6 @@ module.exports.getArticles = function (req, res) {
 };
 
 module.exports.getArticlesByID = function (req, res) {
-    var _id = req.params.id;
-
     var http = new XMLHttpRequest();
     var url = URLConstruction + req.url;
     var methode = "GET";
@@ -108,8 +106,8 @@ module.exports.getArticlesByID = function (req, res) {
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
             var article = JSON.parse(http.responseText);
-            res.render("testing");
-            res.render('articleList', {title: title, articles : articles});
+            console.log(article);
+            res.render('detailedView', { article : article});
         }
     };
     http.send();

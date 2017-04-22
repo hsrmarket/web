@@ -1,0 +1,107 @@
+<nav class="top-bar" >
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">HSRmarket</li>
+            <li class="nav-link">
+                <a href="/">Start</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/books">Books</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/electronics">Electronics</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/officesupplies">Office supplies</a>
+            </li>
+            <li class="nav-link">
+                <a href="/api/articles/other">Other</a>
+            </li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+                <a href="#">"USER NAME"</a>
+                <ul class="menu vertical">
+                    <li><a href="#">My Articles</a></li>
+                    <li><a href="#">My Sales</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="row">
+    {{#if article.length}}
+        <div class="column">
+            <h1>Article #{{id}}</h1>
+        </div>
+        <figure>
+            <img src="{{image}}" alt="{{title}}">
+        </figure>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Category</th>
+                        <td>{{type}}</td>
+                    <th>Final price</th>
+                        <td>{{price}}</td>
+                    <th>Module</th>
+                        <td>{{name}}</td>
+                    <th>Condition</th>
+                        <td>{{conditionMaker condition}}</td>
+            </tbody>
+        </table>
+        <h5>Description</h5>
+        <p>{{description}}</p>
+        {{#if typeChecker type "book"}}
+            <h2>Book Specifications</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <th>ISBN</th>
+                        <td>{{isbn}}</td>
+                    <th>publisher</th>
+                        <td>{{plus}}</td>
+                    <th>Author</th>
+                        <td>{{author}}</td>
+                </tbody>
+            </table>
+            <a  class="button large success" href="<!-- TODO -->">Buy</a>
+        {{/if}}
+        {{#if typeChecker type "electronic"}}
+            <h2>Electronic Specifications</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <!-- TODO -->
+                </tbody>
+            </table>
+            <a  class="button large success" href="<!-- TODO -->">Buy</a>
+        {{/if}}
+        {{#if typeChecker type "office supply"}}
+            <h2>Office supply Specifications</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <!-- TODO -->
+                </tbody>
+            </table>
+            <a  class="button large success" href="<!-- TODO -->">Buy</a>
+        {{/if}}
+    {{else}}
+        <div> Error occurred while loading the file.</div>
+    {{/if}}
+</section>
+
+<footer class="align-bottom ">
+    <div class="wrap row small-up-1 medium-up-3">
+        <figure>
+            <img src="/images/ICON_HSRMARKET_OHNE_TEXT_TRANSPARENT.png" alt="HSRmarket" width="60rem" height="60rem">
+        </figure>
+        <div class="column"></div>
+    </div>
+</footer>

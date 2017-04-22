@@ -1,18 +1,14 @@
 var hbs = require('hbs');
 
-hbs.registerHelper('currentType', function(type){
-    if(type == "book"){
-        return "books";
-    }
-    if(type == "electronic"){
-        return "electronics";
-    }
-    if(type == "office supply"){
-        return "officesupplies";
-    }
-    if(type == "other"){
-        return "other";
-    }
-    return "";
+hbs.registerHelper('conditionMaker', function(condition) {
+    var text = '';
+    for(var i = 0; i < condition; ++i)
+        text += "<span><i class='fi-check'></span>";
+    return text;
 });
+
+hbs.registerHelper('typeChecker', function(currentType, type) {
+    return currentType == type;
+});
+
 
