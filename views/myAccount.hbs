@@ -1,0 +1,101 @@
+
+<section class="row">
+    <div class="column">
+        <h1>My Account</h1>
+    </div>
+    {{#if data.length}}
+        <form>
+
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="lastname">
+                        lastname
+                        <input id="lastname" name="lastname" type="text" required value="{{data.lastname}}">
+                    </label>
+                </div>
+                <div class="large-2 columns">
+                    <label for="firstname">
+                        firstname
+                        <input id="firstname" name="firstname" type="text" required value="{{data.firstname}}">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="street">
+                        street
+                        <input id="street" name="street" type="text" required value="{{data.street}}">
+                    </label>
+                </div>
+                <div class="large-2 columns">
+                    <label for="nr">
+                        nr
+                        <input id="nr" name="nr" type="text" required value="{{data.nr}}">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 columns">
+                    <label for="zip">
+                        zip
+                        <input id="zip" name="zip" type="text" required value="{{data.zip}}">
+                    </label>
+                </div>
+                <div class="large-4 columns">
+                    <label for="city">
+                        city
+                        <input id="city" name="city" type="text" required value="{{data.city}}">
+                    </label>
+                </div>
+                <div class="large-4 columns">
+                    <label for="state">
+                        state
+                        <input id="state" name="state" type="text" required value="{{data.state}}">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <div class="row collapse prefix-radius">
+                        <div class="small-3 columns">
+                            <label for="username" class="prefix">username</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input id="username" name="username" type="text" required value="{{data.username}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div class="row collapse prefix-radius">
+                        <div class="small-3 columns">
+                            <label for="email" class="prefix">email</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input id="email" name="email" type="text" required value="{{data.email}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <div class="row collapse prefix-radius">
+                        <div class="small-3 columns">
+                            <label for="password" class="prefix">password</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input id="password" name="password" type="text" required value="{{data.password}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="success button" href="<!-- TODO -->">Save</a>
+            <a class="alert button" href="<!-- TODO -->">Cancel</a>
+        </form>
+
+    {{else}}
+        <div> Error occurred while loading the file. </div>
+    {{/if}}
+</section>

@@ -1,7 +1,7 @@
 
 <section class="row">
     <div class="column">
-        <h1>all {{title}}</h1>
+        <h1>My Articles</h1>
     </div>
     {{#if articles.length}}
         <table>
@@ -9,6 +9,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Discription</th>
+                    <th>Category</th>
                     <th></th>
                 </tr>
             </thead>
@@ -17,7 +18,11 @@
                 <tr>
                     <td>{{name}}</td>
                     <td>{{description}}</td>
-                    <td><a class="hollow button" href="/api/articles/{{id}}">Show</a></td>
+                    <td>{{category}}</td>
+                    <td>
+                        <a class="button" href="<!-- TODO -->" disabled="true">Edit</a>
+                        <a class="hollow alert button" href="<!-- TODO -->" disabled="true">Delete</a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>
