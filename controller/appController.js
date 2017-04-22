@@ -80,19 +80,37 @@ module.exports.getArticles = function (req, res) {
     var url = URLConstruction + req.url;
     var methode = "GET";
 
+    console.log(url);
+
     http.open(methode, url, true);
     http.setRequestHeader("Content-type", "application/json");
 
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
             var articles = JSON.parse(http.responseText);
-            res.render('currentCollection', {articles : articles});
+            var title = req.url.split("/").pop();
+            res.render('articleList', {title: title, articles : articles});
         }
     };
-
     http.send();
 };
 
 module.exports.getArticlesByID = function (req, res) {
+    var _id = req.params.id;
 
+    var http = new XMLHttpRequest();
+    var url = URLConstruction + req.url;
+    var methode = "GET";
+
+    http.open(methode, url, true);
+    http.setRequestHeader("Content-type", "application/json");
+
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            var article = JSON.parse(http.responseText);
+            res.render("testing");
+            res.render('articleList', {title: title, articles : articles});
+        }
+    };
+    http.send();
 };

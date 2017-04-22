@@ -33,11 +33,12 @@
         </ul>
     </div>
 </nav>
+
 <section class="row">
     <div class="column">
-        <h1>{{Heading}}</h1>
+        <h1>all {{title}}</h1>
     </div>
-    {{#if data.lenght}}
+    {{#if articles.length}}
         <table>
             <thead>
                 <tr>
@@ -47,11 +48,11 @@
                 </tr>
             </thead>
             <tbody>
-                {{#each data}}
+                {{#each articles}}
                 <tr>
-                    <td>{{title}}</td>
-                    <td>{{discription}}</td>
-                    <td><button href="/api/articles/{{heading}}/:id">Show</button></td>
+                    <td>{{name}}</td>
+                    <td>{{description}}</td>
+                    <td><a class="hollow button" href="/api/articles/{{id}}">Show</a></td>
                 </tr>
                 {{/each}}
             </tbody>
@@ -60,3 +61,12 @@
         <div> Currently the list is empty. </div>
     {{/if}}
 </section>
+
+<footer class="align-bottom ">
+    <div class="wrap row small-up-1 medium-up-3">
+        <figure>
+            <img src="/images/ICON_HSRMARKET_OHNE_TEXT_TRANSPARENT.png" alt="HSRmarket" width="60rem" height="60rem">
+        </figure>
+        <div class="column"></div>
+    </div>
+</footer>

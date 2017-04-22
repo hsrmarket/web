@@ -24,17 +24,15 @@ router.get("/fetch", appController.getArticle);
 router.get('/', appController.getFrontPage);
 
 router.get("/api/articles/books", appController.getArticles);
-router.get("/api/articles/books/:id", appController.getArticlesByID);
 
 router.get("/api/articles/electronics", appController.getArticles);
-router.get("/api/articles/electronics/:id", appController.getArticlesByID);
 
 router.get("/api/articles/officesupplies", appController.getArticles);
-router.get("/api/articles/officesupplies/:id", appController.getArticlesByID);
 
 router.get("/api/articles/other", appController.getArticles);
-router.get("/api/articles/other/:id", appController.getArticlesByID);
 
 router.get("/api/articles/recent", appController.getArticles);
+
+router.get("/api/articles/:id", appController.getArticlesByID);
 
 module.exports = router;
