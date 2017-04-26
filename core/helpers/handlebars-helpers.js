@@ -7,8 +7,8 @@ hbs.registerHelper('conditionMaker', function(condition) {
     return text;
 });
 
-hbs.registerHelper('typeChecker', function(currentType, type) {
-    return currentType == type;
+hbs.registerHelper('equal', function(lvalue, rvalue, options) {
+    return lvalue != rvalue ? options.inverse(this) : options.fn(this);
 });
 
 

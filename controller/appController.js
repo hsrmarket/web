@@ -1,9 +1,10 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var URL = "http://duernten.forrer.network:9000/Books";
 
 /*
-* Prototype phase
-* */
+ * Prototype phase
+ * */
+/*
+var URL = "http://duernten.forrer.network:9000/Books";
 
 module.exports.showHome = function(req, res) {
     res.render('index');
@@ -49,16 +50,17 @@ module.exports.postArticle = function (req, res){
 
     http.send(JSON.stringify({ id: parseInt(req.body.id), iban: req.body.iban, author: req.body.author }));
 };
+*/
 
 /*
 * Construction phase
 * */
 
-var URLConstruction = "http://duernten.forrer.network:9000";
+var URL = "http://duernten.forrer.network:9000";
 
 module.exports.getFrontPage = function (req, res) {
     var http = new XMLHttpRequest();
-    var url = URLConstruction + "/api/articles/recent";
+    var url = URL + "/api/articles/recent";
     var methode = "GET";
 
     http.open(methode, url, true);
@@ -77,10 +79,10 @@ module.exports.getFrontPage = function (req, res) {
 module.exports.getArticles = function (req, res) {
 
     var http = new XMLHttpRequest();
-    var url = URLConstruction + req.url;
+    var url = URL + req.url;
     var methode = "GET";
 
-    console.log(url);
+    console.log("THE  ARTICLE URL: " + url);
 
     http.open(methode, url, true);
     http.setRequestHeader("Content-type", "application/json");
@@ -89,7 +91,7 @@ module.exports.getArticles = function (req, res) {
         if(http.readyState == 4 && http.status == 200) {
             var articles = JSON.parse(http.responseText);
             var title = req.url.split("/").pop();
-            res.render('articleList', {title: title, articles : articles});
+            res.render('articleList', {title : title, articles : articles});
         }
     };
     http.send();
@@ -97,17 +99,21 @@ module.exports.getArticles = function (req, res) {
 
 module.exports.getArticlesByID = function (req, res) {
     var http = new XMLHttpRequest();
-    var url = URLConstruction + req.url;
+    var url = URL + req.url;
     var methode = "GET";
+
+    console.log("THE  ARTICLE WITH ID URL: " + url);
 
     http.open(methode, url, true);
     http.setRequestHeader("Content-type", "application/json");
 
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
-            var article = JSON.parse(http.responseText);
-            console.log(article);
-            res.render('detailedView', { article : article});
+            var articles = JSON.parse(http.responseText);
+            var title = req.url.split("/").pop();
+
+            console.log(articles);
+            res.render('detailedView', {title : title, articles : articles});
         }
     };
     http.send();

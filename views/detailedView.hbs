@@ -1,63 +1,55 @@
 
 <section class="row">
-    {{#if article.length}}
-        <div class="column">
-            <h1>Article #{{id}}</h1>
-        </div>
-        <figure>
-            <img src="{{image}}" alt="{{title}}">
-        </figure>
-        <table>
-            <tbody>
-                <tr>
-                    <th>Category</th>
-                        <td>{{type}}</td>
-                    <th>Final price</th>
-                        <td>{{price}}</td>
-                    <th>Module</th>
-                        <td>{{name}}</td>
-                    <th>Condition</th>
-                        <td>{{conditionMaker condition}}</td>
-            </tbody>
-        </table>
-        <h5>Description</h5>
-        <p>{{description}}</p>
-        {{#if typeChecker type "book"}}
+    <div class="column">
+        <h1>Article {{articles.id}}</h1>
+    </div>
+    <figure>
+        <img src="{{articles.image}}" alt="{{title}}">
+    </figure>
+    <table>
+        <tbody>
+            <tr>
+                <th>Category</th>
+                    <td>{{articles.type}}</td>
+                <th>Final price</th>
+                    <td>{{articles.price}}</td>
+                <th>Module</th>
+                    <td>{{articles.name}}</td>
+                <th>Condition</th>
+                    <td>{{conditionMaker articles.condition}}</td>
+        </tbody>
+    </table>
+    <h5>Description</h5>
+    <p>{{articles.description}}</p>
+    <div>
+        {{#equal articles.type "book"}}
             <h2>Book Specifications</h2>
             <table>
                 <tbody>
                 <tr>
                     <th>ISBN</th>
-                        <td>{{isbn}}</td>
+                    <td>{{articles.isbn}}</td>
                     <th>publisher</th>
-                        <td>{{plus}}</td>
+                    <td>{{articles.plus}}</td>
                     <th>Author</th>
-                        <td>{{author}}</td>
+                    <td>{{articles.author}}</td>
                 </tbody>
             </table>
-            <a  class="button large success" href="<!-- TODO -->">Buy</a>
-        {{/if}}
-        {{#if typeChecker type "electronic"}}
+            <a  class="button large success" href="/api/purchase/{{articles.id}}">Buy</a>
+        {{/equal}}
+        {{#equal articles.type "electronic"}}
             <h2>Electronic Specifications</h2>
             <table>
                 <tbody>
                 <tr>
-                    <!-- TODO -->
+                    <th>Producer</th>
+                    <td>{{articles.producer}}</td>
+                    <th>Model</th>
+                    <td>{{articles.model}}</td>
                 </tbody>
             </table>
-            <a  class="button large success" href="<!-- TODO -->">Buy</a>
-        {{/if}}
-        {{#if typeChecker type "office supply"}}
-            <h2>Office supply Specifications</h2>
-            <table>
-                <tbody>
-                <tr>
-                    <!-- TODO -->
-                </tbody>
-            </table>
-            <a class="button large success" href="<!-- TODO -->">Buy</a>
-        {{/if}}
-    {{else}}
-        <div> Error occurred while loading the file.</div>
-    {{/if}}
+            <a  class="button large success" href="/api/purchase/{{articles.id}}">Buy</a>
+        {{/equal}}
+    </div>
+
 </section>
