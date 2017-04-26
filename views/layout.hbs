@@ -2,61 +2,61 @@
 <html>
   <head>
     <title>HSRmarket</title>
-    <link rel="stylesheet" href='/stylesheets/app.css'>
-    <link rel="stylesheet" href='/stylesheets/foundation.css'>
+    <link rel="stylesheet" href='/css/bootstrap.css'>
+    <link rel="stylesheet" href='/css/bootstrap-theme.css'>
+    <link rel="stylesheet" href="'/css/app.css">
   </head>
-  <body class="flex-container">
-      <nav class="top-bar" >
-          <div class="top-bar-left">
-              <ul class="dropdown menu" data-dropdown-menu>
-                  <li class="menu-text">HSRmarket</li>
-                  <li class="nav-link">
-                      <a href="/">Start</a>
-                  </li>
-                  <li class="nav-link">
-                      <a href="/api/articles/books">Books</a>
-                  </li>
-                  <li class="nav-link">
-                      <a href="/api/articles/electronics">Electronics</a>
-                  </li>
-                  <li class="nav-link">
-                      <a href="/api/articles/officesupplies">Office supplies</a>
-                  </li>
-                  <li class="nav-link">
-                      <a href="/api/articles/other">Other</a>
-                  </li>
-              </ul>
-          </div>
-          <div class="top-bar-right">
-              <ul class="dropdown menu" data-dropdown-menu>
-                  <li>
-                      <a href="#">"USER NAME"</a>
-                      <ul class="menu vertical">
-                          <li><a href="#">My Articles</a></li>
-                          <li><a href="#">My Sales</a></li>
-                          <li><a href="#">My Account</a></li>
-                          <li><a href="">Add article</a></li>
-                          <li><a href="#">Logout</a></li>
-                      </ul>
-                  </li>
-              </ul>
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">HSRmarket</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Start</a></li>
+                    <li><a href="/api/articles/books">Books</a></li>
+                    <li><a href="/api/articles/electronics">Electronics</a></li>
+                    <li><a href="/api/articles/officesupplies">Office supplies</a></li>
+                    <li><a href="/api/articles/other">Other</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">"USER NAME" <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">My Articles</a></li>
+                            <li><a href="#">My Sales</a></li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="">Add article</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
           </div>
       </nav>
-
-      {{{body}}}
-
-      <footer class="align-bottom ">
-          <div class="wrap row small-up-1 medium-up-3">
+      <div class="col-lg-11 row-l">
+          {{{body}}}
+      </div>
+      <footer class="navbar navbar-default navbar-fixed-bottom">
+          <div class="container-fluid navbar-left">
               <figure>
                   <img src="/images/ICON_HSRMARKET_OHNE_TEXT_TRANSPARENT.png" alt="HSRmarket" width="60rem" height="60rem">
               </figure>
-              <div class="column"></div>
+          </div>
+          <div class="container-fluid navbar-right navbar-text pull-right">
+                <p>(c) 2017 by HSRmarket. All rights reserved</p>
           </div>
       </footer>
 
-        <script src="/js/vendor/jquery.js"></script>
-        <script src="/js/vendor/what-input.js"></script>
-        <script src="/js/vendor/foundation.js"></script>
-        <script src="/js/app.js"></script>
+      <script src="/js/jquery.js"></script>
+      <script src="/js/bootstrap.js"></script>
+      <script src="/js/app.js"></script>
   </body>
 </html>

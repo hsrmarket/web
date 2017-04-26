@@ -5,8 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
+var session = require('express-session');
 
 var appRoutes = require('./routes/appRoutes');
+var authRoutes = require('./routes/authRoutes');
 
 var app = express();
 
@@ -21,6 +23,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(session({ secret: 'casduichsfsdfsdfwerwerxcvmnqeqwablmlksdfertpeoritpeoi', resave: true, saveUninitialized: true}));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
@@ -31,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('./core/helpers/handlebars-helpers');
 
+app.use('/api/user', authRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

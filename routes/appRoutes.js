@@ -30,4 +30,12 @@ router.post("/api/accounts", );
 router.get("/api/accounts", );
 router.get("/api/accounts/:id", );
 */
+
+
+/* User */
+
+router.post("/api/user/login", appController.getLogin);
+router.get("/api/user/login", appController.getLogin);
+
+router.get("/api/user/register", appController.getRegister);
 module.exports = router;

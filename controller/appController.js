@@ -118,3 +118,13 @@ module.exports.getArticlesByID = function (req, res) {
     };
     http.send();
 };
+
+/* AUTH */
+
+module.exports.getLogin = function (req, res) {
+    res.render('login');
+};
+
+module.exports.getRegister = function (req, res) {
+    res.render('register');
+};

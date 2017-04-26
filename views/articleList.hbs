@@ -1,28 +1,30 @@
 
-<section class="row">
-    <div class="column">
-        <h1>all {{title}}</h1>
+<section class="container-fluid">
+    <h1>all {{title}}</h1>
+    <div class="row">
+        <div class="col-sm-5 col-md-6">
+            {{#if articles.length}}
+                <table class="table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Discription</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each articles}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{description}}</td>
+                            <td><a type="button" class="btn btn-success" href="/api/articles/{{id}}">Show</a></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <div> Currently the list is empty. Please try again later. </div>
+            {{/if}}
+        </div>
     </div>
-    {{#if articles.length}}
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Discription</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each articles}}
-                <tr>
-                    <td>{{name}}</td>
-                    <td>{{description}}</td>
-                    <td><a class="hollow button" href="/api/articles/{{id}}">Show</a></td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    {{else}}
-        <div> Currently the list is empty. Please try again later. </div>
-    {{/if}}
 </section>

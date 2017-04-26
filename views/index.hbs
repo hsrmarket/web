@@ -3,19 +3,27 @@
     <div class="column align-self-middle">
         <form method="get" action="/fetch">
             <figure>
-                <img src="/images/ICON_HSRMARKET_MIT_TEXT_TRANSPARENT.png" alt="HSRmarket">
+                <img src="/images/ICON_HSRMARKET_MIT_TEXT_TRANSPARENT.png" class="img-responsive" alt="HSRmarket">
             </figure>
-            <div>
-                <div >
-                    <input placeholder="search", type="text", name="search" required />
-                </div>
-                <button type="submit" class="button" disabled>Search</button>
+
+            <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="Search.." id="search_key" value="">
+                <span class="input-group-btn">
+			        <a class="btn btn-default text-muted" href="#" title="Clear"><i class="glyphicon glyphicon-remove"></i> </a>
+			        <button class="btn btn-info" type="submit">  Search  </button>
+	            </span>
             </div>
         </form>
-        <a class="button large success" href="/api/articles/books">Books</a>
-        <a class="button large success" href="/api/articles/electronics">Electronics</a>
-        <a class="button large success" href="/api/articles/officesupplies">Office supplies</a>
-        <a  class="button large success" href="/api/articles/other">Other</a>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-success" href="/api/articles/books"><span class="glyphicon glyphicon-book"></span>  Books</a>
+                    <a class="btn btn-success" href="/api/articles/electronics"><span class="glyphicon glyphicon-phone"></span>  Electronics</a>
+                    <a class="btn btn-success" href="/api/articles/officesupplies"><span class="glyphicon glyphicon-pencil"></span> Office supplies</a>
+                    <a  class="btn btn-success" href="/api/articles/other"><span class="glyphicon glyphicon-asterisk"></span>  Other</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <section class="row align-bottom">
@@ -24,7 +32,13 @@
             <h1>Recent articles in the market</h1>
         </header>
         {{#if articles.length}}
-            <table>
+            <table  class="table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Article</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {{#each articles}}
                         <tr>

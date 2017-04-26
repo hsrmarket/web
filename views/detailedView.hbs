@@ -1,30 +1,40 @@
 
-<section class="row">
-    <div class="column">
-        <h1>Article {{articles.id}}</h1>
-    </div>
-    <figure>
-        <img src="{{articles.image}}" alt="{{title}}">
-    </figure>
-    <table>
-        <tbody>
+<div class="container-fluid">
+    <h1>Article {{articles.id}}</h1>
+    <div class="row" >
+        <figure>
+            <img src="{{articles.image}}" alt="{{title}}">
+        </figure>
+        <table class="table-bordered table-striped">
+            <tbody>
             <tr>
                 <th>Category</th>
-                    <td>{{articles.type}}</td>
+                <td>{{articles.type}}</td>
+            </tr>
+            <tr>
                 <th>Final price</th>
-                    <td>{{articles.price}}</td>
+                <td>{{articles.price}}</td>
+            </tr>
+            <tr>
                 <th>Module</th>
-                    <td>{{articles.name}}</td>
+                <td>{{articles.name}}</td>
+            </tr>
+            <tr>
                 <th>Condition</th>
-                    <td>{{conditionMaker articles.condition}}</td>
-        </tbody>
-    </table>
-    <h5>Description</h5>
-    <p>{{articles.description}}</p>
+                <td>{{conditionMaker articles.condition}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <h5>Description</h5>
+        <p>{{articles.description}}</p>
+    </div>
+</div>
+
+<section class="row">
     <div>
         {{#equal articles.type "book"}}
             <h2>Book Specifications</h2>
-            <table>
+            <table class="table-bordered table-striped">
                 <tbody>
                 <tr>
                     <th>ISBN</th>
@@ -35,11 +45,11 @@
                     <td>{{articles.author}}</td>
                 </tbody>
             </table>
-            <a  class="button large success" href="/api/purchase/{{articles.id}}">Buy</a>
+            <a  type="button" class="btn btn-success" href="/api/purchase/{{articles.id}}">Buy</a>
         {{/equal}}
         {{#equal articles.type "electronic"}}
             <h2>Electronic Specifications</h2>
-            <table>
+            <table class="table-bordered table-striped">
                 <tbody>
                 <tr>
                     <th>Producer</th>
@@ -48,7 +58,7 @@
                     <td>{{articles.model}}</td>
                 </tbody>
             </table>
-            <a  class="button large success" href="/api/purchase/{{articles.id}}">Buy</a>
+            <a  type="button" class="btn btn-success" href="/api/purchase/{{articles.id}}">Buy</a>
         {{/equal}}
     </div>
 
