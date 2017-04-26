@@ -36,7 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('./core/helpers/handlebars-helpers');
 
-app.use('/api/user', authRoutes);
+/*
+app.use('/api/user/register', authRoutes);
+*/
+
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
