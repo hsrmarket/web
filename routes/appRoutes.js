@@ -1,41 +1,28 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
 var appController = require('../controller/appController');
-
-router.get('/', appController.getFrontPage);
-
-/*DELETE /api/articles/:id*/
-/*
-router.put("/api/articles/:id", );
-router.post('/api/articles/', );
-router.get('/api/articles/', );
-*/
-
-router.get("/api/articles/books", appController.getArticles);
-
-router.get("/api/articles/electronics", appController.getArticles);
-
-router.get("/api/articles/officesupplies", appController.getArticles);
-
-router.get("/api/articles/other", appController.getArticles);
-
-router.get("/api/articles/recent", appController.getArticles);
-
-router.get("/api/articles/:id", appController.getArticlesByID);
+var util = require('../util/security');
 
 /*
-router.delete("/api/accounts/:id", );
-
-router.post("/api/accounts", );
-router.get("/api/accounts", );
-router.get("/api/accounts/:id", );
+router.all('/*', util.handleAuthenticate);
 */
 
-/* User */
+router.get("/index", appController.getFrontPage);
 
-router.post("/api/user/login", appController.getLogin);
-router.get("/api/user/login", appController.getLogin);
+router.get("/books", appController.getArticles);
 
-router.get("/api/user/register", appController.getRegister);
+router.get("/electronics", appController.getArticles);
+
+router.get("/officesupplies", appController.getArticles);
+
+router.get("/other", appController.getArticles);
+
+router.get("/recent", appController.getArticles);
+
+router.get("/:id", appController.getArticlesByID);
+
+router.get("/addArticle", appController.getAddArticle);
 
 module.exports = router;
