@@ -1,17 +1,28 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
 var appController = require('../controller/appController');
+var util = require('../util/security');
 
-/* GET home page. */
-router.get('/', appController.showHome);
+/*
+router.all('/*', util.handleAuthenticate);
+*/
 
-/* GET article */
-router.post("/save", appController.postArticle);
+router.get("/index", appController.getFrontPage);
 
-/* GET article form*/
-router.get("/createArticle", appController.createArticle);
+router.get("/books", appController.getArticles);
 
-/* POST article */
-router.get("/fetch", appController.getArticle);
+router.get("/electronics", appController.getArticles);
+
+router.get("/officesupplies", appController.getArticles);
+
+router.get("/other", appController.getArticles);
+
+router.get("/recent", appController.getArticles);
+
+router.get("/:id", appController.getArticlesByID);
+
+router.get("/addArticle", appController.getAddArticle);
 
 module.exports = router;

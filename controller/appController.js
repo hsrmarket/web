@@ -1,47 +1,75 @@
+'use strict';
+
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var URL = "http://duernten.forrer.network:9000/Books";
 
-module.exports.showHome = function(req, res) {
-    res.render('index');
-};
+var URL = "http://duernten.forrer.network:9000/api/articles";
 
-module.exports.getArticle = function (req, res) {
+module.exports.getFrontPage = function (req, res) {
     var http = new XMLHttpRequest();
-    var url = URL;
+    var url = URL + "/recent";
     var methode = "GET";
 
     http.open(methode, url, true);
     http.setRequestHeader("Content-type", "application/json");
 
     http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-            var books = JSON.parse(http.responseText);
-            res.render('currentCollection', {books : books});
+        if(http.readyState === 4 && http.status === 200) {
+            var articles = JSON.parse(http.responseText);
+            var username = req.session.username;
+            var userid = 12;
+            res.render('index', {articles : articles, username : username, userid : userid});
         }
     };
 
     http.send();
 };
 
-module.exports.createArticle = function (req, res) {
-    res.render('createBook');
-};
 
-module.exports.postArticle = function (req, res){
-
+module.exports.getArticles = function (req, res) {
+    console.log("HAHA I AM HERE catch me if our can");
     var http = new XMLHttpRequest();
-    var url = URL;
-    var methode = "POST";
-
+    var url = URL + req.url;
+    var methode = "GET";
     http.open(methode, url, true);
-    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    http.setRequestHeader("Content-type", "application/json");
 
     http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-            var text = JSON.parse(http.responseText);
-            res.render('success');
+        if(http.readyState === 4 && http.status == 200) {
+            var articles = JSON.parse(http.responseText);
+            var title = req.url.split("/").pop();
+
+            var username = req.session.username;
+            var userid = 12;
+
+            res.render('articleList', {title : title, articles : articles, username : username, userid : userid});
         }
     };
+    http.send();
+};
 
-    http.send(JSON.stringify({ id: parseInt(req.body.id), iban: req.body.iban, author: req.body.author }));
+module.exports.getArticlesByID = function (req, res) {
+    var http = new XMLHttpRequest();
+    var url = URL + req.url;
+    var methode = "GET";
+
+    http.open(methode, url, true);
+    http.setRequestHeader("Content-type", "application/json");
+
+    http.onreadystatechange = function() {
+        if(http.readyState === 4 && http.status === 200) {
+            var articles = JSON.parse(http.responseText);
+            var title = req.url.split("/").pop();
+
+            var username = req.session.username;
+            var userid = 12;
+
+            res.render('detailedView', {title : title, articles : articles, username : username, userid : userid});
+        }
+    };
+    http.send();
+};
+
+module.exports.getAddArticle = function (req, res) {
+    console.log("createUpdate things");
+    res.render("createUpdate");
 };

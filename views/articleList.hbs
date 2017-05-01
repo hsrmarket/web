@@ -24,7 +24,7 @@
                         <li><a href="#">My Articles</a></li>
                         <li><a href="#">My Sales</a></li>
                         <li><a href="#">My Account</a></li>
-                        <li><a href='/api/articles/addArticle'>Add article</a></li>
+                        <li><a href="">Add article</a></li>
                         <li><a href='/api/user/logout'>Logout</a></li>
                     </ul>
                 </li>
@@ -34,62 +34,36 @@
 </nav>
 
 <div class="col-lg-11 row-l">
-    <section class="row align-bottom">
-        <div class="column align-self-middle">
-            <form method="get" action="/fetch">
-                <figure>
-                    <img src="/images/ICON_HSRMARKET_MIT_TEXT_TRANSPARENT.png" class="img-responsive" alt="HSRmarket">
-                </figure>
-
-                <div class="input-group">
-                    <input type="text" class="form-control" name="q" placeholder="Search.." id="search_key" value="">
-                    <span class="input-group-btn">
-                        <a class="btn btn-default text-muted" href="#" title="Clear"><i class="glyphicon glyphicon-remove"></i> </a>
-                        <button class="btn btn-info" type="submit">  Search  </button>
-                    </span>
-                </div>
-            </form>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-success" href="/api/articles/books"><span class="glyphicon glyphicon-book"></span>  Books</a>
-                        <a class="btn btn-success" href="/api/articles/electronics"><span class="glyphicon glyphicon-phone"></span>  Electronics</a>
-                        <a class="btn btn-success" href="/api/articles/officesupplies"><span class="glyphicon glyphicon-pencil"></span> Office supplies</a>
-                        <a  class="btn btn-success" href="/api/articles/other"><span class="glyphicon glyphicon-asterisk"></span>  Other</a>
-                    </div>
-                </div>
+    <section class="container-fluid">
+        <h1>all {{title}}</h1>
+        <div class="row">
+            <div class="col-sm-5 col-md-6">
+                {{#if articles.length}}
+                    <table class="table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Discription</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each articles}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{description}}</td>
+                                <td><a type="button" class="btn btn-success" href="/api/articles/{{id}}">Show</a></td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{else}}
+                    <div> Currently the list is empty. Please try again later. </div>
+                {{/if}}
             </div>
         </div>
     </section>
-    <section class="row align-bottom">
-        <div class="column align-self-middle">
-            <header>
-                <h1>Recent articles in the market</h1>
-            </header>
-            {{#if articles.length}}
-                <table  class="table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Article</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each articles}}
-                            <tr>
-                                <td>{{id}}</td>
-                                <td>{{name}}</td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            {{else}}
-                <div> current collection is empty. </div>
-            {{/if}}
-        </div>
-    </section>
 </div>
-
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid navbar-left">
         <figure>
