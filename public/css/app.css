@@ -17,6 +17,10 @@ body {
     margin-top: -15%;
 }
 
+.registercontainer {
+    top: 35%;
+}
+
 .login_content {
     background-color: white;
     padding: 50px;
