@@ -92,3 +92,12 @@ body {
     text-align: center;
     font-weight: 500;
 }
+
+/*Stuff for logged in screens*/
+
+.srch-bar {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
