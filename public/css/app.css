@@ -29,7 +29,7 @@ body {
 
 .login_content > form > button {
     font-weight: bold;
-    background-color: #5cb85c;
+    background-color: #8bc34a;
     border: 0;
     border-radius: 0;
     color: white;
@@ -63,6 +63,17 @@ body {
 
 .login_content > h2 > i {
     color: #8bc34a;
+}
+
+.ref_btn {
+    font-weight: bold;
+    background-color: #8bc34a;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
 }
 
 .info {
