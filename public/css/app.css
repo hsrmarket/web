@@ -2,3 +2,78 @@ nav {
     background-color: #BDBDBD;
 }
 
+body {
+	background-image: url(../images/ricepaper.png);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logincontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36%;
+    margin-left: -18%;
+    height: 50%;
+    margin-top: -15%;
+}
+
+.login_content {
+    background-color: white;
+    padding: 50px;
+    border-radius: 4px;
+}
+
+.login_content > form > .input-group, .login_content > form > button {
+    margin-top: 20px;
+}
+
+.login_content > form > button {
+    font-weight: bold;
+    background-color: #5cb85c;
+    border: 0;
+    border-radius: 0;
+    color: white;
+}
+
+.input-group > input {
+    height: 50px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.input-group > span {
+    border: 0;
+    border-radius: 0;
+    width: 60px;
+}
+
+.login_content > img {
+    width: 100px;
+    margin-left: 41%;
+}
+
+.login_content > h2 {
+    text-align: center;
+}
+.login_content > h2 > b {
+    font-weight: 900;
+}
+
+.login_content > h2 > i {
+    color: #8bc34a;
+}
+
+.info {
+    text-align: center;
+    padding: 15px;
+    background-color: #d9edf7;
+    margin-top: 20px;
+}
+
+.login_footer {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
