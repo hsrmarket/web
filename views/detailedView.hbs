@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container-fluid nav-cont">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -35,12 +35,12 @@
 
 <div class="col-lg-11 row-l">
     <div class="container-fluid">
-        <h1>Article {{articles.id}}</h1>
-        <div class="row" >
+        <h1 class="tbl-header">Article #{{articles.id}}</h1>
+        <div class="row pad-lft-15" >
             <figure>
                 <img src="{{articles.image}}" alt="{{title}}">
             </figure>
-            <table class="table-bordered table-striped">
+            <table class="table-bordered table-striped table width-eighty">
                 <tbody>
                 <tr>
                     <th>Category</th>
@@ -60,12 +60,17 @@
                 </tr>
                 </tbody>
             </table>
-            <h5>Description</h5>
-            <p>{{articles.description}}</p>
+            <div class="width-eighty art-desc">
+                <h5>Description</h5>
+                <div>
+                    <p>{{articles.description}}</p>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <section class="row">
+    <section class="row spec-rw">
         <div>
             {{#equal articles.type "book"}}
                 <h2>Book Specifications</h2>
@@ -103,7 +108,7 @@
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid navbar-left">
         <figure>
-            <img src="/images/ICON_HSRMARKET_OHNE_TEXT_TRANSPARENT.png" alt="HSRmarket" width="60rem" height="60rem">
+            <img src="/images/icon_q_dooted.png" alt="HSRmarket" width="60rem" height="60rem">
         </figure>
     </div>
     <div class="container-fluid navbar-right navbar-text pull-right">

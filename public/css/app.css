@@ -95,9 +95,124 @@ body {
 
 /*Stuff for logged in screens*/
 
-.srch-bar {
-    padding-left: 5%;
-    padding-right: 5%;
+.fixed-footer {
+    margin-bottom: 65px;
 }
 
+.nav-cont {
+    background-color: #DCEDC8;
+}
 
+.nav-log-btn {
+    border-top: thin;
+}
+
+#navbar > ul > li > a:hover {
+    background-color: #BDBDBD;
+}
+
+.hard-crnr {
+    border-radius: 0px;
+}
+
+.srch-bar {
+    margin-left: 29px;
+    margin-right: 29px;
+}
+
+.srch-input {
+   background-color: #DCEDC8;
+}
+
+.srch-bar > button {
+    background-color: #8bc34a;
+    color: white;
+    font-size: 14px;
+    height: 34px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.srch-field {
+    padding-right: 0px;
+}
+
+.btn-cont {
+    margin-left: 29px;
+    margin-right: 14px;
+    width: auto;
+}
+
+.index-btn {
+    width: auto;
+    height: 150px;
+    border: none;
+    text-align: center;
+    background-color: #8bc34a;
+    color: white;
+    border-radius: 0px;
+}
+
+.index-btn > glyph {
+    height: 100px;
+    width: 100px;
+}
+
+.tbl {
+    margin-left: 29px;
+    margin-right: 29px;
+    padding-left: 15px;
+}
+
+.marg-left-0 {
+    margin-left: 0px;
+}
+
+.tbl-header {
+    color: #FFC107;
+}
+
+.pad-lft-15 {
+    padding-left: 15px;
+}
+
+.spec-rw {
+    padding-left: 30px;
+}
+
+.width-eighty {
+    width: 80%;
+}
+
+.art-tbl-left {
+    width: 30%;
+}
+
+.art-tbl-mid {
+    width: 60%;
+}
+
+.art-tbl-right {
+    width: 10%;
+}
+
+.art-tbl > thead {
+    background-color: #BDBDBD;
+}
+
+.tbl-btn {
+    color: white;
+    background-color: #8bc34a;
+    border-radius: 0;
+}
+
+.edit-art-desc > div {
+    padding-left: 5px;
+    padding-top: 5px;
+    border: 0.5px solid #BDBDBD;
+}
+
+.art-desc > div {
+    padding-left: 5px;
+    padding-top: 5px;
+}
