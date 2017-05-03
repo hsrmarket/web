@@ -33,14 +33,12 @@
     </div>
 </nav>
 
-<div class="col-lg-11 row-l">
+<div class="col-lg-11 row-l" style="padding-left: 100px">
     <section class="row">
         <div class="column">
             <h1>My Account</h1>
         </div>
-        {{#if data.length}}
             <form>
-
                 <div class="row">
                     <div class="large-2 columns">
                         <label for="lastname">
@@ -60,13 +58,13 @@
                     <div class="large-2 columns">
                         <label for="street">
                             street
-                            <input id="street" name="street" type="text" required value="{{data.street}}">
+                            <input id="street" name="street" type="text" required value="{{data.address.street}}">
                         </label>
                     </div>
                     <div class="large-2 columns">
                         <label for="nr">
                             nr
-                            <input id="nr" name="nr" type="text" required value="{{data.nr}}">
+                            <input id="nr" name="nr" type="text" required value="{{data.address.streetNr}}">
                         </label>
                     </div>
                 </div>
@@ -75,19 +73,13 @@
                     <div class="large-4 columns">
                         <label for="zip">
                             zip
-                            <input id="zip" name="zip" type="text" required value="{{data.zip}}">
+                            <input id="zip" name="zip" type="text" required value="{{data.address.zip}}">
                         </label>
                     </div>
                     <div class="large-4 columns">
                         <label for="city">
                             city
-                            <input id="city" name="city" type="text" required value="{{data.city}}">
-                        </label>
-                    </div>
-                    <div class="large-4 columns">
-                        <label for="state">
-                            state
-                            <input id="state" name="state" type="text" required value="{{data.state}}">
+                            <input id="city" name="city" type="text" required value="{{data.address.city}}">
                         </label>
                     </div>
                 </div>
@@ -96,10 +88,10 @@
                     <div class="large-6 columns">
                         <div class="row collapse prefix-radius">
                             <div class="small-3 columns">
-                                <label for="username" class="prefix">username</label>
+                                <label for="username" class="prefix">studentId</label>
                             </div>
                             <div class="small-9 columns">
-                                <input id="username" name="username" type="text" required value="{{data.username}}">
+                                <input id="username" name="username" type="text" required value="{{data.studentId}}">
                             </div>
                         </div>
                     </div>
@@ -126,13 +118,9 @@
                         </div>
                     </div>
                 </div>
-                <a class="success button" href="<!-- TODO -->">Save</a>
-                <a class="alert button" href="<!-- TODO -->">Cancel</a>
+                <a class="success button" href="/api/user/{{userid}}">Save</a>
+                <a class="alert button" href="/">Cancel</a>
             </form>
-
-        {{else}}
-            <div> Error occurred while loading the file. </div>
-        {{/if}}
     </section>
 </div>
 <footer class="navbar navbar-default navbar-fixed-bottom">

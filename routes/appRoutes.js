@@ -5,9 +5,9 @@ var router = express.Router();
 var appController = require('../controller/appController');
 var util = require('../util/security');
 
-/*
 router.all('/*', util.handleAuthenticate);
-*/
+
+/* Artikel */
 
 router.get("/index", appController.getFrontPage);
 
@@ -24,5 +24,10 @@ router.get("/recent", appController.getArticles);
 router.get("/:id", appController.getArticlesByID);
 
 router.get("/addArticle", appController.getAddArticle);
+
+/* Kaufaufträge */
+
+
+/* Sucher */
 
 module.exports = router;

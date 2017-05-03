@@ -8,10 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var session = require('express-session');
-var appRoutes = require('./routes/appRoutes');
-var authRoutes = require('./routes/authRoutes');
 require('./core/helpers/handlebars-helpers');
-
 
 var app = express();
 
@@ -36,8 +33,16 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
+var authRoutes = require('./routes/authRoutes');
+var appRoutes = require('./routes/appRoutes');
+var userRoutes = require('./routes/userRoutes');
+var accountRoutes = require('./routes/accountRoutes');
+
 app.use('/', authRoutes);
 app.use('/api/articles/', appRoutes);
+app.use('/api/user/', userRoutes);
+app.use('/api/accounts/', accountRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
