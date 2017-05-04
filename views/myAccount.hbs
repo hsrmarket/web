@@ -21,10 +21,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">My Articles</a></li>
-                        <li><a href="#">My Sales</a></li>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="">Add article</a></li>
+                        <li><a href="/api/user/{{userid}}/articles">My Articles</a></li>
+                        <li><a href="/api/user/{{userid}}/sales">My Sales</a></li>
+                        <li><a href="/api/user/{{userid}}/purchases">My Purchases</a></li>
+                        <li><a href="/api/accounts/{{userid}}">My Account</a></li>
+                        <li><a href='/api/articles/addArticle'>Add article</a></li>
                         <li><a href='/api/user/logout'>Logout</a></li>
                     </ul>
                 </li>
