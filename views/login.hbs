@@ -1,17 +1,35 @@
 
-<div class="container">
+<div class="logincontainer">
 
-    <form class="form-signin" action='/api/user/login' method='post'>
-        <input placeholder="backref" type="hidden"  name="_backref"  value="{{backref}}">
-        <h2 class="form-signin-heading">Please sign in</h2>
+    <div class="login_content">
+        <img src="../../../images/icon_q_dooted.png" />
+        <h2><b>HSR</b><i>market</i></h2>
 
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input  type="email" name="username" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="">
+        <form class="form-signin" action='/api/user/login' method='post'>
+            <input placeholder="backref" type="hidden"  name="_backref"  value="{{backref}}">
 
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <div class="info">Enter your credentials here.</div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
+            <label for="inputEmail" class="sr-only">Username</label>
+            <div class="input-group wdth-hun">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input  type="email" name="username" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="">
+            </div>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <div class="input-group wdth-hun">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            </div>
+
+            <button class="btn btn-lg btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+
+    <div class="login_footer">
+        (c) 2017 by HSRmarket. All rights reserved.
+    </div>
+
 
 </div>
+
