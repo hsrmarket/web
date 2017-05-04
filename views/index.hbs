@@ -21,9 +21,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">My Articles</a></li>
-                        <li><a href="#">My Sales</a></li>
-                        <li><a href="#">My Account</a></li>
+                        <li><a href="/api/user/{{userid}}/articles">My Articles</a></li>
+                        <li><a href="/api/user/{{userid}}/sales">My Sales</a></li>
+                        <li><a href="/api/user/{{userid}}/purchases">My Purchases</a></li>
+                        <li><a href="/api/accounts/{{userid}}">My Account</a></li>
                         <li><a href='/api/articles/addArticle'>Add article</a></li>
                         <li><a href='/api/user/logout'>Logout</a></li>
                     </ul>
@@ -40,37 +41,36 @@
                 <figure>
                     <img src="/images/ICON_HSRMARKET_MIT_TEXT_TRANSPARENT.png" class="img-responsive" alt="HSRmarket">
                 </figure>
-
                 <div class="form-group row srch-bar">
                     <div class="col-xs-10 srch-field">
                         <input type="text" class="form-control srch-input hard-crnr" name="q" placeholder="Search.." id="search_key" value="">
                     </div>
                     <button class="btn btn-sm col-xs-2 hard-crnr" type="submit">Go!</button>
-                </div>
+                 </div>
             </form>
-            <div class="container btn-cont">
-                <div class="row">
-                    <div class="col-xs-3 index-green">
-                        <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/books">
-                            <span class="glyphicon glyphicon-book"></span></br>Books</a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/electronics">
-                            <span class="glyphicon glyphicon-phone"></span></br>Electronics</a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/officesupplies">
-                            <span class="glyphicon glyphicon-pencil"></span></br>Office supplies</a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a  class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/other">
-                            <span class="glyphicon glyphicon-asterisk"></span></br>Other</a>
-                    </div>
+        </div>
+        <div class="container btn-cont">
+            <div class="row">
+                <div class="col-xs-3 index-green">
+                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/books">
+                        <span class="glyphicon glyphicon-book"></span></br>Books</a>
+                </div>
+                <div class="col-xs-3">
+                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/electronics">
+                        <span class="glyphicon glyphicon-phone"></span></br>Electronics</a>
+                </div>
+                <div class="col-xs-3">
+                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/officesupplies">
+                        <span class="glyphicon glyphicon-pencil"></span></br>Office supplies</a>
+                </div>
+                <div class="col-xs-3">
+                    <a  class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/other">
+                        <span class="glyphicon glyphicon-asterisk"></span></br>Other</a>
                 </div>
             </div>
         </div>
     </section>
-    <section class="row align-bottom">
+    <section class="row align-bottom fixed-footer">
         <div class="column align-self-middle tbl">
             <header class="tbl-header">
                 <h1>Recent articles in the market</h1>

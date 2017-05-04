@@ -5,12 +5,9 @@ function isLoggedIn(req) {
 
 function handleAuthenticate(req, res, next){
     if(isLoggedIn(req)){
-        res.redirect("/api/articles/index");
-        /*
         next();
-        */
     } else {
-        res.render("login", { backref : req.originalUrl});
+        res.render("login");
     }
 }
 

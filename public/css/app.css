@@ -97,6 +97,9 @@ body {
 
 .fixed-header {
     margin-top: 65px;
+}
+
+.fixed-footer {
     margin-bottom: 65px;
 }
 

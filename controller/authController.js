@@ -11,11 +11,13 @@ module.exports.getFrontPage = function (req, res) {
 
 module.exports.postLogin = function (req, res) {
     if(!req.session.username) {
-        authService.authenticate(req.body.username,req. body.password, function (err, valid) {
-            if(valid) {
-                var username = req.body.username;
-                var userid = 12;
-                req.session.username = req.body.username;
+        authService.authenticate(req.body.username,req. body.password, function (data) {
+            if(data) {
+                var username = data.email;
+                var userid = data.id;
+                req.session.username = username;
+                req.session.userid = userid;
+
                 res.redirect("/api/articles/index");
             }
         });
