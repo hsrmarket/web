@@ -244,6 +244,10 @@ body {
     padding-left: 10px;
 }
 
+.pd-left-100 {
+    padding-left: 100px;
+}
+
 .mrg-btm {
     margin-bottom: 10px;
     margin-top: 10px;
@@ -251,4 +255,8 @@ body {
 
 .wdth-hun {
     width: 100%;
+}
+
+.pd-right-ten {
+    padding-right: 10px;
 }

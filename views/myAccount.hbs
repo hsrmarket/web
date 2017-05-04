@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">HSRmarket</a>
+            <a class="navbar-brand" href="#"><b>HSR</b><i>market</i></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -33,93 +33,62 @@
     </div>
 </nav>
 
-<div class="col-lg-11 row-l" style="padding-left: 100px">
+<div class="col-lg-11 row-l pd-left-100">
     <section class="row">
         <div class="column">
-            <h1>My Account</h1>
+            <h1 class="tbl-header">My Account</h1>
         </div>
             <form>
                 <div class="row">
-                    <div class="large-2 columns">
-                        <label for="lastname">
-                            lastname
-                            <input id="lastname" name="lastname" type="text" required value="{{data.lastname}}">
-                        </label>
+                    <div class="col-lg-4">
+                        <label for="lastname">lastname</label>
+                        <input id="lastname" name="lastname" type="text" required value="{{data.lastname}}">
                     </div>
-                    <div class="large-2 columns">
-                        <label for="firstname">
-                            firstname
-                            <input id="firstname" name="firstname" type="text" required value="{{data.firstname}}">
-                        </label>
+                    <div class="col-lg-4">
+                        <label for="firstname">firstname</label>
+                        <input id="firstname" name="firstname" type="text" required value="{{data.firstname}}">
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="large-2 columns">
-                        <label for="street">
-                            street
-                            <input id="street" name="street" type="text" required value="{{data.address.street}}">
-                        </label>
+                    <div class="col-lg-4">
+                        <label for="street">street</label>
+                        <input id="street" name="street" type="text" required value="{{data.address.street}}">
                     </div>
-                    <div class="large-2 columns">
-                        <label for="nr">
-                            nr
-                            <input id="nr" name="nr" type="text" required value="{{data.address.streetNr}}">
-                        </label>
+                    <div class="col-lg-4">
+                        <label for="nr">nr</label>
+                        <input id="nr" name="nr" type="text" required value="{{data.address.streetNr}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label for="zip">zip</label>
+                        <input id="zip" name="zip" type="text" required value="{{data.address.zip}}">
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="city">city</label>
+                        <input id="city" name="city" type="text" required value="{{data.address.city}}">
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="large-4 columns">
-                        <label for="zip">
-                            zip
-                            <input id="zip" name="zip" type="text" required value="{{data.address.zip}}">
-                        </label>
-                    </div>
-                    <div class="large-4 columns">
-                        <label for="city">
-                            city
-                            <input id="city" name="city" type="text" required value="{{data.address.city}}">
-                        </label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="large-6 columns">
-                        <div class="row collapse prefix-radius">
-                            <div class="small-3 columns">
-                                <label for="username" class="prefix">studentId</label>
-                            </div>
-                            <div class="small-9 columns">
-                                <input id="username" name="username" type="text" required value="{{data.studentId}}">
-                            </div>
-                        </div>
+                    <div class="small-9 columns">
+                        <label for="studentID" class="prefix">studentId</label>
+                        <input id="username" name="username" type="text" required value="{{data.studentId}}">
                     </div>
                     <div class="large-6 columns">
-                        <div class="row collapse prefix-radius">
-                            <div class="small-3 columns">
-                                <label for="email" class="prefix">email</label>
-                            </div>
-                            <div class="small-9 columns">
-                                <input id="email" name="email" type="text" required value="{{data.email}}">
-                            </div>
-                        </div>
+                        <label for="email" class="prefix">email</label>
+                        <input id="email" name="email" type="text" required value="{{data.email}}">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="large-6 columns">
-                        <div class="row collapse prefix-radius">
-                            <div class="small-3 columns">
-                                <label for="password" class="prefix">password</label>
-                            </div>
-                            <div class="small-9 columns">
-                                <input id="password" name="password" type="text" required value="{{data.password}}">
-                            </div>
-                        </div>
+                    <div class="small-3 columns">
+                        <label for="password" class="prefix">password</label>
+                        <input id="password" name="password" type="text" required value="{{data.password}}">
                     </div>
                 </div>
-                <a class="success button" href="/api/user/{{userid}}">Save</a>
-                <a class="alert button" href="/">Cancel</a>
+                <a class="btn tbl-btn" href="/api/user/{{userid}}">Save</a>
+                <a class="btn tbl-btn" href="/">Cancel</a>
             </form>
     </section>
 </div>
