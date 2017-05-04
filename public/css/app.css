@@ -95,13 +95,15 @@ body {
 
 /*Stuff for logged in screens*/
 
-.fixed-footer {
+.fixed-header {
+    margin-top: 65px;
     margin-bottom: 65px;
 }
 
 .nav-cont {
-    background-color: #DCEDC8;
+    background-color: #f8f8f8;
 }
+
 
 .nav-log-btn {
     border-top: thin;
@@ -121,7 +123,7 @@ body {
 }
 
 .srch-input {
-   background-color: #DCEDC8;
+   background-color: #f8f8f8;
 }
 
 .srch-bar > button {
@@ -215,4 +217,26 @@ body {
 .art-desc > div {
     padding-left: 5px;
     padding-top: 5px;
+}
+
+.img-art-det {
+    width: 200px;
+    height: 200px;
+}
+
+.l-gray {
+    background-color: #f8f8f8;
+}
+
+.d-gray-fnt {
+    color: #e7e7e7;
+}
+
+.pd-left-10 {
+    padding-left: 10px;
+}
+
+.mrg-btm {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
