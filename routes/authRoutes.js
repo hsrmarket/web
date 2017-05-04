@@ -11,6 +11,7 @@ router.get("/api/user/login", authController.getLogin);
 router.post("/api/user/login", authController.postLogin);
 
 router.get("/api/user/register", authController.getRegister);
+router.post("/api/accounts", authController.registerUser);
 
 router.get("/api/user/logout", authController.logout);
 

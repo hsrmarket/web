@@ -11,8 +11,6 @@ var URL = "http://duernten.forrer.network:9000/";
 function authentication(email, password, callback) {
     var hash = crypto.createHash('sha256').update(password).digest('hex');
 
-    console.log("HEREHEREHEREHEREHEREHEREHEREHEREHEREHERE");
-
     var options = {
         uri: "http://duernten.forrer.network:9000/api/user/login",
         method: 'POST',
@@ -22,15 +20,16 @@ function authentication(email, password, callback) {
         }
     };
 
+    console.log("Request Login Authentication");
+
     request(options, function (error, response, body) {
+        console.log("Response from server for login request");
         if (!error && response.statusCode == 200) {
             console.log(body);
             callback(body);
+        } else {
+            console.log(body);
         }
-        if(response.statusCode == 301){
-            res.status(301).redirect('http://google.com');
-        }
-
     });
 }
 
