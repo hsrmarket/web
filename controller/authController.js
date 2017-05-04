@@ -36,7 +36,6 @@ module.exports.getRegister = function (req, res) {
 };
 
 module.exports.registerUser = function (req, res) {
-    console.log("registerUser: " + URL  + req.url + "***");
     let options = {
         uri: URL + req.url,
         method: 'POST',
@@ -46,7 +45,7 @@ module.exports.registerUser = function (req, res) {
             "lastname": req.body.lastname,
             "address": {
                 "street": req.body.street,
-                "streetnr": req.body.streetnr,
+                "streetNr": req.body.streetnr,
                 "zip": req.body.zip,
                 "city": req.body.city
             },
@@ -59,13 +58,10 @@ module.exports.registerUser = function (req, res) {
     try{
         request(options, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                res.redirect("/");
-            } else {
-                console.log(body);
+                res.redirect("/api/user/login");
             }
         });
     } catch (err){
-        console.log("ERROR while processing");
         console.log(err);
     }
 
