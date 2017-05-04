@@ -36,7 +36,7 @@
 <div class="col-lg-11 row-l">
     <section class="row">
         <div class="column">
-            <h1>My Articles</h1>
+            <h1>My Purchases</h1>
         </div>
             <table>
                 <thead>
@@ -44,6 +44,7 @@
                         <th>Title</th>
                         <th>Discription</th>
                         <th>Category</th>
+                        <th>Price</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -53,10 +54,7 @@
                         <td>{{name}}</td>
                         <td>{{description}}</td>
                         <td>{{type}}</td>
-                        <td>
-                            <a class="button" href="<!-- TODO -->" disabled="true">Edit</a>
-                            <a class="hollow alert button" href="<!-- TODO -->" disabled="true">Delete</a>
-                        </td>
+                        <td>{{price}}</td>
                     </tr>
                     {{/each}}
                 </tbody>
