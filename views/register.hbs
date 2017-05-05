@@ -1,67 +1,86 @@
-
 <div class="logincontainer registercontainer">
-
-    <div class="login_content">
-        <img src="../../../images/icon_q_dooted.png" />
-        <h2><b>HSR</b><i>market</i></h2>
-        <!--action='/api/user/register' method='post'-->
-        <form class="form-signin">
-            <input placeholder="backref" type="hidden"  name="_backref"  value="{{backref}}">
-
-            <div class="info">Please ﬁll out all ﬁelds in order to register to HSRmarket.</div>
-
-            <label for="inputFName" class="sr-only">Firstname</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="text" name="name" id="inputFName" class="form-control" placeholder="Firstname" required="" autofocus="">
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" method="post" action="/api/accounts">
+            <div class="form-group">
+                <label for="studentID" class="col-sm-2 control-label">Student ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="studentID" placeholder="Student ID" name="studentId">
+                </div>
             </div>
-
-            <label for="inputLName" class="sr-only">Lastname</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="text" name="name" id="inputLName" class="form-control" placeholder="Lastname" required="" autofocus="">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">Firstname</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstname" placeholder="Firstname" name="firstname">
+                </div>
             </div>
-
-            <label for="inputAddress" class="sr-only">Address</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="text" name="Address" id="inputStreet" class="form-control" placeholder="Address" required="" autofocus="">
+            <div class="form-group">
+                <label for="lastname" class="col-sm-2 control-label">Lastname</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastname" placeholder="Lastname" name="lastname">
+                </div>
             </div>
-
-            <label for="inputCity" class="sr-only">PLZ and City</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="text" name="City" id="inputCity" class="form-control" placeholder="PLZ and City" required="" autofocus="">
+            <div class="form-group">
+                <label for="street" class="col-sm-2 control-label">street</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="street" placeholder="street" name="street">
+                </div>
             </div>
-
-            <label for="inputPhone" class="sr-only">Phone Number</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="text" name="Phone" id="inputPhone" class="form-control" placeholder="Phone Number" required="" autofocus="">
+            <div class="form-group">
+                <label for="streetnr" class="col-sm-2 control-label">Street Nr</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="streetnr" placeholder="Street Nr" name="streetnr">
+                </div>
             </div>
-
-            <label for="inputStudentID" class="sr-only">StudentID</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="text" name="StudentID" id="inputStudentID" class="form-control" placeholder="StudentID" required="" autofocus="">
+            <div class="form-group">
+                <label for="plz" class="col-sm-2 control-label">PLZ</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="plz" placeholder="PLZ" name="plz">
+                </div>
             </div>
-
-            <label for="inputMail" class="sr-only">Mail</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input  type="email" name="Mail" id="inputMail" class="form-control" placeholder="Mail" required="" autofocus="">
+            <div class="form-group">
+                <label for="city" class="col-sm-2 control-label">City</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="city" placeholder="city", name="city">
+                </div>
             </div>
-
-            <label for="inputPassword" class="sr-only">Password</label>
-            <div class="input-group wdth-hun">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <div class="form-group">
+                <label for="mailAddress" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" id="email" placeholder="Mail" name="email">
+                    </div>
+                </div>
             </div>
-
-            <button class="btn btn-lg btn-block" type="submit">Send Data</button>
+            <div class="form-group">
+                <label for="PhoneNumber" class="col-sm-2 control-label">Phone Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="PhoneNumber" placeholder="Phone Number" name="telephone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Confirm your password
+                </label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="confirmpass">
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                        <a href="/" type="submit" class="btn btn-default btn-sm">Cancel</a>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
-
     <div class="login_footer">
         (c) 2017 by HSRmarket. All rights reserved.
     </div>
