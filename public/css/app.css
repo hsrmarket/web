@@ -2,3 +2,261 @@ nav {
     background-color: #BDBDBD;
 }
 
+body {
+	background-image: url(../images/ricepaper.png);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logincontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36%;
+    margin-left: -18%;
+    height: 50%;
+    margin-top: -15%;
+}
+
+.registercontainer {
+    top: 35%;
+}
+
+.login_content {
+    background-color: white;
+    padding: 50px;
+    border-radius: 4px;
+}
+
+.login_content > form > .input-group, .login_content > form > button {
+    margin-top: 20px;
+}
+
+.login_content > form > button {
+    font-weight: bold;
+    background-color: #8bc34a;
+    border: 0;
+    border-radius: 0;
+    color: white;
+}
+
+.input-group > input {
+    height: 50px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.input-group > span {
+    border: 0;
+    border-radius: 0;
+    width: 60px;
+}
+
+.login_content > img {
+    width: 100px;
+    margin-left: 41%;
+}
+
+.login_content > h2 {
+    text-align: center;
+}
+.login_content > h2 > b {
+    font-weight: 900;
+}
+
+.login_content > h2 > i {
+    color: #8bc34a;
+}
+
+.ref_btn {
+    font-weight: bold;
+    background-color: #8bc34a;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.info {
+    text-align: center;
+    padding: 15px;
+    background-color: #d9edf7;
+    margin-top: 20px;
+}
+
+.login_footer {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/*Stuff for logged in screens*/
+
+.fixed-header {
+    margin-top: 65px;
+}
+
+.fixed-footer {
+    margin-bottom: 65px;
+}
+
+.nav-cont {
+    background-color: #f8f8f8;
+}
+
+
+.nav-log-btn {
+    border-top: thin;
+}
+
+#navbar > ul > li > a:hover {
+    background-color: #BDBDBD;
+}
+
+.hard-crnr {
+    border-radius: 0px;
+}
+
+.srch-bar {
+    margin-left: 29px;
+    margin-right: 29px;
+}
+
+.srch-input {
+   background-color: #f8f8f8;
+}
+
+.srch-bar > button {
+    background-color: #8bc34a;
+    color: white;
+    font-size: 14px;
+    height: 34px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.srch-field {
+    padding-right: 0px;
+}
+
+.btn-cont {
+    margin-left: 29px;
+    margin-right: 14px;
+    width: auto;
+}
+
+.index-btn {
+    width: auto;
+    height: 150px;
+    border: none;
+    text-align: center;
+    background-color: #8bc34a;
+    color: white;
+    border-radius: 0px;
+}
+
+.index-btn > glyph {
+    height: 100px;
+    width: 100px;
+}
+
+.tbl {
+    margin-left: 29px;
+    margin-right: 29px;
+    padding-left: 15px;
+}
+
+.marg-left-0 {
+    margin-left: 0px;
+}
+
+.tbl-header {
+    color: #FFC107;
+}
+
+.pad-lft-15 {
+    padding-left: 15px;
+}
+
+.spec-rw {
+    padding-left: 30px;
+}
+
+.width-eighty {
+    width: 80%;
+}
+
+.art-tbl-left {
+    width: 30%;
+}
+
+.art-tbl-mid {
+    width: 60%;
+}
+
+.width-fifty {
+    width: 50%;
+}
+
+
+.art-tbl-right {
+    width: 10%;
+}
+
+.art-tbl > thead {
+    background-color: #BDBDBD;
+}
+
+.tbl-btn {
+    color: white;
+    background-color: #8bc34a;
+    border-radius: 0;
+}
+
+.edit-art-desc > div {
+    padding-left: 5px;
+    padding-top: 5px;
+    border: 0.5px solid #BDBDBD;
+}
+
+.art-desc > div {
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.img-art-det {
+    width: 200px;
+    height: 200px;
+}
+
+.l-gray {
+    background-color: #f8f8f8;
+}
+
+.d-gray-fnt {
+    color: #e7e7e7;
+}
+
+.pd-left-10 {
+    padding-left: 10px;
+}
+
+.pd-left-100 {
+    padding-left: 100px;
+}
+
+.mrg-btm {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.wdth-hun {
+    width: 100%;
+}
+
+.pd-right-ten {
+    padding-right: 10px;
+}
