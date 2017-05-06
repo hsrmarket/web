@@ -2,8 +2,9 @@
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var authService = require("../service/authService");
+var request = require('request');
 
-var URL = "http://duernten.forrer.network:9000/";
+var URL = "http://duernten.forrer.network:9000";
 
 module.exports.getFrontPage = function (req, res) {
     res.render("home", {title : "HSRmarket - Home", css : true});
@@ -34,6 +35,37 @@ module.exports.getRegister = function (req, res) {
     res.render('register', {title : "HSRmarket - Register", css : true});
 };
 
+module.exports.registerUser = function (req, res) {
+    let options = {
+        uri: URL + req.url,
+        method: 'POST',
+        json: {
+            "studentID": req.body.studentID,
+            "firstname": req.body.firstname,
+            "lastname": req.body.lastname,
+            "address": {
+                "street": req.body.street,
+                "streetNr": req.body.streetnr,
+                "zip": req.body.zip,
+                "city": req.body.city
+            },
+            "email": req.body.email,
+            "telephone": req.body.telephone,
+            "password": req.body.password
+        }
+    };
+
+    try{
+        request(options, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.redirect("/api/user/login");
+            }
+        });
+    } catch (err){
+        console.log(err);
+    }
+
+};
 module.exports.logout = function (req, res) {
     if(req.session.username) {
         req.session.username = null;
