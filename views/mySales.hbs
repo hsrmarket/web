@@ -1,0 +1,46 @@
+<div class="col-lg-11 row-l fixed-header fixed-footer">
+    <section class="container-fluid">
+        <h1 class="tbl-header">My Sales</h1>
+        <div class="row marg-left-0">
+            <div>
+                <table class="table width-eighty">
+                    <thead>
+                        <tr>
+                            <th class="art-tbl-left">Title</th>
+                            <th class="width-fifty">Description</th>
+                            <th class="art-tbl-right">Category</th>
+                            <th class="art-tbl-right">Price</th>
+                            <th class="art-tbl-right">Bought by</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each sales}}
+                            <tr>
+                                <td class="art-tbl-left">{{name}}</td>
+                                <td class="width-fifty">{{description}}</td>
+                                <td class="art-tbl-right">{{type}}</td>
+                                <td class="art-tbl-right">{{price}}</td>
+                                <td class="art-tbl-right"></td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer >
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid nav-cont l-gray">
+            <div class="navbar-left l-gray">
+                <figure>
+                    <img src="/images/icon_q_dotted_transparent.png" alt="HSRmarket" width="60rem" height="60rem">
+                </figure>
+            </div>
+            <div class="navbar-right navbar-text pull-right">
+                <p>(c) 2017 by HSRmarket. All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
