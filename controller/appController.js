@@ -27,6 +27,14 @@ module.exports.getFrontPage = function (req, res) {
 
 module.exports.getRechtliches = function (req, res) {
     res.render('rechtliches', {title : "HSRmarket - Rechtliches", username : req.session.username});
+};
+
+module.exports.getImpressum = function (req, res) {
+    res.render('impressum', {title : "HSRmarket - Impressum", username : req.session.username});
+};
+
+module.exports.getContact= function (req, res) {
+    res.render('kontakt', {title : "HSRmarket - Kontakt", username : req.session.username});
 }
 
 

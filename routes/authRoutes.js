@@ -9,6 +9,8 @@ var appController = require('../controller/appController');
 router.get('/', appController.getFrontPage)
 router.get('/home', authController.getFrontPage);
 router.get('/rechtliches', appController.getRechtliches);
+router.get('/impressum', appController.getImpressum);
+router.get('/kontakt', appController.getContact);
 
 router.get("/user/login", authController.getLogin);
 router.post("/user/login", authController.postLogin);
