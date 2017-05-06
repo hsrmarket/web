@@ -13,9 +13,14 @@
 
   </head>
   <body>
-      {{> nav}}
+      {{#if css}}
+      {{else}}
+          {{> nav}}
+      {{/if}}
       {{{body}}}
 
+      {{#if css}}
+      {{else}}
       <footer >
           <div class="navbar navbar-default navbar-fixed-bottom">
               <div class="container-fluid nav-cont l-green">
@@ -31,6 +36,7 @@
               </div>
           </div>
       </footer>
+      {{/if}}
       <script src="/js/jquery.js"></script>
       <script src="/js/bootstrap.js"></script>
   </body>

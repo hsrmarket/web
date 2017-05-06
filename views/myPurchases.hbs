@@ -1,28 +1,31 @@
-<div class="col-lg-11 row-l">
-    <section class="row">
-        <div class="column">
-            <h1>My Purchases</h1>
-        </div>
-            <table>
-                <thead>
+<div class="col-lg-11 row-l fixed-header fixed-footer">
+    <section class="container-fluid">
+        <h1 class="tbl-header">My purchases</h1>
+        <div class="row marg-left-0">
+            <div>
+                <table class="table width-eighty">
+                    <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th></th>
+                        <th class="art-tbl-left">Title</th>
+                        <th class="width-fifty">Description</th>
+                        <th class="art-tbl-right">Category</th>
+                        <th class="art-tbl-right">Price</th>
+                        <th class="art-tbl-right"></th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {{#each articles}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{description}}</td>
-                        <td>{{type}}</td>
-                        <td>{{price}}</td>
-                    </tr>
+                        <tr>
+                            <td class="art-tbl-left">{{name}}</td>
+                            <td class="width-fifty">{{description}}</td>
+                            <td class="art-tbl-right">{{type}}</td>
+                            <td class="art-tbl-right">{{price}}</td>
+                            <td class="art-tbl-right"></td>
+                        </tr>
                     {{/each}}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
 </div>

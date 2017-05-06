@@ -25,6 +25,10 @@ module.exports.getFrontPage = function (req, res) {
     http.send();
 };
 
+module.exports.getRechtliches = function (req, res) {
+    res.render('rechtliches', {title : "HSRmarket - Rechtliches", username : req.session.username});
+}
+
 
 module.exports.getArticles = function (req, res) {
     var http = new XMLHttpRequest();
