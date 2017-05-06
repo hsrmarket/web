@@ -41,11 +41,7 @@ module.exports.getAccountDetailsByID = function (req, res) {
     http.onreadystatechange = function() {
         if(http.readyState === 4 && http.status === 200) {
             var data = JSON.parse(http.responseText);
-
-            var username = req.session.username;
-            var userid = req.session.userid;
-
-            res.render('MyAccount', { data : data, username : username, userid : userid});
+            res.render('account', { data : data, username : req.session.username, pageTitle: "Account"});
         }
     };
     http.send();

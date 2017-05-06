@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var session = require('express-session');
 require('./core/helpers/handlebars-helpers');
+hbs.registerPartials(__dirname + '/views/partials');
 
 var app = express();
 
@@ -37,11 +38,13 @@ var authRoutes = require('./routes/authRoutes');
 var appRoutes = require('./routes/appRoutes');
 var userRoutes = require('./routes/userRoutes');
 var accountRoutes = require('./routes/accountRoutes');
+var purchaseRoutes = require('./routes/purchaseRoutes');
 
 app.use('/', authRoutes);
-app.use('/api/articles/', appRoutes);
-app.use('/api/user/', userRoutes);
-app.use('/api/accounts/', accountRoutes);
+app.use('/articles/', appRoutes);
+app.use('/user/', userRoutes);
+app.use('/accounts/', accountRoutes);
+app.use('/purchases/', purchaseRoutes);
 
 
 // catch 404 and forward to error handler

@@ -1,30 +1,30 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
     <section class="container-fluid">
-        <h1 class="tbl-header">All {{title}}</h1>
+        <h1 class="tbl-header">My Sales</h1>
         <div class="row marg-left-0">
             <div>
-                {{#if articles.length}}
-                    <table class="table width-eighty">
-                        <thead>
+                <table class="table width-eighty">
+                    <thead>
                         <tr>
                             <th class="art-tbl-left">Title</th>
-                            <th class="art-tbl-mid">Description</th>
-                            <th class="art-tbl-right"></th>
+                            <th class="width-fifty">Description</th>
+                            <th class="art-tbl-right">Category</th>
+                            <th class="art-tbl-right">Price</th>
+                            <th class="art-tbl-right">Bought by</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{#each articles}}
+                        {{#each sales}}
                             <tr>
                                 <td class="art-tbl-left">{{name}}</td>
-                                <td class="art-tbl-mid">{{description}}</td>
-                                <td class="art-tbl-right"><a type="button" class="btn tbl-btn" href="/articles/{{id}}">Show</a></td>
+                                <td class="width-fifty">{{description}}</td>
+                                <td class="art-tbl-right">{{type}}</td>
+                                <td class="art-tbl-right">{{price}}</td>
+                                <td class="art-tbl-right"></td>
                             </tr>
                         {{/each}}
                         </tbody>
                     </table>
-                {{else}}
-                    <div> Currently the list is empty. Please try again later. </div>
-                {{/if}}
             </div>
         </div>
     </section>
