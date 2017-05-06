@@ -1,42 +1,6 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid nav-cont">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/api/articles/index"><b>HSR</b><i>market</i></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/api/articles/index">Start</a></li>
-                <li><a href="/api/articles/books">Books</a></li>
-                <li><a href="/api/articles/electronics">Electronics</a></li>
-                <li><a href="/api/articles/officesupplies">Office supplies</a></li>
-                <li><a href="/api/articles/other">Other</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/api/user/{{userid}}/articles">My Articles</a></li>
-                        <li><a href="/api/user/{{userid}}/sales">My Sales</a></li>
-                        <li><a href="/api/user/{{userid}}/purchases">My Purchases</a></li>
-                        <li><a href="/api/accounts/{{userid}}">My Account</a></li>
-                        <li><a href='/api/articles/addArticle'>Add article</a></li>
-                        <li><a href='/api/user/logout'>Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <div class="col-lg-11 row-l fixed-header fixed-footer">
     <section class="container-fluid">
-        <h1 class="tbl-header">My Articles</h1>
+        <h1 class="tbl-header">My articles</h1>
         <div class="row marg-left-0">
             <div>
                 <table class="table width-eighty">
@@ -56,10 +20,10 @@
                                 <td class="width-fifty">{{description}}</td>
                                 <td class="art-tbl-right">{{type}}</td>
                                 <td class="art-tbl-right">
-                                    <a type="button" class="btn tbl-btn" href="<!-- TODO -->" disabled="true">Edit</a>
+                                    <a type="button" class="btn tbl-btn" href="/articles/{{id}}/edit">Edit</a>
                                 </td>
                                 <td class="art-tbl-right">
-                                    <a type="button" class="btn tbl-btn" href="<!-- TODO -->" disabled="true">Delete</a>
+                                    <a type="button" class="btn tbl-btn" href="/articles/{{id}}/deleted">Delete</a>
                                 </td>
                             </tr>
                         {{/each}}
