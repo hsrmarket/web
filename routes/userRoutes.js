@@ -11,10 +11,10 @@ router.all('/*', util.handleAuthenticate);
 
 /* User (My Account) */
 
-router.put("/:id", userController.updateUserInformaion);
-
-router.get("/:id/articles", userController.getMyArticle);
-
-router.get("/:id/purchases", userController.getMyPurchases);
+router.put("/", userController.updateUserInformaion);
+router.get("/", userController.getMyAccount);
+router.get("/articles", userController.getMyArticle);
+router.get("/sales", userController.getMySales);
+router.get("/purchases", userController.getMyPurchases);
 
 module.exports = router;
