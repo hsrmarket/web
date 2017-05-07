@@ -23,6 +23,9 @@ router.get("/new", appController.getFrontPage);
 router.get("/:id/edit", appController.editArticleByID);
 router.post("/:id/edit",appController.saveArticleToDB);
 
+router.get("/", appController.getAddArticle);
+router.post("/", appController.saveArticleToDB);
+
 /* Kaufaufträge */
 
 

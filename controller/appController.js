@@ -64,7 +64,7 @@ module.exports.getArticlesByID = function (req, res) {
 };
 
 module.exports.getAddArticle = function (req, res) {
-    res.render("articleCreate");
+    res.render("addArticle");
 };
 
 module.exports.editArticleByID = function (req, res) {
@@ -157,9 +157,3 @@ module.exports.saveArticleToDB = function (req, res) {
         }
     });
 };
-
-
-/* Kaufaufträge */
-
-
-/* Suche */
