@@ -26,9 +26,28 @@ module.exports.updateUserInformaion = function (req, res) {
     http.send();
 };
 
+module.exports.getMyAccount = function (req, res) {
+    console.log("MYACCOUNT")
+    var http = new XMLHttpRequest();
+    var url = "http://rest.hsrmarket.ch:9000/api/accounts" + "/" + req.session.userid;
+    console.log(url);
+    var methode = "GET";
+
+    http.open(methode, url, true);
+    http.setRequestHeader("Content-type", "application/json");
+
+    http.onreadystatechange = function() {
+        if(http.readyState === 4 && http.status === 200) {
+            var data = JSON.parse(http.responseText);
+            res.render('account', { data : data, username : req.session.username, pageTitle: "My Account"});
+        }
+    };
+    http.send();
+};
+
 module.exports.getMyArticle = function (req, res) {
     var http = new XMLHttpRequest();
-    var url = URL + req.url;
+    var url = URL + "/" + req.session.userid + "/articles";
     var methode = "GET";
     http.open(methode, url, true);
     http.setRequestHeader("Content-type", "application/json");
@@ -37,10 +56,7 @@ module.exports.getMyArticle = function (req, res) {
         if(http.readyState === 4 && http.status == 200) {
             var articles = JSON.parse(http.responseText);
 
-            var username = req.session.username;
-            var userid = req.session.userid;
-
-            res.render('myArticles', { articles : articles, username : username, userid : userid});
+            res.render('myArticles', { articles : articles, username : req.session.username});
         }
     };
     http.send();
@@ -48,7 +64,7 @@ module.exports.getMyArticle = function (req, res) {
 
 module.exports.getMyPurchases = function (req, res) {
     var http = new XMLHttpRequest();
-    var url = URL + req.url;
+    var url = URL + "/" + req.session.userid + "/purchases";
     var methode = "GET";
     http.open(methode, url, true);
     http.setRequestHeader("Content-type", "application/json");
@@ -57,11 +73,29 @@ module.exports.getMyPurchases = function (req, res) {
         if(http.readyState === 4 && http.status == 200) {
             var articles = JSON.parse(http.responseText);
 
-            var username = req.session.username;
-            var userid = req.session.userid;
-
-            res.render('myPurchases', { articles : articles, username : username, userid : userid});
+            res.render('myPurchases', { articles : articles, username : req.session.username});
         }
     };
     http.send();
 };
+
+module.exports.getMySales = function (req, res) {
+    console.log("Ich bin hier");
+    var http = new XMLHttpRequest();
+    var url = URL + "/" + req.session.userid + "/sales";
+    var methode = "GET";
+    http.open(methode, url, true);
+    http.setRequestHeader("Content-type", "application/json");
+
+    http.onreadystatechange = function() {
+        if(http.readyState === 4 && http.status == 200) {
+            var sales = JSON.parse(http.responseText);
+
+            res.render('mySales', { sales : sales, username : req.session.username});
+        }
+    };
+    http.send();
+
+
+
+}

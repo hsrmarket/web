@@ -1,40 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid nav-cont">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/api/articles/index"><b>HSR</b><i>market</i></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/api/articles/index">Start</a></li>
-                <li><a href="/api/articles/books">Books</a></li>
-                <li><a href="/api/articles/electronics">Electronics</a></li>
-                <li><a href="/api/articles/officesupplies">Office supplies</a></li>
-                <li><a href="/api/articles/other">Other</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/api/user/{{userid}}/articles">My Articles</a></li>
-                        <li><a href="/api/user/{{userid}}/sales">My Sales</a></li>
-                        <li><a href="/api/user/{{userid}}/purchases">My Purchases</a></li>
-                        <li><a href="/api/accounts/{{userid}}">My Account</a></li>
-                        <li><a href='/api/articles/addArticle'>Add article</a></li>
-                        <li><a href='/api/user/logout'>Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="col-lg-11 row-l fixed-header">
+<div class="col-lg-11 row-l fixed-header fixed-footer">
     <section class="row align-bottom">
         <div class="column align-self-middle">
             <form method="get" action="/fetch">
@@ -52,19 +16,19 @@
         <div class="container btn-cont">
             <div class="row">
                 <div class="col-xs-3 index-green">
-                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/books">
+                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/articles/books">
                         <span class="glyphicon glyphicon-book"></span></br>Books</a>
                 </div>
                 <div class="col-xs-3">
-                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/electronics">
+                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/articles/electronics">
                         <span class="glyphicon glyphicon-phone"></span></br>Electronics</a>
                 </div>
                 <div class="col-xs-3">
-                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/officesupplies">
+                    <a class="btn btn-lg btn-block btn-huge index-btn" href="/articles/officesupplies">
                         <span class="glyphicon glyphicon-pencil"></span></br>Office supplies</a>
                 </div>
                 <div class="col-xs-3">
-                    <a  class="btn btn-lg btn-block btn-huge index-btn" href="/api/articles/other">
+                    <a  class="btn btn-lg btn-block btn-huge index-btn" href="/articles/other">
                         <span class="glyphicon glyphicon-asterisk"></span></br>Other</a>
                 </div>
             </div>

@@ -11,6 +11,7 @@ router.all('/*', util.handleAuthenticate);
 
 /* Account*/
 
+router.post("/", accountController.registerNewUser);
 router.get("/:id", accountController.getAccountDetailsByID);
 
 module.exports = router;
