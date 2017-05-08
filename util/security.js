@@ -7,7 +7,7 @@ function handleAuthenticate(req, res, next){
     if(isLoggedIn(req)){
         next();
     } else {
-        res.render("login");
+        res.render("login", {title : "HSRmarket - Login", css : true});
     }
 }
 
