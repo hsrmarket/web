@@ -3,7 +3,6 @@ nav {
 }
 
 body {
-	background-image: url(../images/ricepaper.png);
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -100,7 +99,7 @@ body {
 }
 
 .fixed-footer {
-    margin-bottom: 65px;
+    margin-bottom: 150px;
 }
 
 .nav-cont {
@@ -236,6 +235,10 @@ body {
     background-color: #f8f8f8;
 }
 
+.l-green {
+    background-color: #dcecc9;
+}
+
 .d-gray-fnt {
     color: #e7e7e7;
 }
@@ -285,4 +288,22 @@ body {
 
 .fnt-wght-reg {
     font-weight: normal;
+}
+
+footer figure {
+    padding: 10px;
+}
+
+.navbar {
+    border: none;
+}
+
+.navbar-default .navbar-nav > li > a, .footertext > p, .footertext > span {
+    color: black;
+}
+
+.footertext {
+    color: black;
+    margin-right: 10px;
+    margin-top: 20px;
 }

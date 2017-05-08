@@ -6,33 +6,26 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th></th>
+                        <th class="art-tbl-left">Title</th>
+                        <th class="width-fifty">Description</th>
+                        <th class="art-tbl-right">Category</th>
+                        <th class="art-tbl-right">Price</th>
+                        <th class="art-tbl-right"></th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {{#each articles}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{description}}</td>
-                        <td>{{type}}</td>
-                        <td>{{price}}</td>
-                    </tr>
+                        <tr>
+                            <td class="art-tbl-left">{{name}}</td>
+                            <td class="width-fifty">{{description}}</td>
+                            <td class="art-tbl-right">{{type}}</td>
+                            <td class="art-tbl-right">{{price}}</td>
+                            <td class="art-tbl-right"></td>
+                        </tr>
                     {{/each}}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
 </div>
-<footer class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid navbar-left">
-        <figure>
-            <img src="/images/ICON_HSRMARKET_OHNE_TEXT_TRANSPARENT.png" alt="HSRmarket" width="60rem" height="60rem">
-        </figure>
-    </div>
-    <div class="container-fluid navbar-right navbar-text pull-right">
-        <p>(c) 2017 by HSRmarket. All rights reserved</p>
-    </div>
-</footer>

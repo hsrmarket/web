@@ -7,7 +7,7 @@ var request = require('request');
 var URL = "http://duernten.forrer.network:9000/api";
 
 module.exports.getFrontPage = function (req, res) {
-    res.render("home");
+    res.render("home", {title : "HSRmarket - Home", css : true});
 };
 
 module.exports.postLogin = function (req, res) {
@@ -28,11 +28,11 @@ module.exports.postLogin = function (req, res) {
 };
 
 module.exports.getLogin = function (req, res) {
-    res.render('login');
+    res.render('login', {title : "HSRmarket - Login", css : true});
 };
 
 module.exports.getRegister = function (req, res) {
-    res.render('register');
+    res.render('register', {title : "HSRmarket - Register", css : true});
 };
 
 module.exports.registerUser = function (req, res) {
