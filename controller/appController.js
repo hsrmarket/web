@@ -18,7 +18,7 @@ module.exports.getFrontPage = function (req, res) {
     http.onreadystatechange = function() {
         if(http.readyState === 4 && http.status === 200) {
             var articles = JSON.parse(http.responseText);
-            res.render('index', {articles : articles, username : req.session.username});
+            res.render('index', {articles : articles, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
 
@@ -26,15 +26,15 @@ module.exports.getFrontPage = function (req, res) {
 };
 
 module.exports.getRechtliches = function (req, res) {
-    res.render('rechtliches', {title : "HSRmarket - Rechtliches", username : req.session.username});
+    res.render('rechtliches', {title : "HSRmarket - Rechtliches", username : req.session.username, isadmin : req.session.isadmin});
 };
 
 module.exports.getImpressum = function (req, res) {
-    res.render('impressum', {title : "HSRmarket - Impressum", username : req.session.username});
+    res.render('impressum', {title : "HSRmarket - Impressum", username : req.session.username, isadmin : req.session.isadmin});
 };
 
 module.exports.getContact= function (req, res) {
-    res.render('kontakt', {title : "HSRmarket - Kontakt", username : req.session.username});
+    res.render('kontakt', {title : "HSRmarket - Kontakt", username : req.session.username, isadmin : req.session.isadmin});
 }
 
 
@@ -50,7 +50,7 @@ module.exports.getArticles = function (req, res) {
             var articles = JSON.parse(http.responseText);
             var title = req.url.split("/").pop();
 
-            res.render('articleList', {title : title, articles : articles, username : req.session.username});
+            res.render('articleList', {title : title, articles : articles, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();
@@ -69,7 +69,7 @@ module.exports.getArticlesByID = function (req, res) {
             var articles = JSON.parse(http.responseText);
             var title = req.url.split("/").pop();
 
-            res.render('articleView', {title : title, articles : articles, username : req.session.username});
+            res.render('articleView', {title : title, articles : articles, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();
@@ -94,7 +94,7 @@ module.exports.editArticleByID = function (req, res) {
             var article = JSON.parse(http.responseText);
             var title = req.url.split("/").pop();
 
-            res.render('articleUpdate', {title : title, article : article, username : req.session.username});
+            res.render('articleUpdate', {title : title, article : article, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();
