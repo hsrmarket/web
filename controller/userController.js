@@ -4,16 +4,15 @@
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-var URL = "http://duernten.forrer.network:9000/api/user";
+var URL = "http://rest.hsrmarket.ch:9000/api/user";
+var BaseURL = "http://rest.hsrmarket.ch:9000/api/";
 
 /* User (My Account)*/
 /* Only Views, saving and other functionallity is handled over the other controllers */
 
 module.exports.getMyAccount = function (req, res) {
-    console.log("MYACCOUNT")
     var http = new XMLHttpRequest();
-    var url = "http://rest.hsrmarket.ch:9000/api/accounts" + "/" + req.session.userid;
-    console.log(url);
+    var url = BaseURL + "accounts" + "/" + req.session.userid;
     var methode = "GET";
 
     http.open(methode, url, true);

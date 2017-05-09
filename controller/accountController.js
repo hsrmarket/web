@@ -103,7 +103,6 @@ module.exports.saveAccountToDB = function (req, res) {
 };
 
 module.exports.deleteAccount = function (req, res) {
-    console.log("DELETE ACCOUNT");
     var accountURL = req.url;
     var accountID =  accountURL.replace('/delete','');
     var updateURL = URL  + accountID;

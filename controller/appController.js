@@ -162,8 +162,33 @@ module.exports.saveArticleToDB = function (req, res) {
 
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            var redirect = "/articles/" + req.body.id;
+            var redirect = "";
+            if (req.session.isadmin) {
+                redirect = "/admin/articles";
+            }
+            else {
+                redirect = "/articles/" + req.body.id;
+            }
             res.redirect(redirect);
+        } else {
+            console.log(body);
+        }
+    });
+};
+
+module.exports.deleteArticle = function (req, res) {
+    var articleURL = req.url;
+    var articleID =  articleURL.replace('/delete','');
+    var updateURL = URL  + articleID;
+
+    var options = {
+        url: updateURL,
+        method: 'DELETE'
+    };
+
+    request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.redirect("/admin/articles");
         } else {
             console.log(body);
         }

@@ -12,7 +12,6 @@ router.all('/*', util.handleAuthenticate);
 
 router.get("/", adminController.getOverviewPage);
 router.get("/accounts", adminController.getManageAccounts);
-//router.get("/articles", adminController.getManageArticles);
-//router.get("/purchase", adminController.getManagePurchase);
+router.get("/articles", adminController.getManageArticles);
 
 module.exports = router;
