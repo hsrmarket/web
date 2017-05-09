@@ -50,7 +50,7 @@ module.exports.getArticles = function (req, res) {
             var articles = JSON.parse(http.responseText);
             var title = req.url.split("/").pop();
 
-            res.render('articleList', {title : title, articles : articles, username : req.session.username, isadmin : req.session.isadmin});
+            res.render('showArticles', {title : title, articles : articles, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();
