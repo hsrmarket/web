@@ -1,0 +1,77 @@
+<div class="col-lg-11 row-l fixed-header fixed-footer">
+    <form method="post" action="/articles/{{article.id}}/edit">
+        <input type="text" hidden="hidden" name="id" value="{{article.id}}"/>
+        <input type="text" hidden="hidden" name="name" value="{{article.name}}"/>
+        <input type="text" hidden="hidden" name="creationDate" value="{{article.creationDate}}"/>
+        <input type="text" hidden="hidden" name="image" value="{{article.image}}"/>
+    <div class="container-fluid">
+        <h1 class="tbl-header">Article #{{article.id}}</h1>
+        <div class="row pad-lft-15">
+            <div class="row width-eighty">
+                <div class="col-xs-3">
+                    <figure>
+                        <img src="/images/icon_q_dooted.png" alt="HSRmarket" width="60rem" height="60rem" class="img-art-det">
+                    </figure>
+                </div>
+                <div class="col-xs-4">
+                    <p><h4 class="d-gray-fnt">Category</h4></p>
+                    <div class="pd-left-10 fnt-sz-18"><input type="text" readonly name="type" value="{{article.type}}"/></div>
+                </div>
+                <div class="col-xs-4">
+                    <p><h4 class="d-gray-fnt">Final price</h4></p>
+                    <div class="pd-left-10"><input type="text" name="price" value="{{article.price}}"/></div>
+                </div>
+                <div class="col-xs-4">
+                    <p><h4 class="d-gray-fnt">Module</h4></p>
+                    <div class="pd-left-10">{{article.name}}</div>
+                </div>
+                <div class="col-xs-4">
+                    <p><h4 class="d-gray-fnt">Condition</h4></p>
+                    <input name="condition" type="range" step="1" min="0" max="10" value="{{article.condition}}"/>
+                </div>
+            </div>
+            <div class="width-eighty art-desc">
+                <h4 class="d-gray-fnt">Description</h4>
+                <div>
+                    <div class="pd-left-10"><textarea name="description">{{article.description}}</textarea></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <section class="row spec-rw width-eighty">
+        <div>
+            {{#equal article.type "book"}}
+                <h2 class="tbl-header">Book Specifications</h2>
+                <div class="col-xs-4">
+                    <h4 class="d-gray-fnt">ISBN</h4>
+                    <input type="text" name="isbn" value="{{article.isbn}}"/>
+                </div>
+                <div class="col-xs-4">
+                    <h4 class="d-gray-fnt">Publisher</h4>
+                    <input type="text" name="publisher" value="{{article.publisher}}"/>
+                </div>
+                <div class="col-xs-4">
+                    <h4 class="d-gray-fnt">Author</h4>
+                    <input type="text" name="author" value="{{article.author}}"/>
+                </div>
+            {{/equal}}
+            {{#equal article.type "electronic"}}
+                <h2 class="tbl-header">Electronic Specifications</h2>
+                <div class="col-xs-4">
+                    <h4 class="d-gray-fnt">Producer</h4>
+                    <input type="text" name="producer" value="{{article.producer}}"/>
+                </div>
+                <div class="col-xs-4">
+                    <h4 class="d-gray-fnt">Model</h4>
+                    <input type="text" name="model" value="{{article.model}}"/>
+                </div>
+            {{/equal}}
+        </div>
+
+    </section>
+    <button  class="button large success" type="submit">Save changes</button>
+    </form>
+</div>
