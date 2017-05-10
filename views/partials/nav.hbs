@@ -28,6 +28,9 @@
                             <li><a href="/user/purchases">My Purchases</a></li>
                             <li><a href="/user">My Account</a></li>
                             <li><a href='/articles/addArticle'>Add article</a></li>
+                            {{#if isadmin}}
+                                <li><a href="/admin">Admin</a></li>
+                            {{/if}}
                             <li><a href='/user/logout'>Logout</a></li>
                         </ul>
                     </li>
