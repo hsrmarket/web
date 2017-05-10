@@ -1,6 +1,10 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
     <section class="container-fluid">
-        <h1 class="tbl-header">All {{title}}</h1>
+        {{#if search}}
+            <h1 class="tbl-header">search result</h1>
+        {{else}}
+            <h1 class="tbl-header">All {{title}}</h1>
+        {{/if}}
         <div class="row marg-left-0">
             <div>
                 {{#if articles.length}}
