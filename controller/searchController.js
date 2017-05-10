@@ -25,7 +25,7 @@ module.exports.searchByKey = function (req, res) {
 
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            res.render("articleList", { search: true , articles : body, username : req.session.username, isadmin : req.session.isadmin});
+            res.render("showArticles", { search: true , articles : body, username : req.session.username, isadmin : req.session.isadmin});
         } else {
             console.log(body);
         }
