@@ -6,10 +6,6 @@ var app = express();
 var appController = require('../controller/appController');
 var util = require('../util/security');
 
-
-
-/* Artikel */
-
 router.get("/books", appController.getArticles);
 router.get("/electronics", appController.getArticles);
 router.get("/officesupplies", appController.getArticles);

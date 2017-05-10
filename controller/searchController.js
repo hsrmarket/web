@@ -7,8 +7,6 @@ var request = require('request');
 
 var URL = "http://rest.hsrmarket.ch:9000/api/search";
 
-/* Accounts */
-
 module.exports.searchByKey = function (req, res) {
     var searchKey = req.query.search;
     if (searchKey == null || searchKey == "") {
