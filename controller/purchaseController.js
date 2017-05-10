@@ -12,7 +12,6 @@ var request = require('request');
 var URL = "http://duernten.forrer.network:9000/api/purchases";
 
 module.exports.addPurchase = function (req, res) {
-    console.log("ICH BIN HIER");
     var stringDate = new Date().toISOString().substring(0,10);
     var options = {
          "article": {
@@ -26,7 +25,6 @@ module.exports.addPurchase = function (req, res) {
      };
 
     var jsonData = JSON.stringify(options);
-    console.log(jsonData);
 
     var headers = {
         'Content-Type': "application/json"

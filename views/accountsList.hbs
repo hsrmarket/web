@@ -1,0 +1,38 @@
+<div class="col-lg-11 row-l fixed-header fixed-footer">
+    <section class="container-fluid">
+        <h1 class="tbl-header">Manage accounts</h1>
+        <p>Please be aware if you delete an account. An account should only be deleted if there are no references to him.</p>
+        <div class="row marg-left-0">
+            <div>
+                <table class="table width-eighty">
+                    <thead>
+                    <tr>
+                        <th class="art-tbl-left">ID</th>
+                        <th class="art-tbl-left">Mail</th>
+                        <th class="art-tbl-left">Firstname</th>
+                        <th class="art-tbl-right">Lastname</th>
+                        <th class="art-tbl-right"></th>
+                        <th class="art-tbl-right"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each accounts}}
+                        <tr>
+                            <td class="art-tbl-left">{{id}}</td>
+                            <td class="art-tbl-left">{{email}}</td>
+                            <td class="art-tbl-left">{{firstname}}</td>
+                            <td class="art-tbl-right">{{lastname}}</td>
+                            <td class="art-tbl-right">
+                                <a type="button" class="btn tbl-btn" href="/accounts/{{id}}/edit">Edit</a>
+                            </td>
+                            <td class="art-tbl-right">
+                                <a type="button" class="btn tbl-btn btn-danger" href="/accounts/{{id}}/delete">Delete</a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

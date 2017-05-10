@@ -12,6 +12,9 @@ router.all('/*', util.handleAuthenticate);
 /* Account*/
 
 router.post("/", accountController.registerNewUser);
-router.get("/:id", accountController.getAccountDetailsByID);
+router.get("/:id/edit", accountController.getAccountDetailsByID);
+router.post("/:id",accountController.saveAccountToDB);
+router.get("/:id/delete", accountController.deleteAccount);
+
 
 module.exports = router;
