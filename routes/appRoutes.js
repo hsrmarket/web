@@ -23,9 +23,4 @@ router.get("/new", appController.getFrontPage);
 router.get("/:id/edit", appController.editArticleByID);
 router.post("/:id/edit",appController.saveArticleToDB);
 
-/* Kaufaufträge */
-
-
-/* Sucher */
-
 module.exports = router;

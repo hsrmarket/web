@@ -27,7 +27,7 @@ module.exports.updateUserInformaion = function (req, res) {
 };
 
 module.exports.getMyAccount = function (req, res) {
-    console.log("MYACCOUNT")
+    console.log("MYACCOUNT");
     var http = new XMLHttpRequest();
     var url = "http://rest.hsrmarket.ch:9000/api/accounts" + "/" + req.session.userid;
     console.log(url);
@@ -95,7 +95,4 @@ module.exports.getMySales = function (req, res) {
         }
     };
     http.send();
-
-
-
-}
+};
