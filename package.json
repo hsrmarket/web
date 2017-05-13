@@ -13,8 +13,6 @@
     "express": "~4.14.1",
     "express-formidable": "^1.0.0",
     "express-session": "1.15.2",
-    "fibers": "^1.0.15",
-    "formidable": "^1.1.1",
     "hbs": "~4.0.1",
     "jasmine-node": "^1.14.5",
     "morgan": "~1.7.0",
