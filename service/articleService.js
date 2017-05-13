@@ -8,7 +8,7 @@ module.exports.saveData = function (data, callback) {
     var updateURL = URL + "/" + data.body.id;
     var fileName = "";
     if (data.files[0] != null) {
-        if ((data.files[0].originalname != "" || data.files[0].originalname != null) && (data.files[0].originalname != data.body.oldimage)) {
+        if ((data.files[0].originalname != "" || data.files[0].originalname != null) && (data.files[0].originalname != data.body.oldimage) && (data.body.oldimage != null || data.body.oldimage != "")) {
             fileName = data.files[0].originalname;
         }
     } else {
