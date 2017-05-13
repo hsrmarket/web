@@ -1,16 +1,16 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
-    <form method="post" action="/articles/{{article.id}}/edit">
+    <form method="post" action="/articles/{{article.id}}/edit" enctype="multipart/form-data">
         <input type="text" hidden="hidden" name="id" value="{{article.id}}"/>
         <input type="text" hidden="hidden" name="name" value="{{article.name}}"/>
         <input type="text" hidden="hidden" name="creationDate" value="{{article.creationDate}}"/>
-        <input type="text" hidden="hidden" name="image" value="{{article.image}}"/>
+        <input type="text" hidden="hidden" name="oldimage" value="{{article.image}}"/>
     <div class="container-fluid">
         <h1 class="tbl-header">Article #{{article.id}}</h1>
         <div class="row pad-lft-15">
             <div class="row width-eighty">
                 <div class="col-xs-3">
                     <figure>
-                        <img src="/images/icon_q_dooted.png" alt="HSRmarket" width="60rem" height="60rem" class="img-art-det">
+                        <img src="{{articleImage}}" alt="HSRmarket" width="60rem" height="60rem" class="img-art-det">
                     </figure>
                 </div>
                 <div class="col-xs-4">
@@ -72,6 +72,7 @@
         </div>
 
     </section>
+        <input type="file" name="image"/>
     <button  class="button large success" type="submit">Save changes</button>
     </form>
 </div>
