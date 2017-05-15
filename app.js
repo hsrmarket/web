@@ -39,13 +39,16 @@ var appRoutes = require('./routes/appRoutes');
 var userRoutes = require('./routes/userRoutes');
 var accountRoutes = require('./routes/accountRoutes');
 var purchaseRoutes = require('./routes/purchaseRoutes');
+var searchRoutes = require('./routes/searchRoutes');
+var adminRoutes = require('./routes/adminRoutes');
 
 app.use('/', authRoutes);
 app.use('/articles/', appRoutes);
 app.use('/user/', userRoutes);
 app.use('/accounts/', accountRoutes);
 app.use('/purchases/', purchaseRoutes);
-
+app.use('/search', searchRoutes);
+app.use('/admin', adminRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

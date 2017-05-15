@@ -20,9 +20,12 @@ module.exports.postLogin = function (req, res) {
             if(data) {
                 var username = data.email;
                 var userid = data.id;
+                var isAdmin = data.admin;
+                console.log(isAdmin);
+                console.log(typeof isAdmin);
                 req.session.username = username;
                 req.session.userid = userid;
-
+                req.session.isadmin = isAdmin;
                 res.redirect("/");
             }
         });

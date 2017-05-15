@@ -5,29 +5,14 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 var URL = "http://rest.hsrmarket.ch:9000/api/user";
+var BaseURL = "http://rest.hsrmarket.ch:9000/api/";
 
 /* User (My Account)*/
-
-module.exports.updateUserInformaion = function (req, res) {
-    var http = new XMLHttpRequest();
-    var url = URL + req.session.userid;
-    var methode = "POST";
-
-    http.open(methode, url, true);
-    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-    http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-            var text = JSON.parse(http.responseText);
-            res.render('success');
-        }
-    };
-    http.send();
-};
+/* Only Views, saving and other functionallity is handled over the other controllers */
 
 module.exports.getMyAccount = function (req, res) {
     var http = new XMLHttpRequest();
-    var url = "http://rest.hsrmarket.ch:9000/api/accounts" + "/" + req.session.userid;
+    var url = BaseURL + "accounts" + "/" + req.session.userid;
     var methode = "GET";
 
     http.open(methode, url, true);
@@ -36,7 +21,7 @@ module.exports.getMyAccount = function (req, res) {
     http.onreadystatechange = function() {
         if(http.readyState === 4 && http.status === 200) {
             var data = JSON.parse(http.responseText);
-            res.render('account', { data : data, username : req.session.username, pageTitle: "My Account"});
+            res.render('editUser', { data : data, username : req.session.username, userid : req.session.userid, pageTitle: "My Account", isadmin : req.session.isadmin});
         }
     };
     http.send();
@@ -53,7 +38,7 @@ module.exports.getMyArticle = function (req, res) {
         if(http.readyState === 4 && http.status == 200) {
             var articles = JSON.parse(http.responseText);
 
-            res.render('myArticles', { articles : articles, username : req.session.username});
+            res.render('myArticles', { articles : articles, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();
@@ -70,7 +55,7 @@ module.exports.getMyPurchases = function (req, res) {
         if(http.readyState === 4 && http.status == 200) {
             var articles = JSON.parse(http.responseText);
 
-            res.render('myPurchases', { articles : articles, username : req.session.username});
+            res.render('myPurchases', { articles : articles, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();
@@ -87,7 +72,7 @@ module.exports.getMySales = function (req, res) {
         if(http.readyState === 4 && http.status == 200) {
             var sales = JSON.parse(http.responseText);
 
-            res.render('mySales', { sales : sales, username : req.session.username});
+            res.render('mySales', { sales : sales, username : req.session.username, isadmin : req.session.isadmin});
         }
     };
     http.send();

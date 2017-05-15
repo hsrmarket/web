@@ -11,7 +11,6 @@ router.all('/*', util.handleAuthenticate);
 
 /* User (My Account) */
 
-router.put("/", userController.updateUserInformaion);
 router.get("/", userController.getMyAccount);
 router.get("/articles", userController.getMyArticle);
 router.get("/sales", userController.getMySales);
