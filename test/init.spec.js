@@ -16,7 +16,7 @@ describe("HSRmarket nodejs server spec",function () {
                 "condition": 5,
                 "description": "This electronic was created with the JUnit Test",
                 "creationDate": "2017-04-21",
-                "image": "test.png",
+                "image": "",
                 "type": "electronic",
                 "producer": "JUnit",
                 "model": "JUnit"
