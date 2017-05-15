@@ -13,7 +13,7 @@ module.exports.getFrontPage = function (req, res) {
 
 module.exports.postLogin = function (req, res) {
 
-    let hash = crypto.createHmac('sha256', req.body.password).digest('hex');
+    var hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
 
     if(!req.session.username) {
         authService.authenticate(req.body.username, hash, function (data) {
@@ -41,7 +41,7 @@ module.exports.getRegister = function (req, res) {
 
 module.exports.registerUser = function (req, res) {
 
-    let hash = crypto.createHmac('sha256', req.body.password).digest('hex');
+    var hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
     
     var updateURL = URL + "/accounts";
 
