@@ -12,7 +12,7 @@ describe("HSRmarket nodejs server spec",function () {
             const result = JSON.stringify({
                 "id": 59,
                 "name": "JUnitElectronic",
-                "price": 15,
+                "price": 15.0,
                 "condition": 5,
                 "description": "This electronic was created with the JUnit Test",
                 "creationDate": "2017-04-21",
