@@ -4,12 +4,11 @@
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-var URL = "http://duernten.forrer.network:9000/api/user";
+var URL = "http://rest.hsrmarket.ch:9000/api/user";
 
 /* User (My Account)*/
 
 module.exports.updateUserInformaion = function (req, res) {
-    //TODO Elias
     var http = new XMLHttpRequest();
     var url = URL + req.session.userid;
     var methode = "POST";
@@ -27,10 +26,8 @@ module.exports.updateUserInformaion = function (req, res) {
 };
 
 module.exports.getMyAccount = function (req, res) {
-    console.log("MYACCOUNT");
     var http = new XMLHttpRequest();
     var url = "http://rest.hsrmarket.ch:9000/api/accounts" + "/" + req.session.userid;
-    console.log(url);
     var methode = "GET";
 
     http.open(methode, url, true);
@@ -80,7 +77,6 @@ module.exports.getMyPurchases = function (req, res) {
 };
 
 module.exports.getMySales = function (req, res) {
-    console.log("Ich bin hier");
     var http = new XMLHttpRequest();
     var url = URL + "/" + req.session.userid + "/sales";
     var methode = "GET";
