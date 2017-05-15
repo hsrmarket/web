@@ -76,7 +76,4 @@ module.exports.getMySales = function (req, res) {
         }
     };
     http.send();
-
-
-
-}
+};

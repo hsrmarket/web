@@ -3,6 +3,7 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var authService = require("../service/authService");
 var request = require('request');
+var crypto = require('crypto');
 
 var URL = "http://duernten.forrer.network:9000/api";
 
@@ -11,8 +12,11 @@ module.exports.getFrontPage = function (req, res) {
 };
 
 module.exports.postLogin = function (req, res) {
+
+    var hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
+
     if(!req.session.username) {
-        authService.authenticate(req.body.username,req. body.password, function (data) {
+        authService.authenticate(req.body.username, hash, function (data) {
             if(data) {
                 var username = data.email;
                 var userid = data.id;
@@ -40,6 +44,8 @@ module.exports.getRegister = function (req, res) {
 
 module.exports.registerUser = function (req, res) {
 
+    var hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
+    
     var updateURL = URL + "/accounts";
 
     var jsonArray = {
@@ -54,7 +60,7 @@ module.exports.registerUser = function (req, res) {
         },
         "email": req.body.email,
         "telephone": req.body.telephone,
-        "password": req.body.password
+        "password": hash
     };
 
     var jsonData = JSON.stringify(jsonArray);
