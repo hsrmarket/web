@@ -6,10 +6,6 @@ var app = express();
 var appController = require('../controller/appController');
 var util = require('../util/security');
 
-
-
-/* Artikel */
-
 router.get("/books", appController.getArticles);
 router.get("/electronics", appController.getArticles);
 router.get("/officesupplies", appController.getArticles);
@@ -23,9 +19,5 @@ router.get("/:id/delete", appController.deleteArticle);
 router.get("/:id/edit", appController.editArticleByID);
 router.post("/:id/edit",appController.saveArticleToDB);
 
-/* Kaufaufträge */
-
-
-/* Sucher */
 
 module.exports = router;
