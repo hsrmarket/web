@@ -151,3 +151,22 @@ module.exports.deleteArticle = function (req, res) {
         }
     });
 };
+
+module.exports.deleteUserArticle = function (req, res) {
+    var articleURL = req.url;
+    var articleID =  articleURL.replace('/delete','');
+    var updateURL = URL  + articleID;
+
+    var options = {
+        url: updateURL,
+        method: 'DELETE'
+    };
+
+    request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.redirect("/");
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
+        }
+    });
+};

@@ -19,4 +19,5 @@ router.get("/purchases", userController.getMyPurchases);
 router.get("/preSelection", userController.getPreSelection);
 router.get("/addArticle", userController.getAddArticle);
 router.post("/addArticle", userController.postAddArticle);
+
 module.exports = router;

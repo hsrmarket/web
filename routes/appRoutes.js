@@ -19,6 +19,7 @@ router.get("/:id/delete", appController.deleteArticle);
 router.get("/:id/edit", appController.editArticleByID);
 router.post("/:id/edit",appController.saveArticleToDB);
 
+router.get("/:id/deleteUserArticle", appController.deleteUserArticle);
 
 
 module.exports = router;
