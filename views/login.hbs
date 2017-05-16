@@ -8,8 +8,11 @@
         <form class="form-signin" action='/user/login' method='post'>
             <input placeholder="backref" type="hidden"  name="_backref"  value="{{backref}}">
 
-            <div class="info">Enter your credentials here.</div>
-
+            {{#if errortext}}
+                <div class="info error">{{errortext}}</div>
+            {{else}}
+                <div class="info">Enter your credentials here.</div>
+            {{/if}}
             <label for="inputEmail" class="sr-only">Username</label>
             <div class="input-group wdth-hun">
                 <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>

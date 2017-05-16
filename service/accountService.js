@@ -54,3 +54,15 @@ module.exports.save = function (data, callback) {
         callback(error, response, body);
     });
 };
+
+module.exports.add = function (data, callback) {
+    var options = {
+        url: URL,
+        method: 'POST',
+        headers: headers,
+        body: data
+    };
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
