@@ -21,7 +21,18 @@ module.exports.delete = function (id, callback) {
 };
 
 module.exports.add = function (data, callback) {
-    /* TO BE IMPLEMENTED */
+    var options = {
+        url: URL,
+        method: 'POST',
+        headers: headers,
+        body: data
+    };
+
+    console.log(data);
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
 };
 
 module.exports.get = function (id, callback) {
@@ -104,10 +115,6 @@ module.exports.saveData = function (data, callback) {
     }
 
     var jsonData = JSON.stringify(options);
-
-    var headers = {
-        'Content-Type': "application/json"
-    };
 
     var options = {
         url: updateURL,
