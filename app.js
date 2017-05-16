@@ -35,7 +35,7 @@ app.use(require('node-sass-middleware')({
 }));
 
 var authRoutes = require('./routes/authRoutes');
-var appRoutes = require('./routes/appRoutes');
+var articleRoutes = require('./routes/articleRoutes');
 var userRoutes = require('./routes/userRoutes');
 var accountRoutes = require('./routes/accountRoutes');
 var purchaseRoutes = require('./routes/purchaseRoutes');
@@ -44,7 +44,7 @@ var adminRoutes = require('./routes/adminRoutes');
 var mainRoutes = require('./routes/mainRoutes');
 
 app.use('/user', authRoutes);
-app.use('/articles/', appRoutes);
+app.use('/articles/', articleRoutes);
 app.use('/user/', userRoutes);
 app.use('/accounts/', accountRoutes);
 app.use('/purchases/', purchaseRoutes);

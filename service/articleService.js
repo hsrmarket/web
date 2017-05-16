@@ -69,7 +69,7 @@ module.exports.saveData = function (data, callback) {
     } else {
         fileName = data.body.oldimage;
     }
-    switch(data.type) {
+    switch(data.body.type) {
         case "book":
             var options = {
                 "id": parseInt(data.body.id),
@@ -115,6 +115,7 @@ module.exports.saveData = function (data, callback) {
     }
 
     var jsonData = JSON.stringify(options);
+    console.log(jsonData);
 
     var options = {
         url: updateURL,
