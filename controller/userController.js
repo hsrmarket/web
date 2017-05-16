@@ -1,79 +1,49 @@
-/**
- * Created by felix_2 on 03.05.2017.
- */
-
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
-var URL = "http://rest.hsrmarket.ch:9000/api/user";
-var BaseURL = "http://rest.hsrmarket.ch:9000/api/";
+var accountService = require("../service/accountService");
+var userService = require("../service/userService");
 
 /* User (My Account)*/
 /* Only Views, saving and other functionallity is handled over the other controllers */
 
 module.exports.getMyAccount = function (req, res) {
-    var http = new XMLHttpRequest();
-    var url = BaseURL + "accounts" + "/" + req.session.userid;
-    var methode = "GET";
-
-    http.open(methode, url, true);
-    http.setRequestHeader("Content-type", "application/json");
-
-    http.onreadystatechange = function() {
-        if(http.readyState === 4 && http.status === 200) {
-            var data = JSON.parse(http.responseText);
+    accountService.get(req.session.userid, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var data = JSON.parse(body);
             res.render('editUser', { data : data, username : req.session.username, userid : req.session.userid, pageTitle: "My Account", isadmin : req.session.isadmin});
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
-    };
-    http.send();
+    });
 };
 
 module.exports.getMyArticle = function (req, res) {
-    var http = new XMLHttpRequest();
-    var url = URL + "/" + req.session.userid + "/articles";
-    var methode = "GET";
-    http.open(methode, url, true);
-    http.setRequestHeader("Content-type", "application/json");
-
-    http.onreadystatechange = function() {
-        if(http.readyState === 4 && http.status == 200) {
-            var articles = JSON.parse(http.responseText);
-
+    userService.getArticles(req.session.userid, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var articles = JSON.parse(body);
             res.render('myArticles', { articles : articles, username : req.session.username, isadmin : req.session.isadmin});
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
-    };
-    http.send();
+    });
 };
 
 module.exports.getMyPurchases = function (req, res) {
-    var http = new XMLHttpRequest();
-    var url = URL + "/" + req.session.userid + "/purchases";
-    var methode = "GET";
-    http.open(methode, url, true);
-    http.setRequestHeader("Content-type", "application/json");
-
-    http.onreadystatechange = function() {
-        if(http.readyState === 4 && http.status == 200) {
-            var articles = JSON.parse(http.responseText);
-
+    userService.getPurchases(req.session.userid, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var articles = JSON.parse(body);
             res.render('myPurchases', { articles : articles, username : req.session.username, isadmin : req.session.isadmin});
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
-    };
-    http.send();
+    });
 };
 
 module.exports.getMySales = function (req, res) {
-    var http = new XMLHttpRequest();
-    var url = URL + "/" + req.session.userid + "/sales";
-    var methode = "GET";
-    http.open(methode, url, true);
-    http.setRequestHeader("Content-type", "application/json");
-
-    http.onreadystatechange = function() {
-        if(http.readyState === 4 && http.status == 200) {
-            var sales = JSON.parse(http.responseText);
-
+    userService.getSales(req.session.userid, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var sales = JSON.parse(body);
             res.render('mySales', { sales : sales, username : req.session.username, isadmin : req.session.isadmin});
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
-    };
-    http.send();
+    });
 };

@@ -4,19 +4,12 @@ var express = require('express');
 var router = express.Router();
 
 var authController = require('../controller/authController');
-var appController = require('../controller/appController');
 
-router.get('/', appController.getFrontPage)
-router.get('/home', authController.getFrontPage);
-router.get('/rechtliches', appController.getRechtliches);
-router.get('/impressum', appController.getImpressum);
-router.get('/kontakt', appController.getContact);
+router.get("/login", authController.getLoginPage);
+router.post("/login", authController.postLogin);
 
-router.get("/user/login", authController.getLogin);
-router.post("/user/login", authController.postLogin);
-
-router.get("/user/register", authController.getRegister);
-router.post("/user/register", authController.registerUser);
-router.get("/user/logout", authController.logout);
+router.get("/register", authController.getRegisterPage);
+router.post("/register", authController.registerUser);
+router.get("/logout", authController.logout);
 
 module.exports = router;

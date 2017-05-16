@@ -14,7 +14,6 @@ router.get("/recent", appController.getArticles);
 router.get("/:id", appController.getArticlesByID);
 
 router.all('/:id/edit', util.handleAuthenticate);
-router.get("/new", appController.getFrontPage);
 router.get("/:id/delete", appController.deleteArticle);
 router.get("/:id/edit", appController.editArticleByID);
 router.post("/:id/edit",appController.saveArticleToDB);
