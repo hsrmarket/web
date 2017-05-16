@@ -88,10 +88,6 @@ module.exports.getArticlesByID = function (req, res) {
     http.send();
 };
 
-module.exports.getAddArticle = function (req, res) {
-    res.render("articleCreate");
-};
-
 module.exports.editArticleByID = function (req, res) {
     var http = new XMLHttpRequest();
     var articleURL = req.url;
@@ -155,9 +151,3 @@ module.exports.deleteArticle = function (req, res) {
         }
     });
 };
-
-
-/* Kaufaufträge */
-
-
-/* Suche */

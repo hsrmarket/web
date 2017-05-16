@@ -3,6 +3,7 @@
  */
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var request = require('request');
 
 var URL = "http://rest.hsrmarket.ch:9000/api/user";
 var BaseURL = "http://rest.hsrmarket.ch:9000/api/";
@@ -76,4 +77,45 @@ module.exports.getMySales = function (req, res) {
         }
     };
     http.send();
+};
+
+module.exports.getPreSelection = function (req, res) {
+    res.render("preSelection");
+};
+
+module.exports.getAddArticle = function (req, res) {
+    let type = req.query.type;
+    res.render("addArticle", {article : {type : type} });
+};
+
+module.exports.postAddArticle = function (req, res) {
+    console.log(req.body);
+
+    var options = {
+        uri: BaseURL + "articles",
+        method: 'POST',
+        json: {
+            "id": req.session.userid,
+            "type": req.body.type,
+            "price": req.body.price,
+            "name": req.body.name,
+            "condition": req.body.condition,
+            "description": req.body.description,
+            "isbn": req.body.isbn,
+            "publisher": req.body.publisher,
+            "author": req.body.author,
+            "image": req.body.image
+        }
+    };
+
+    request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Added article successfully");
+            console.log(body);
+            res.render("success");
+        } else {
+            console.log("Error while adding a new article");
+            console.log(error);
+        }
+    });
 };
