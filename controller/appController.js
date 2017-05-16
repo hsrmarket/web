@@ -47,7 +47,6 @@ module.exports.getArticlesByID = function (req, res) {
     });
 };
 
-
 module.exports.editArticleByID = function (req, res) {
     var articleURL = req.url;
     var articleID =  articleURL.replace('/edit','').replace('/', '');
