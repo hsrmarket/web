@@ -1,8 +1,63 @@
 'use strict';
 
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
 var URL = "http://duernten.forrer.network:9000/api/articles";
+
+var headers = {
+    'Content-Type': "application/json"
+};
+
+module.exports.delete = function (id, callback) {
+    var updateURL = URL  + id;
+
+    var options = {
+        url: updateURL,
+        method: 'DELETE'
+    };
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
+
+module.exports.add = function (data, callback) {
+    var options = {
+        url: URL,
+        method: 'POST',
+        headers: headers,
+        body: data
+    };
+
+    console.log(data);
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
+
+module.exports.get = function (id, callback) {
+    var options = {
+        url: URL + "/" + id,
+        method: 'GET',
+        headers: headers
+    };
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
+
+module.exports.getList = function (url, callback) {
+    var options = {
+        url: URL + url,
+        method: 'GET',
+        headers: headers
+    };
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
 
 module.exports.saveData = function (data, callback) {
     var updateURL = URL + "/" + data.body.id;
@@ -14,7 +69,7 @@ module.exports.saveData = function (data, callback) {
     } else {
         fileName = data.body.oldimage;
     }
-    switch(data.type) {
+    switch(data.body.type) {
         case "book":
             var options = {
                 "id": parseInt(data.body.id),
@@ -60,16 +115,25 @@ module.exports.saveData = function (data, callback) {
     }
 
     var jsonData = JSON.stringify(options);
-
-    var headers = {
-        'Content-Type': "application/json"
-    };
+    console.log(jsonData);
 
     var options = {
         url: updateURL,
         method: 'PUT',
         headers: headers,
         body: jsonData
+    };
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
+
+module.exports.recentArticles = function (callback) {
+    var options = {
+        url: URL + "/recent",
+        method: 'GET',
+        headers: headers
     };
 
     request(options, function (error, response, body) {

@@ -8,9 +8,6 @@ var userController = require('../controller/userController');
 var util = require('../util/security');
 
 router.all('/*', util.handleAuthenticate);
-
-/* User (My Account) */
-
 router.get("/", userController.getMyAccount);
 router.get("/articles", userController.getMyArticle);
 router.get("/sales", userController.getMySales);

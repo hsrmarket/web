@@ -307,3 +307,7 @@ footer figure {
     margin-right: 10px;
     margin-top: 20px;
 }
+
+.error {
+    background-color: indianred;
+}

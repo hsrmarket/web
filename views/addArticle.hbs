@@ -1,0 +1,69 @@
+<div class="col-lg-11 row-l fixed-header fixed-footer">
+    <form method="post" action="/articles/add" enctype="multipart/form-data">
+        <div class="container-fluid">
+            <h1 class="tbl-header">Add a new article to the HSRmarket</h1>
+            <div class="row pad-lft-15">
+                <div class="row width-eighty">
+                    <div class="col-xs-4">
+                        <p><h4 class="d-gray-fnt">Category (Read Only)</h4></p>
+                        <div class="pd-left-10 fnt-sz-18"><input type="text" readonly name="type" value="{{type}}"/></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <p><h4 class="d-gray-fnt">Final price</h4></p>
+                        <div class="pd-left-10"><input type="text" name="price"/></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <p><h4 class="d-gray-fnt">Name</h4></p>
+                        <div class="pd-left-10"><input type="text" name="name"/></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <p><h4 class="d-gray-fnt">Condition</h4></p>
+                        <input name="condition" type="range" step="1" min="0" max="10""/>
+                    </div>
+                </div>
+                <div class="width-eighty art-desc">
+                    <h4 class="d-gray-fnt">Description</h4>
+                    <div>
+                        <div class="pd-left-10"><textarea name="description"></textarea></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <section class="row spec-rw width-eighty">
+            <div>
+                {{#equal type "book"}}
+                    <h2 class="tbl-header">Book Specifications</h2>
+                    <div class="col-xs-4">
+                        <h4 class="d-gray-fnt">ISBN</h4>
+                        <input type="text" name="isbn"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4 class="d-gray-fnt">Publisher</h4>
+                        <input type="text" name="publisher"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4 class="d-gray-fnt">Author</h4>
+                        <input type="text" name="author"/>
+                    </div>
+                {{/equal}}
+                {{#equal type "electronic"}}
+                    <h2 class="tbl-header">Electronic Specifications</h2>
+                    <div class="col-xs-4">
+                        <h4 class="d-gray-fnt">Producer</h4>
+                        <input type="text" name="producer"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4 class="d-gray-fnt">Model</h4>
+                        <input type="text" name="model"/>
+                    </div>
+                {{/equal}}
+            </div>
+
+        </section>
+        <input type="file" name="image"/>
+        <button  class="button large success" type="submit">Add article</button>
+    </form>
+</div>

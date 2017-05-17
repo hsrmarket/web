@@ -1,8 +1,3 @@
-/**
- * Created by felix_2 on 09.05.2017.
- */
-
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
 
 var URL = "http://rest.hsrmarket.ch:9000/api/search";
@@ -25,7 +20,7 @@ module.exports.searchByKey = function (req, res) {
         if (!error && response.statusCode == 200) {
             res.render("showArticles", { search: true , articles : body, username : req.session.username, isadmin : req.session.isadmin});
         } else {
-            console.log(body);
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
     });
 };

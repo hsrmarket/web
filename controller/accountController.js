@@ -2,58 +2,34 @@
  * Created by felix_2 on 03.05.2017.
  */
 
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
-
+var crypto = require('crypto');
+var accountService = require("../service/accountService");
 var URL = "http://duernten.forrer.network:9000/api/accounts";
 
 /* Accounts */
 
-module.exports.registerNewUser = function (req, res) {
+module.exports.getAccountDetailsByID = function (req, res) {
+    var accountURL = req.url;
+    var accountID =  accountURL.replace('/edit','').replace('/', '');
 
-    var options = {
-        uri: URL,
-        method: 'POST',
-        json: {
-            "email": email,
-            "password": password
-        }
-    };
-
-    request(options, function (error, response, body) {
-        console.log("Response from server for login request");
+    accountService.get(accountID, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log(body);
-            callback(body);
+            var data = JSON.parse(body);
+            res.render('editAccount', { data : data, username : req.session.username, isadmin : req.session.isadmin, pageTitle: "Account"});
         } else {
-            console.log(body);
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
     });
 };
 
-module.exports.getAccountDetailsByID = function (req, res) {
-    var http = new XMLHttpRequest();
-    var accountURL = req.url;
-    var accountID =  accountURL.replace('/edit','');
-    var url = URL + accountID;
-    var methode = "GET";
-
-    http.open(methode, url, true);
-    http.setRequestHeader("Content-type", "application/json");
-
-    http.onreadystatechange = function() {
-        if(http.readyState === 4 && http.status === 200) {
-            var data = JSON.parse(http.responseText);
-            res.render('editAccount', { data : data, username : req.session.username, isadmin : req.session.isadmin, pageTitle: "Account"});
-        }
-    };
-    http.send();
-};
-
 module.exports.saveAccountToDB = function (req, res) {
+    var hash = req.body.password;
+    if (req.body.oldpassword != req.body.password) {
+        /* Hash neu berechnen */
+        hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
+    }
 
-    var updateURL = URL + "/" + req.body.id;
-    var password = req.body.password;
     var account = {
         "id": parseInt(req.body.id),
         "studentId": parseInt(req.body.studentId),
@@ -68,55 +44,36 @@ module.exports.saveAccountToDB = function (req, res) {
         },
         "email": req.body.email,
         "telephone": req.body.telephone,
-        "password": password,
+        "password": hash,
         "admin": req.session.isadmin
     };
 
-    var jsonData = JSON.stringify(account);
+    var data = JSON.stringify(account);
 
-    var headers = {
-        'Content-Type': "application/json"
-    };
-
-    var options = {
-        url: updateURL,
-        method: 'PUT',
-        headers: headers,
-        body: jsonData
-    };
-
-    request(options, function (error, response, body) {
+    accountService.save(data, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var redirect = "";
             if (req.session.isadmin) {
                 redirect = "/admin/accounts";
-            }
-            else {
+            }  else {
                 redirect = "/user";
             }
             res.redirect(redirect);
         } else {
-            console.log(response);
-            console.log(body);
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
     });
 };
 
 module.exports.deleteAccount = function (req, res) {
     var accountURL = req.url;
-    var accountID =  accountURL.replace('/delete','');
-    var updateURL = URL  + accountID;
+    var accountID =  accountURL.replace('/delete','').replace('/', '');
 
-    var options = {
-        url: updateURL,
-        method: 'DELETE'
-    };
-
-    request(options, function (error, response, body) {
+    accountService.delete(accountID, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             res.redirect("/admin/accounts");
         } else {
-            console.log(body);
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
     });
 };

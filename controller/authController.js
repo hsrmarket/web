@@ -1,32 +1,32 @@
 'use strict';
 
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var authService = require("../service/authService");
+var accountService = require("../service/accountService");
 var request = require('request');
 var crypto = require('crypto');
 
-var URL = "http://duernten.forrer.network:9000/api";
+module.exports.getLoginPage = function (req, res) {
+    res.render('login', {title : "HSRmarket - Login", css : true});
+};
 
-module.exports.getFrontPage = function (req, res) {
-    res.render("home", {title : "HSRmarket - Home", css : true});
+module.exports.getRegisterPage = function (req, res) {
+    res.render('register', {title : "HSRmarket - Register", css : true});
 };
 
 module.exports.postLogin = function (req, res) {
-
     var hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
-
     if(!req.session.username) {
-        authService.authenticate(req.body.username, hash, function (data) {
-            if(data) {
+        authService.authenticate(req.body.username, hash, function (error, response, data) {
+            if (!error && response.statusCode == 200) {
                 var username = data.email;
                 var userid = data.id;
                 var isAdmin = data.admin;
-                console.log(isAdmin);
-                console.log(typeof isAdmin);
                 req.session.username = username;
                 req.session.userid = userid;
                 req.session.isadmin = isAdmin;
                 res.redirect("/");
+            } else {
+                res.render('login', {title : "HSRmarket - Login", css : true, errortext : "Wrong password or username"});
             }
         });
     } else {
@@ -34,20 +34,8 @@ module.exports.postLogin = function (req, res) {
     }
 };
 
-module.exports.getLogin = function (req, res) {
-    res.render('login', {title : "HSRmarket - Login", css : true});
-};
-
-module.exports.getRegister = function (req, res) {
-    res.render('register', {title : "HSRmarket - Register", css : true});
-};
-
 module.exports.registerUser = function (req, res) {
-
     var hash = crypto.createHash("sha256").update(req.body.password).digest("hex");
-    
-    var updateURL = URL + "/accounts";
-
     var jsonArray = {
         "studentID": parseInt(req.body.studentID),
         "firstname": req.body.firstname,
@@ -62,26 +50,12 @@ module.exports.registerUser = function (req, res) {
         "telephone": req.body.telephone,
         "password": hash
     };
-
-    var jsonData = JSON.stringify(jsonArray);
-    console.log(jsonData);
-
-    var headers = {
-        'Content-Type': "application/json"
-    };
-
-    var options = {
-        url: updateURL,
-        method: 'POST',
-        headers: headers,
-        body: jsonData
-    };
-
-    request(options, function (error, response, body) {
+    var account = JSON.stringify(jsonArray);
+    accountService.add(account, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             res.redirect("/user/login");
         } else {
-            console.log(body);
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
     });
 

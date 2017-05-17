@@ -1,19 +1,8 @@
-/**
- * Created by Urs Forrer on 05.05.2017.
- */
-
-/**
- * Created by felix_2 on 03.05.2017.
- */
-
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var request = require('request');
-
-var URL = "http://duernten.forrer.network:9000/api/purchases";
+var purchaseService = require("../service/purchaseService");
 
 module.exports.addPurchase = function (req, res) {
-    var stringDate = new Date().toISOString().substring(0,10);
-    var options = {
+    var date = new Date().toISOString().substring(0,10);
+    var data = {
          "article": {
              "id": parseInt(req.body.articleid)
          },
@@ -21,28 +10,16 @@ module.exports.addPurchase = function (req, res) {
              "id": parseInt(req.session.userid)
          },
          "completed": false,
-         "purchaseDate": stringDate
+         "purchaseDate": date
      };
 
-    var jsonData = JSON.stringify(options);
+    var purchase = JSON.stringify(data);
 
-    var headers = {
-        'Content-Type': "application/json"
-    };
-
-    var options = {
-        url: URL,
-        method: 'POST',
-        headers: headers,
-        body: jsonData
-    };
-
-    request(options, function (error, response, body) {
-        console.log("Response from server for login request");
+    purchaseService.add(purchase, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             res.redirect("/");
         } else {
-            console.log(body);
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
     });
 };
