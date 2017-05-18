@@ -28,5 +28,11 @@ module.exports.deletePurchase = function (req, res) {
 
 };
 
+module.exports.getReceipt = function (req, res) {
+    var buyer;
+    var seller;
+    
+};
+
 /* Accounts */
 

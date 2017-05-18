@@ -12,5 +12,6 @@ router.all('/*', util.handleAuthenticate);
 /* Account*/
 
 router.post("/", purchaseController.addPurchase);
+router.get("/receipt", purchaseController.getReceipt);
 
 module.exports = router;

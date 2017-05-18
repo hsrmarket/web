@@ -30,3 +30,7 @@ module.exports.delete = function (purchaseID, callback) {
         callback(error, response, body);
     });
 };
+
+module.exports.getInformation = function (error, response, body) {
+
+};
