@@ -13,6 +13,6 @@ router.all('/*', util.handleAuthenticate);
 
 router.post("/", purchaseController.addPurchase);
 
-router.get("/:id", purchaseController.patchStatus);
+router.get("/:id/reciept", purchaseController.patchStatus);
 
 module.exports = router;
