@@ -30,3 +30,17 @@ module.exports.delete = function (purchaseID, callback) {
         callback(error, response, body);
     });
 };
+
+module.exports.patch = function (userID, callback) {
+    console.log("I am here catch me if you can");
+    let options = {
+        url: URL + "/userID",
+        method: 'PATCH'
+    };
+
+    request(options, function (error, response, body) {
+        console.log(error);
+        console.log(body);
+        callback(error, response, body);
+    });
+};

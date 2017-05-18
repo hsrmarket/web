@@ -28,5 +28,17 @@ module.exports.deletePurchase = function (req, res) {
 
 };
 
-/* Accounts */
+module.exports.patchStatus = function (req, res) {
+    var userID = req.param.id;
+
+    console.log("THIS IS MAY CURRENT USERID" + userID);
+
+    purchaseService.patch(userID, function (error, response, body) {
+        if(!error && response.statusCode == 200) {
+            res.redirect("/user/purchases");
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
+        }
+    })
+};
 
