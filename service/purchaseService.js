@@ -31,10 +31,18 @@ module.exports.delete = function (purchaseID, callback) {
     });
 };
 
-module.exports.patch = function (userID, callback) {
+module.exports.patch = function (purchaseID, callback) {
+    console.log("*************************************************");
+    console.log("URL with the purchaseID: " + purchaseID);
+    console.log("THIS IS THE URL: " + URL + "/" + purchaseID);
+
     let options = {
-        url: URL + "/userID",
-        method: 'PATCH'
+        url: URL + "/" + purchaseID,
+        method: 'PATCH',
+        header: headers,
+        body: {
+            "iscompleted" : "true"
+        }
     };
 
     request(options, function (error, response, body) {

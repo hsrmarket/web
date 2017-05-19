@@ -29,11 +29,12 @@ module.exports.deletePurchase = function (req, res) {
 };
 
 module.exports.patchStatus = function (req, res) {
-    var userID = req.param.id;
-    console.log("**************************************************************");
-    console.log("THIS IS MAY CURRENT USERID" + userID);
+    var purchaseID = req.url.substring(req.url.lastIndexOf('/') + 1);
 
-    purchaseService.patch(userID, function (error, response, body) {
+    console.log("///////////////////////////////////////////////////////////////////");
+    console.log("purchaseID: " + purchaseID);
+
+    purchaseService.patch(purchaseID, function (error, response, body) {
         if(!error && response.statusCode == 200) {
             res.redirect("/user/purchases");
         } else {
