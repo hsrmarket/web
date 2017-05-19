@@ -29,10 +29,17 @@ module.exports.deletePurchase = function (req, res) {
 };
 
 module.exports.getReceipt = function (req, res) {
-    var buyer;
-    var seller;
-    
+    var purchaseURL = req.url;
+    var purchaseId =  purchaseURL.replace('/receipt','').replace('/', '');
+
+    purchaseService.getReceiptInforamtion(purchaseId, function (error, response, body) {
+        if(!error && response.statusCode == 200) {
+            var x =JSON.parse(JSON.stringify(body));
+            console.log("this is the byuer: "+ x[1].article);
+            console.log("THIS IS THE BUYER " + body.buyer[id]);
+            res.render('receipt', {info : body });
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
+        }
+    });
 };
-
-/* Accounts */
-

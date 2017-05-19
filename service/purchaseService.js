@@ -31,6 +31,14 @@ module.exports.delete = function (purchaseID, callback) {
     });
 };
 
-module.exports.getInformation = function (error, response, body) {
+module.exports.getReceiptInforamtion = function (purchaseID, callback) {
 
+    var options = {
+        url: URL + "/" + purchaseID,
+        method: 'GET'
+    };
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
 };
