@@ -32,7 +32,6 @@ module.exports.delete = function (purchaseID, callback) {
 };
 
 module.exports.patch = function (userID, callback) {
-    console.log("I am here catch me if you can");
     let options = {
         url: URL + "/userID",
         method: 'PATCH'

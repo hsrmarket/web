@@ -30,7 +30,7 @@ module.exports.deletePurchase = function (req, res) {
 
 module.exports.patchStatus = function (req, res) {
     var userID = req.param.id;
-
+    console.log("**************************************************************");
     console.log("THIS IS MAY CURRENT USERID" + userID);
 
     purchaseService.patch(userID, function (error, response, body) {
