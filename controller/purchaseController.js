@@ -36,7 +36,7 @@ module.exports.getReceipt = function (req, res) {
         if(!error && response.statusCode == 200) {
             var data = JSON.parse(body);
             console.log(data.article);
-            res.render('receipt', {data : data });
+            res.render('receipt', {data : data, title : "HSRmarket - Receipt", username : req.session.username, isadmin : req.session.isadmin});
         } else {
             res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
