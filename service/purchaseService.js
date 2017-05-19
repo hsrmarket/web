@@ -32,22 +32,16 @@ module.exports.delete = function (purchaseID, callback) {
 };
 
 module.exports.patch = function (purchaseID, callback) {
-    console.log("*************************************************");
-    console.log("URL with the purchaseID: " + purchaseID);
-    console.log("THIS IS THE URL: " + URL + "/" + purchaseID);
-
     let options = {
         url: URL + "/" + purchaseID,
         method: 'PATCH',
-        header: headers,
+        headers: headers,
         body: {
-            "id": purchaseID
+            "completed" : true
         }
     };
 
     request(options, function (error, response, body) {
-        console.log(error);
-        console.log(body);
         callback(error, response, body);
     });
 };
