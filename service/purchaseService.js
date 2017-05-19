@@ -41,7 +41,7 @@ module.exports.patch = function (purchaseID, callback) {
         method: 'PATCH',
         header: headers,
         body: {
-            "iscompleted" : "true"
+            "id": purchaseID
         }
     };
 
