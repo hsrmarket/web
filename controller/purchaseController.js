@@ -34,10 +34,9 @@ module.exports.getReceipt = function (req, res) {
 
     purchaseService.getReceiptInforamtion(purchaseId, function (error, response, body) {
         if(!error && response.statusCode == 200) {
-            var x =JSON.parse(JSON.stringify(body));
-            console.log("this is the byuer: "+ x[1].article);
-            console.log("THIS IS THE BUYER " + body.buyer[id]);
-            res.render('receipt', {info : body });
+            var data = JSON.parse(body);
+            console.log(data.article);
+            res.render('receipt', {data : data });
         } else {
             res.render("displayError", { title : "HSRmarket - Error", message : error});
         }
