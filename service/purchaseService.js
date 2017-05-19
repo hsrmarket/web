@@ -30,3 +30,15 @@ module.exports.delete = function (purchaseID, callback) {
         callback(error, response, body);
     });
 };
+
+module.exports.getReceiptInforamtion = function (purchaseID, callback) {
+
+    var options = {
+        url: URL + "/" + purchaseID,
+        method: 'GET'
+    };
+
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};

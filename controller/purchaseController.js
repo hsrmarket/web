@@ -28,5 +28,17 @@ module.exports.deletePurchase = function (req, res) {
 
 };
 
-/* Accounts */
+module.exports.getReceipt = function (req, res) {
+    var purchaseURL = req.url;
+    var purchaseId =  purchaseURL.replace('/receipt','').replace('/', '');
 
+    purchaseService.getReceiptInforamtion(purchaseId, function (error, response, body) {
+        if(!error && response.statusCode == 200) {
+            var data = JSON.parse(body);
+            console.log(data.article);
+            res.render('receipt', {data : data, title : "HSRmarket - Receipt", username : req.session.username, isadmin : req.session.isadmin});
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
+        }
+    });
+};
