@@ -1,26 +1,26 @@
-var request = require('request');
+const request = require('request');
 
-var URL = "http://rest.hsrmarket.ch:9000/api/search";
+const URL = 'http://rest.hsrmarket.ch:9000/api/search';
 
 module.exports.searchByKey = function (req, res) {
-    var searchKey = req.query.search;
-    if (searchKey == null || searchKey == "") {
+    const searchKey = req.query.search;
+    if (searchKey == null || searchKey === '') {
         // Redirect if no parameter is send
-        res.redirect("/");
+        res.redirect('/');
     }
-    var options = {
+    const options = {
         uri: URL,
         method: 'POST',
         json: {
-            "search": searchKey,
-        }
+            search: searchKey,
+        },
     };
 
     request(options, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            res.render("showArticles", { search: true , articles : body, username : req.session.username, isadmin : req.session.isadmin});
+        if (!error && response.statusCode === 200) {
+            res.render('showArticles', { search: true, articles: body, username: req.session.username, isadmin: req.session.isadmin });
         } else {
-            res.render("displayError", { title : "HSRmarket - Error", message : error});
+            res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
     });
 };

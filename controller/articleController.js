@@ -1,61 +1,57 @@
-'use strict';
-
-var request = require('request');
-
-var URL = "http://duernten.forrer.network:9000/api/articles";
-var storageService = require("../service/storageService");
-var articleService = require("../service/articleService");
+const request = require('request');
+const storageService = require('../service/storageService');
+const articleService = require('../service/articleService');
 
 
 module.exports.getArticles = function (req, res) {
     articleService.getList(req.url, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var articles = JSON.parse(body);
-            var title = req.url.split("/").pop();
-            res.render('showArticles', {title : title, articles : articles, username : req.session.username, isadmin : req.session.isadmin});
+        if (!error && response.statusCode === 200) {
+            const articles = JSON.parse(body);
+            const title = req.url.split('/').pop();
+            res.render('showArticles', { title: title, articles: articles, username: req.session.username, isadmin: req.session.isadmin });
         } else {
-            res.render("displayError", { title : "HSRmarket - Error", message : error});
+            res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
     });
 };
 
 function getImageOfArticle(imageFiled) {
-    if (imageFiled == "" || imageFiled == null) {
-        return "/images/icon_q_dooted.png";
+    if (imageFiled === '' || imageFiled == null) {
+        return '/images/icon_q_dooted.png';
 
     } else {
-        return "/articleImages/" + imageFiled;
+        return '/articleImages/' + imageFiled;
     }
-};
+}
 
 module.exports.getArticlesByID = function (req, res) {
-    var articleURL = req.url;
-    var articleID =  articleURL.replace('/','');
+    const articleURL = req.url;
+    const articleID = articleURL.replace('/','');
 
     articleService.get(articleID, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var article = JSON.parse(body);
-            var articleImage = getImageOfArticle(article.image);
-            var title = "HSRmarket - " + article.name;
-            res.render('articleView', {title : title, articles : article, articleImage : articleImage, username : req.session.username, isadmin : req.session.isadmin});
+        if (!error && response.statusCode === 200) {
+            const article = JSON.parse(body);
+            const articleImage = getImageOfArticle(article.image);
+            const title = 'HSRmarket - ' + article.name;
+            res.render('articleView', { title: title, articles: article, articleImage: articleImage, username: req.session.username, isadmin: req.session.isadmin });
         } else {
-            res.render("displayError", { title : "HSRmarket - Error", message : error});
+            res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
     });
 };
 
 module.exports.editArticleByID = function (req, res) {
-    var articleURL = req.url;
-    var articleID =  articleURL.replace('/edit','').replace('/', '');
+    const articleURL = req.url;
+    const articleID = articleURL.replace('/edit', '').replace('/', '');
 
     articleService.get(articleID, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var article = JSON.parse(body);
-            var articleImage = getImageOfArticle(article.image);
-            var title = "HSRmarket - " + article.name;
-            res.render('articleUpdate', {title : title, article : article, username : req.session.username, articleImage : articleImage, isadmin : req.session.isadmin});
+        if (!error && response.statusCode === 200) {
+            const article = JSON.parse(body);
+            const articleImage = getImageOfArticle(article.image);
+            const title = 'HSRmarket - ' + article.name;
+            res.render('articleUpdate', { title: title, article: article, username: req.session.username, articleImage: articleImage, isadmin: req.session.isadmin });
         } else {
-            res.render("displayError", { title : "HSRmarket - Error", message : error});
+            res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
     });
 };
@@ -63,19 +59,19 @@ module.exports.editArticleByID = function (req, res) {
 module.exports.saveArticleToDB = function (req, res) {
     storageService.uploadImageEdit(req, res, function (err, value) {
         if (err) {
-            res.render("displayError", { title : "HSRmarket - Error", message : err});
+            res.render('displayError', { title: 'HSRmarket - Error', message: err });
             return;
         }
         articleService.saveData(value, function (error, response, body) {
-            if (error && response.statusCode != 200) {
-                console.log("ERORR");
+            if (error && response.statusCode !== 200) {
+                console.log('ERORR');
             } else {
-                var redirect = "";
+                var redirect = '';
                 if (req.session.isadmin) {
-                    redirect = "/admin/articles";
+                    redirect = '/admin/articles';
                 }
                 else {
-                    redirect = "/articles/" + req.body.id;
+                    redirect = '/articles/' + req.body.id;
                 }
                 res.redirect(redirect);
             }
@@ -84,78 +80,78 @@ module.exports.saveArticleToDB = function (req, res) {
 };
 
 module.exports.deleteArticle = function (req, res) {
-    var articleURL = req.url;
-    var articleID =  articleURL.replace('/delete','').replace('/', '');
+    const articleURL = req.url;
+    const articleID = articleURL.replace('/delete', '').replace('/', '');
 
     articleService.delete(articleID, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            res.redirect("/admin/articles");
+        if (!error && response.statusCode === 200) {
+            res.redirect('/admin/articles');
         } else {
-            res.render("displayError", { title : "HSRmarket - Error", message : error});
+            res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
-    })
+    });
 };
 
 module.exports.getPreSelectionPage = function (req, res) {
-    res.render('preSelection', {title : "HSRmarket - Preselection Article", username : req.session.username, isadmin : req.session.isadmin});
+    res.render('preSelection', { title: 'HSRmarket - Preselection Article', username: req.session.username, isadmin: req.session.isadmin });
 };
 
 module.exports.getAddPage = function (req, res) {
-    var type = req.query.type;
-    res.render('addArticle', {title : "HSRmarket - Preselection Article", type : req.query.type, username : req.session.username, isadmin : req.session.isadmin});
+    const type = req.query.type;
+    res.render('addArticle', { title: 'HSRmarket - Preselection Article', type: req.query.type, username: req.session.username, isadmin: req.session.isadmin });
 };
 
 module.exports.addArticle = function (req, res) {
     storageService.uploadImageAdd(req, res, function (err, data) {
         if (err) {
-            res.render("displayError", { title : "HSRmarket - Error", message : err});
+            res.render('displayError', { title: 'HSRmarket - Error', message: err });
             return;
         }
-        var fileName = "";
+        var fileName = '';
         if (data.files[0] != null) {
             fileName = data.files[0].originalname;
         }
-        var date = new Date().toISOString().substring(0,10);
+        const date = new Date().toISOString().substring(0, 10);
         switch(data.body.type) {
-            case "book":
+            case 'book':
                 var obj = {
-                    "name": data.body.name,
-                    "price": parseFloat(data.body.price),
-                    "condition": parseInt(data.body.condition),
-                    "description": data.body.description,
-                    "creationDate": date,
-                    "image": fileName,
-                    "type": data.body.type,
-                    "isbn": data.body.isbn,
-                    "author": data.body.author,
-                    "publisher": data.body.publisher,
-                    "createdby" : data.session.userid
+                    name: data.body.name,
+                    price: parseFloat(data.body.price),
+                    condition: parseInt(data.body.condition),
+                    description: data.body.description,
+                    creationDate: date,
+                    image: fileName,
+                    type: data.body.type,
+                    isbn: data.body.isbn,
+                    author: data.body.author,
+                    publisher: data.body.publisher,
+                    createdby: data.session.userid
                 };
                 break;
-            case "electronic":
+            case 'electronic':
                 var obj = {
-                    "name": data.body.name,
-                    "price": parseFloat(data.body.price),
-                    "condition": parseInt(data.body.condition),
-                    "description": data.body.description,
-                    "creationDate": date,
-                    "image": fileName,
-                    "type": data.body.type,
-                    "producer": data.body.producer,
-                    "model": data.body.model,
-                    "createdby" : data.session.userid
+                    name: data.body.name,
+                    price: parseFloat(data.body.price),
+                    condition: parseInt(data.body.condition),
+                    description: data.body.description,
+                    creationDate: date,
+                    image: fileName,
+                    type: data.body.type,
+                    producer: data.body.producer,
+                    model: data.body.model,
+                    createdby: data.session.userid
                 };
                 break;
             default:
                 var obj = {
-                    "name": data.body.name,
-                    "price": parseFloat(data.body.price),
-                    "condition": parseInt(data.body.condition),
-                    "description": data.body.description,
-                    "creationDate": date,
-                    "image": fileName,
-                    "type": data.body.type,
-                    "createdby" : data.session.userid
+                    name: data.body.name,
+                    price: parseFloat(data.body.price),
+                    condition: parseInt(data.body.condition),
+                    description: data.body.description,
+                    creationDate: date,
+                    image: fileName,
+                    type: data.body.type,
+                    createdby: data.session.userid
                 };
                 break;
         }
@@ -163,10 +159,10 @@ module.exports.addArticle = function (req, res) {
         var data = JSON.stringify(obj);
 
         articleService.add(data, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                res.redirect("/");
+            if (!error && response.statusCode === 200) {
+                res.redirect('/');
             } else {
-                res.render("displayError", { title : "HSRmarket - Error", message : error});
+                res.render('displayError', { title: 'HSRmarket - Error', message: error });
                 console.log(response);
                 console.log(body);
             }
