@@ -13,7 +13,6 @@ router.all('/*', util.handleAuthenticate);
 
 router.get('/:id/edit', accountController.getAccountDetailsByID);
 router.post('/:id', accountController.saveAccountToDB);
-router.get('/:id/deconste', accountController.deconsteAccount);
-
+router.get('/:id/delete', accountController.deleteAccount());
 
 module.exports = router;
