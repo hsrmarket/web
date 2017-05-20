@@ -9,8 +9,8 @@ const accountService = require('../service/accountService');
 /* Accounts */
 
 module.exports.getAccountDetailsByID = function (req, res) {
-    const accountURL = req.url;
-    const accountID = accountURL.replace('/edit', '').replace('/', '');
+    var accountURL = req.url;
+    var accountID = accountURL.replace('/edit', '').replace('/', '');
 
     accountService.get(accountID, function (error, response, body) {
         if (!error && response.statusCode === 200) {
@@ -24,7 +24,7 @@ module.exports.getAccountDetailsByID = function (req, res) {
 
 module.exports.saveAccountToDB = function (req, res) {
     var hash = req.body.password;
-    if (req.body.oldpassword != req.body.password) {
+    if (req.body.oldpassword !== req.body.password) {
         /* Hash neu berechnen */
         hash = crypto.createHash('sha256').update(req.body.password).digest('hex');
     }
@@ -39,15 +39,15 @@ module.exports.saveAccountToDB = function (req, res) {
             street: req.body.street,
             streetNr: req.body.streetNr,
             zip: parseInt(req.body.zip),
-            city: req.body.city
+            city: req.body.city,
         },
         email: req.body.email,
         telephone: req.body.telephone,
         password: hash,
-        admin: req.session.isadmin
+        admin: req.session.isadmin,
     };
 
-    const data = JSON.stringify(account);
+    var data = JSON.stringify(account);
 
     accountService.save(data, function (error, response, body) {
         if (!error && response.statusCode === 200) {
@@ -65,8 +65,8 @@ module.exports.saveAccountToDB = function (req, res) {
 };
 
 module.exports.deleteAccount = function (req, res) {
-    const accountURL = req.url;
-    const accountID = accountURL.replace('/delete', '').replace('/', '');
+    var accountURL = req.url;
+    var accountID = accountURL.replace('/delete', '').replace('/', '');
 
     accountService.delete(accountID, function (error, response, body) {
         if (!error && response.statusCode === 200) {

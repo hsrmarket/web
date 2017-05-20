@@ -1,17 +1,15 @@
-'use strict';
+const request = require('request');
+const URL = 'http://duernten.forrer.network:9000/api/user';
 
-var request = require('request');
-var URL = "http://duernten.forrer.network:9000/api/user";
-
-var headers = {
-    'Content-Type': "application/json"
+const headers = {
+    'Content-Type': 'application/json',
 };
 
 module.exports.getArticles = function (userid, callback) {
-    var options = {
-        url: URL + "/" + userid + "/articles",
+    const options = {
+        url: URL + '/' + userid + '/articles',
         method: 'GET',
-        headers: headers
+        headers: headers,
     };
 
     request(options, function (error, response, body) {
@@ -20,10 +18,10 @@ module.exports.getArticles = function (userid, callback) {
 };
 
 module.exports.getPurchases = function (userid, callback) {
-    var options = {
-        url: URL + "/" + userid + "/purchases",
+    const options = {
+        url: URL + '/' + userid + '/purchases',
         method: 'GET',
-        headers: headers
+        headers: headers,
     };
 
     request(options, function (error, response, body) {
@@ -32,10 +30,10 @@ module.exports.getPurchases = function (userid, callback) {
 };
 
 module.exports.getSales = function (userid, callback) {
-    var options = {
-        url: URL + "/" + userid + "/sales",
+    const options = {
+        url: URL + '/' + userid + '/sales',
         method: 'GET',
-        headers: headers
+        headers: headers,
     };
 
     request(options, function (error, response, body) {
