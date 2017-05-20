@@ -9,27 +9,27 @@ const accountService = require('../service/accountService');
 /* Accounts */
 
 module.exports.getAccountDetailsByID = function (req, res) {
-    var accountURL = req.url;
-    var accountID = accountURL.replace('/edit', '').replace('/', '');
+    const accountURL = req.url;
+    const accountID = accountURL.replace('/edit', '').replace('/', '');
 
     accountService.get(accountID, function (error, response, body) {
         if (!error && response.statusCode === 200) {
             let data = JSON.parse(body);
             res.render('editAccount', { data: data, username: req.session.username, isadmin: req.session.isadmin, pageTitle: 'Account' });
         } else {
-            res.render('displayError', { title : 'HSRmarket - Error', message : error });
+            res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
     });
 };
 
 module.exports.saveAccountToDB = function (req, res) {
-    var hash = req.body.password;
+    let hash = req.body.password;
     if (req.body.oldpassword !== req.body.password) {
         /* Hash neu berechnen */
         hash = crypto.createHash('sha256').update(req.body.password).digest('hex');
     }
 
-    var account = {
+    const account = {
         id: parseInt(req.body.id),
         studentId: parseInt(req.body.studentId),
         firstname: req.body.firstname,
@@ -47,7 +47,7 @@ module.exports.saveAccountToDB = function (req, res) {
         admin: req.session.isadmin,
     };
 
-    var data = JSON.stringify(account);
+    const data = JSON.stringify(account);
 
     accountService.save(data, function (error, response, body) {
         if (!error && response.statusCode === 200) {
@@ -65,8 +65,8 @@ module.exports.saveAccountToDB = function (req, res) {
 };
 
 module.exports.deleteAccount = function (req, res) {
-    var accountURL = req.url;
-    var accountID = accountURL.replace('/delete', '').replace('/', '');
+    const accountURL = req.url;
+    const accountID = accountURL.replace('/delete', '').replace('/', '');
 
     accountService.delete(accountID, function (error, response, body) {
         if (!error && response.statusCode === 200) {
