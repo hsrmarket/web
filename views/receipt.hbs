@@ -1,0 +1,66 @@
+<div class="col-lg-11 row-l fixed-header fixed-footer">
+    <form>
+        <div class="container-fluid">
+            <h1 class="tbl-header">Receipt</h1>
+
+            <div class="row pad-lft-15">
+                <div class="row width-eighty">
+                    <div class="col-xs-4">
+                        <p><h4 class="d-gray-fnt">Buyer</h4></p>
+                        <p>{{data.buyer.firstname}} {{data.buyer.lastname}}</p>
+                        <p>{{data.buyer.address.street}} {{data.buyer.address.streetNr}}</p>
+                        <p>{{data.buyer.address.zip}} {{data.buyer.address.city}}</p>
+                        <p>{{data.buyer.telephone}} - {{data.buyer.email}}</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p><h4 class="d-gray-fnt">Seller</h4></p>
+                        <p>{{data.seller.firstname}} {{data.seller.lastname}}</p>
+                        <p>{{data.seller.address.street}} {{data.seller.address.streetNr}}</p>
+                        <p>{{data.seller.address.zip}} {{data.seller.address.city}}</p>
+                        <p>{{data.seller.telephone}} - {{data.seller.email}}</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Dear {{data.buyer.firstname}} {{data.buyer.lastname}},  you have purchased the following article </p>
+                </div>
+            </div>
+            <div class="row pad-lft-15">
+                <div class="row width-eighty">
+                    <div class="col-xs-8">
+                        <p>Name of the article: {{data.article.name}}</p>
+                        <p>Description of the article: {{data.article.description}}</p>
+                        <p>Price: {{data.article.price}}</p>
+                        <p>Type: {{data.article.type}}</p>
+
+                    </div>
+                </div>
+                <div class="row width-eighty">
+                    <div class="col-xs-8">
+                        <p>Please arrange the handover with the seller (shown in the right upper corner). The two followed can be used for
+                            signatures in the handover process.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row pad-lft-15">
+                <div class="row width-eighty">
+                    <div class="col-xs-6">
+                        <p>Buyer, {{data.buyer.firstname}} {{data.buyer.lastname}}</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p>Seller, {{data.seller.firstname}} {{data.seller.lastname}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="row spec-rw width-eighty">
+            <div><h4 class="tbl-header">Legal informations</h4></div>
+            <p>HSRmarket does not take over any warranty of the products. They are bought as seen in the picture and written in the description.
+               Who the article is paid, is in the responsiblity of the seller. We suggest to arrange a appointment, were you as buyer can see the product
+               in real life and when it is good, you pay the seller with money directly. If you pay it in advance you have a potential risk (but we hope that the
+               HSR Students aren't that unethical.</p>
+        </section>
+    </form>
+</div>

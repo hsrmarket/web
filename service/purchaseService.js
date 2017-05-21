@@ -40,6 +40,18 @@ module.exports.patch = function (purchaseID, callback) {
         method: 'PATCH',
         headers: headers,
         body: JSON.stringify(change)
+      
+     };
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
+
+module.exports.getReceiptInforamtion = function (purchaseID, callback) {
+
+    var options = {
+        url: URL + "/" + purchaseID,
+        method: 'GET'
     };
 
     request(options, function (error, response, body) {

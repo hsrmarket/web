@@ -12,6 +12,7 @@
                         <th class="art-tbl-right">Category</th>
                         <th class="art-tbl-right">Price</th>
                         <th class="art-tbl-right"></th>
+                        <th class="art-tbl-right"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,9 @@
                                     <a type="button" class="btn tbl-btn" href="/purchases/{{id}}">Mark purchase as completed.</a>
                                 </td>
                             {{/if}}
+                            <td class="art-tbl-right">
+                                <a type="button" class="btn tbl-btn" href="/purchases/{{id}}/receipt">receipt</a>
+                            </td>
                         </tr>
                     {{/each}}
                     </tbody>
