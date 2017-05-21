@@ -24,10 +24,6 @@ module.exports.addPurchase = function (req, res) {
     });
 };
 
-module.exports.deletePurchase = function (req, res) {
-
-};
-
 module.exports.patchStatus = function (req, res) {
     var purchaseID = req.url.substring(req.url.lastIndexOf('/') + 1);
 

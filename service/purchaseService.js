@@ -32,13 +32,14 @@ module.exports.delete = function (purchaseID, callback) {
 };
 
 module.exports.patch = function (purchaseID, callback) {
-    let options = {
+    const change = {
+        "completed" : true
+    };
+    const options = {
         url: URL + "/" + purchaseID,
         method: 'PATCH',
         headers: headers,
-        body: {
-            "completed" : true
-        }
+        body: JSON.stringify(change)
     };
 
     request(options, function (error, response, body) {

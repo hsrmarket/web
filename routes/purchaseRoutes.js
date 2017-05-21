@@ -12,7 +12,6 @@ router.all('/*', util.handleAuthenticate);
 /* Account*/
 
 router.post("/", purchaseController.addPurchase);
-
 router.get("/:id", purchaseController.patchStatus);
 
 module.exports = router;

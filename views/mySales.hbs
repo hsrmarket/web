@@ -1,6 +1,7 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
     <section class="container-fluid">
         <h1 class="tbl-header">My Sales</h1>
+        <p>This view is showing you all articles that you have solded to other HSRmarket users.</p>
         <div class="row marg-left-0">
             <div>
                 <table class="table width-eighty">
@@ -16,10 +17,10 @@
                         <tbody>
                         {{#each sales}}
                             <tr>
-                                <td class="art-tbl-left">{{name}}</td>
-                                <td class="width-fifty">{{description}}</td>
-                                <td class="art-tbl-right">{{type}}</td>
-                                <td class="art-tbl-right">{{price}}</td>
+                                <td class="art-tbl-left">{{article.name}}</td>
+                                <td class="width-fifty">{{article.description}}</td>
+                                <td class="art-tbl-right">{{article.type}}</td>
+                                <td class="art-tbl-right">{{article.price}}</td>
                                 <td class="art-tbl-right"></td>
                             </tr>
                         {{/each}}

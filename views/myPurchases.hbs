@@ -1,6 +1,7 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
     <section class="container-fluid">
         <h1 class="tbl-header">My purchases</h1>
+        <p>All purchases are displayed here. If got the good and handover the money to the seller, you can complete the purchase.</p>
         <div class="row marg-left-0">
             <div>
                 <table class="table width-eighty">
@@ -16,13 +17,17 @@
                     <tbody>
                     {{#each articles}}
                         <tr>
-                            <td class="art-tbl-left">{{name}}</td>
-                            <td class="width-fifty">{{description}}</td>
-                            <td class="art-tbl-right">{{type}}</td>
-                            <td class="art-tbl-right">{{price}}</td>
-                            <td class="art-tbl-right">
-                                <a type="button" class="btn tbl-btn" href="/purchases/{{id}}">Change status</a>
-                            </td>
+                            <td class="art-tbl-left">{{article.name}}</td>
+                            <td class="width-fifty">{{article.description}}</td>
+                            <td class="art-tbl-right">{{article.type}}</td>
+                            <td class="art-tbl-right">{{article.price}}</td>
+                            {{#if completed}}
+                            <td class="art-tbl-right">Purchase is complete.</td>
+                            {{else}}
+                                <td class="art-tbl-right">
+                                    <a type="button" class="btn tbl-btn" href="/purchases/{{id}}">Mark purchase as completed.</a>
+                                </td>
+                            {{/if}}
                         </tr>
                     {{/each}}
                     </tbody>
