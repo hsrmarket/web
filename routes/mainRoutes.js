@@ -1,9 +1,7 @@
-'use strict';
+const express = require('express');
+const router = express.Router();
 
-var express = require('express');
-var router = express.Router();
-
-var mainController = require('../controller/mainController');
+const mainController = require('../controller/mainController');
 
 router.get('/', mainController.getIndexPage);
 router.get('/home', mainController.getHomePage);

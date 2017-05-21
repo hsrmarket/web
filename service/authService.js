@@ -1,18 +1,18 @@
 /**
  * Created by felix_2 on 28.04.2017.
  */
-'use strict';
-var crypto = require('crypto');
-var request = require('request');
+
+const crypto = require('crypto');
+const request = require('request');
 
 function authentication(email, password, callback) {
-    var hash = crypto.createHash('sha256').update(password).digest('hex');
-    var options = {
-        uri: "http://duernten.forrer.network:9000/api/user/login",
+    const hash = crypto.createHash('sha256').update(password).digest('hex');
+    const options = {
+        uri: 'http://duernten.forrer.network:9000/api/user/login',
         method: 'POST',
         json: {
-            "email": email,
-            "password": password
+            email: email,
+            password: password,
         }
     };
 

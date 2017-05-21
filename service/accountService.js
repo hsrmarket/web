@@ -1,17 +1,15 @@
-'use strict';
+const request = require('request');
+const URL = 'http://duernten.forrer.network:9000/api/accounts';
 
-var request = require('request');
-var URL = "http://duernten.forrer.network:9000/api/accounts";
-
-var headers = {
-    'Content-Type': "application/json"
+const headers = {
+    'Content-Type': 'application/json',
 };
 
 module.exports.getList = function (callback) {
-    var options = {
+    const options = {
         url: URL,
         method: 'GET',
-        headers: headers
+        headers: headers,
     };
 
     request(options, function (error, response, body) {
@@ -20,10 +18,10 @@ module.exports.getList = function (callback) {
 };
 
 module.exports.get = function (accountID, callback) {
-    var options = {
-        url: URL + "/" + accountID,
+    const options = {
+        url: URL + '/' + accountID,
         method: 'GET',
-        headers: headers
+        headers: headers,
     };
 
     request(options, function (error, response, body) {
@@ -32,9 +30,9 @@ module.exports.get = function (accountID, callback) {
 };
 
 module.exports.delete = function (accountID, callback) {
-    var options = {
-        url: URL + "/" + accountID,
-        method: 'DELETE'
+    const options = {
+        url: URL + '/' + accountID,
+        method: 'DELETE',
     };
 
     request(options, function (error, response, body) {
@@ -43,11 +41,11 @@ module.exports.delete = function (accountID, callback) {
 };
 
 module.exports.save = function (data, callback) {
-    var options = {
-        url: URL + "/" + data.id,
+    const options = {
+        url: URL + '/' + data.id,
         method: 'PUT',
         headers: headers,
-        body: data
+        body: data,
     };
 
     request(options, function (error, response, body) {
@@ -56,11 +54,11 @@ module.exports.save = function (data, callback) {
 };
 
 module.exports.add = function (data, callback) {
-    var options = {
+    const options = {
         url: URL,
         method: 'POST',
         headers: headers,
-        body: data
+        body: data,
     };
     request(options, function (error, response, body) {
         callback(error, response, body);

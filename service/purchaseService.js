@@ -1,18 +1,16 @@
-'use strict';
-
-var request = require('request');
-var URL = "http://duernten.forrer.network:9000/api/purchases";
+const request = require('request');
+const URL = 'http://duernten.forrer.network:9000/api/purchases';
 
 var headers = {
-    'Content-Type': "application/json"
+    'Content-Type': 'application/json',
 };
 
 module.exports.add = function (data, callback) {
-    var options = {
+    const options = {
         url: URL,
         method: 'POST',
         headers: headers,
-        body: data
+        body: data,
     };
 
     request(options, function (error, response, body) {
@@ -21,9 +19,9 @@ module.exports.add = function (data, callback) {
 };
 
 module.exports.delete = function (purchaseID, callback) {
-    var options = {
-        url: URL + "/" + purchaseID,
-        method: 'DELETE'
+    const options = {
+        url: URL + '/' + purchaseID,
+        method: 'DELETE',
     };
 
     request(options, function (error, response, body) {
@@ -49,9 +47,9 @@ module.exports.patch = function (purchaseID, callback) {
 
 module.exports.getReceiptInforamtion = function (purchaseID, callback) {
 
-    var options = {
-        url: URL + "/" + purchaseID,
-        method: 'GET'
+    const options = {
+        url: URL + '/' + purchaseID,
+        method: 'GET',
     };
 
     request(options, function (error, response, body) {
