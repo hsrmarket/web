@@ -29,6 +29,22 @@ module.exports.delete = function (purchaseID, callback) {
     });
 };
 
+module.exports.patch = function (purchaseID, callback) {
+    const change = {
+        "completed" : true
+    };
+    const options = {
+        url: URL + "/" + purchaseID,
+        method: 'PATCH',
+        headers: headers,
+        body: JSON.stringify(change)
+      
+     };
+    request(options, function (error, response, body) {
+        callback(error, response, body);
+    });
+};
+
 module.exports.getReceiptInforamtion = function (purchaseID, callback) {
 
     const options = {

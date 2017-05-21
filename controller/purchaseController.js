@@ -24,8 +24,16 @@ module.exports.addPurchase = function (req, res) {
     });
 };
 
-module.exports.deletePurchase = function (req, res) {
+module.exports.patchStatus = function (req, res) {
+    var purchaseID = req.url.substring(req.url.lastIndexOf('/') + 1);
 
+    purchaseService.patch(purchaseID, function (error, response, body) {
+        if(!error && response.statusCode == 200) {
+            res.redirect("/user/purchases");
+        } else {
+            res.render("displayError", { title : "HSRmarket - Error", message : error});
+        }
+    })
 };
 
 module.exports.getReceipt = function (req, res) {
