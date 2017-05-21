@@ -1,7 +1,3 @@
-/**
- * Created by Urs Forrer on 05.05.2017.
- */
-
 const express = require('express');
 const router = express.Router();
 const purchaseController = require('../controller/purchaseController');

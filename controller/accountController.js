@@ -1,6 +1,4 @@
-/**
- * Created by felix_2 on 03.05.2017.
- */
+"use strict"
 
 const request = require('request');
 const crypto = require('crypto');
@@ -65,7 +63,7 @@ module.exports.saveAccountToDB = function (req, res) {
 };
 
 module.exports.deleteAccount = function (req, res) {
-    const accountURL = req.url;
+    var accountURL = req.url;
     const accountID = accountURL.replace('/delete', '').replace('/', '');
 
     accountService.delete(accountID, function (error, response, body) {

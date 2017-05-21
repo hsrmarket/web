@@ -1,7 +1,3 @@
-/**
- * Created by felix_2 on 03.05.2017.
- */
-
 const express = require('express');
 const router = express.Router();
 const accountController = require('../controller/accountController');
@@ -13,6 +9,6 @@ router.all('/*', util.handleAuthenticate);
 
 router.get('/:id/edit', accountController.getAccountDetailsByID);
 router.post('/:id', accountController.saveAccountToDB);
-router.get('/:id/delete', accountController.deleteAccount());
+router.get('/:id/delete', accountController.deleteAccount);
 
 module.exports = router;
