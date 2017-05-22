@@ -1,6 +1,7 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
     <form method="post" action="/articles/{{article.id}}/edit" enctype="multipart/form-data">
         <input type="text" hidden="hidden" name="id" value="{{article.id}}"/>
+        <input type="text" hidden="hidden" name="type" value="{{article.type}}"/>
         <input type="text" hidden="hidden" name="name" value="{{article.name}}"/>
         <input type="text" hidden="hidden" name="creationDate" value="{{article.creationDate}}"/>
         <input type="text" hidden="hidden" name="oldimage" value="{{article.image}}"/>

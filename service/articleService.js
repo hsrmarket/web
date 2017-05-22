@@ -6,7 +6,7 @@ const headers = {
 };
 
 module.exports.delete = function (id, callback) {
-    var updateURL = URL + id;
+    var updateURL = URL + '/' + id;
 
     var options = {
         url: updateURL,

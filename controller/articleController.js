@@ -64,7 +64,7 @@ module.exports.saveArticleToDB = function (req, res) {
         }
         articleService.saveData(value, function (error, response, body) {
             if (error && response.statusCode !== 200) {
-                console.log('ERORR');
+                console.log('ERROR');
             } else {
                 var redirect = '';
                 if (req.session.isadmin) {
@@ -84,6 +84,8 @@ module.exports.deleteArticle = function (req, res) {
     const articleID = articleURL.replace('/delete', '').replace('/', '');
 
     articleService.delete(articleID, function (error, response, body) {
+        console.log(response);
+        console.log(body);
         if (!error && response.statusCode === 200) {
             res.redirect('/admin/articles');
         } else {
@@ -103,7 +105,6 @@ module.exports.getAddPage = function (req, res) {
 
 module.exports.addArticle = function (req, res) {
     storageService.uploadImageAdd(req, res, function (err, data) {
-        //console.log(err);
         if (err) {
             res.render('displayError', { title: 'HSRmarket - Error', message: err });
             return;
