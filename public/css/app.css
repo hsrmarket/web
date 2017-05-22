@@ -39,6 +39,23 @@ body {
     color: white;
 }
 
+.art-edit-btn {
+    background-color: #8bc34a;
+    border: 0;
+    border-radius: 0;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 121px;
+}
+
+.presel-btn {
+    background-color: #8bc34a;
+    border: 0;
+    border-radius: 0;
+    color: white;
+}
+
 .login_content > form > a {
     width: 100%;
     font-weight: bold;
@@ -53,6 +70,13 @@ body {
     height: 50px;
     border: 0;
     border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.art-input {
+    width: 100%;
+    height: 40px;
     box-shadow: none;
     -webkit-box-shadow: none;
 }
@@ -151,6 +175,11 @@ body {
 
 .srch-field {
     padding-right: 0px;
+}
+
+.art-edit-btm {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .btn-cont {
@@ -255,10 +284,25 @@ body {
     color: grey;
 }
 
+.pd-tp-10 {
+    padding-top: 10px;
+}
+
 .pd-left-10 {
     padding-left: 10px;
 }
 
+.pd-left-0 {
+    padding-left: 0px;
+}
+
+.pd-right-0 {
+    padding-right: 0px;
+}
+
+.pd-left-15 {
+    padding-left: 15px;
+}
 
 .pd-left-100 {
     padding-left: 100px;
