@@ -4,38 +4,47 @@
             <h1 class="tbl-header">Receipt</h1>
 
             <div class="row pad-lft-15">
-                <div class="row width-eighty">
-                    <div class="col-xs-4">
+                <div class="row width-eighty pd-btm-30">
+                    <div class="col-xs-6">
                         <p><h4 class="d-gray-fnt">Buyer</h4></p>
-                        <p>{{data.buyer.firstname}} {{data.buyer.lastname}}</p>
-                        <p>{{data.buyer.address.street}} {{data.buyer.address.streetNr}}</p>
-                        <p>{{data.buyer.address.zip}} {{data.buyer.address.city}}</p>
-                        <p>{{data.buyer.telephone}} - {{data.buyer.email}}</p>
+                        <div class="pd-left-10">
+                            <p>{{data.buyer.firstname}} {{data.buyer.lastname}}</br>
+                            {{data.buyer.address.street}} {{data.buyer.address.streetNr}}</br>
+                            {{data.buyer.address.zip}} {{data.buyer.address.city}}</br>
+                            {{data.buyer.telephone}} - {{data.buyer.email}}</p>
+                        </div>
                     </div>
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                         <p><h4 class="d-gray-fnt">Seller</h4></p>
-                        <p>{{data.seller.firstname}} {{data.seller.lastname}}</p>
-                        <p>{{data.seller.address.street}} {{data.seller.address.streetNr}}</p>
-                        <p>{{data.seller.address.zip}} {{data.seller.address.city}}</p>
-                        <p>{{data.seller.telephone}} - {{data.seller.email}}</p>
+                        <div class="pd-left-10">
+                            <p>{{data.seller.firstname}} {{data.seller.lastname}}</br>
+                            {{data.seller.address.street}} {{data.seller.address.streetNr}}</br>
+                            {{data.seller.address.zip}} {{data.seller.address.city}}</br>
+                            {{data.seller.telephone}} - {{data.seller.email}}</p>
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <p>Dear {{data.buyer.firstname}} {{data.buyer.lastname}},  you have purchased the following article </p>
+                    <p>Dear <b>{{data.buyer.firstname}} {{data.buyer.lastname}}</b>,  you have purchased the following article </p>
                 </div>
             </div>
             <div class="row pad-lft-15">
                 <div class="row width-eighty">
-                    <div class="col-xs-8">
-                        <p>Name of the article: {{data.article.name}}</p>
-                        <p>Description of the article: {{data.article.description}}</p>
-                        <p>Price: {{data.article.price}}</p>
-                        <p>Type: {{data.article.type}}</p>
-
+                    <div class="col-xs-4">
+                        <p><b>Name of the article:</b></p>
+                        <p><b>Description of the article:</b></p>
+                        <p><b>Price:</b></p>
+                        <p><b>Type:</b></p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p>{{data.article.name}}</p>
+                        <p>{{data.article.description}}</p>
+                        <p>{{data.article.price}}</p>
+                        <p>{{data.article.type}}</p>
                     </div>
                 </div>
                 <div class="row width-eighty">
-                    <div class="col-xs-8">
+                    <div class="col-xs-8 pd-btm-10">
                         <p>Please arrange the handover with the seller (shown in the right upper corner). The two followed can be used for
                             signatures in the handover process.</p>
                     </div>
@@ -43,13 +52,17 @@
 
             </div>
 
-            <div class="row pad-lft-15">
+            <div class="row pad-lft-15 pd-btm-30 pd-tp-rec">
                 <div class="row width-eighty">
                     <div class="col-xs-6">
-                        <p>Buyer, {{data.buyer.firstname}} {{data.buyer.lastname}}</p>
+                        <div class="brd-tp">
+                            <p><b>Buyer,</b> {{data.buyer.firstname}} {{data.buyer.lastname}}</p>
+                        </div>
                     </div>
                     <div class="col-xs-6">
-                        <p>Seller, {{data.seller.firstname}} {{data.seller.lastname}}</p>
+                        <div class="brd-tp">
+                            <p><b>Seller,</b> {{data.seller.firstname}} {{data.seller.lastname}}</p>
+                        </div>
                     </div>
                 </div>
             </div>

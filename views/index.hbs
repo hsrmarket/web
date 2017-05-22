@@ -17,19 +17,27 @@
             <div class="row">
                 <div class="col-xs-3 index-green">
                     <a class="btn btn-lg btn-block btn-huge index-btn" href="/articles/books">
-                        <span class="glyphicon glyphicon-book"></span></br>Books</a>
+                        <span class="glyphicon glyphicon-book glyphicon-lg"></span></br>
+                        <p>Books</p>
+                    </a>
                 </div>
                 <div class="col-xs-3">
                     <a class="btn btn-lg btn-block btn-huge index-btn" href="/articles/electronics">
-                        <span class="glyphicon glyphicon-phone"></span></br>Electronics</a>
+                        <span class="glyphicon glyphicon-phone glyphicon-lg"></span></br>
+                        <p>Electronics</p>
+                    </a>
                 </div>
                 <div class="col-xs-3">
                     <a class="btn btn-lg btn-block btn-huge index-btn" href="/articles/officesupplies">
-                        <span class="glyphicon glyphicon-pencil"></span></br>Office supplies</a>
+                        <span class="glyphicon glyphicon-pencil glyphicon-lg"></span></br>
+                        <p>Office supplies</p>
+                    </a>
                 </div>
                 <div class="col-xs-3">
                     <a  class="btn btn-lg btn-block btn-huge index-btn" href="/articles/other">
-                        <span class="glyphicon glyphicon-asterisk"></span></br>Other</a>
+                        <span class="glyphicon glyphicon-asterisk glyphicon-lg"></span></br>
+                        <p>Other</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -40,17 +48,17 @@
                 <h1>Recent articles in the market</h1>
             </header>
             {{#if articles.length}}
-                <table >
+                <table class="table width-fifty">
                     <thead>
                     <tr class="hidden">
-                        <th>ID</th>
-                        <th>Article</th>
+                        <th class="art-tbl-right">ID</th>
+                        <th >Article</th>
                     </tr>
                     </thead>
                     <tbody>
                     {{#each articles}}
                         <tr>
-                            <td><a href="/articles/{{id}}">{{id}}</a></td>
+                            <td class="art-tbl-right"><a href="/articles/{{id}}">{{id}}</a></td>
                             <td>{{name}}</td>
                         </tr>
                     {{/each}}

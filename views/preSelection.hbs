@@ -1,15 +1,15 @@
 <div class="col-lg-11 row-l fixed-header fixed-footer">
-    <div class="container-fluid">
-        <h1>Select the type</h1>
+    <div class="container-fluid pd-left-10">
+        <h1 class="tbl-header">Select the type</h1>
         <p>Please select the type of the article, which you would like to add and then press next to take the next step.</p>
         <form method="get" action="/articles/add">
             <select name="type">
                     <option name="book" value="book" selected>Book</option>
-                    <option name="electronic" value="electronic">Electorinic</option>
+                    <option name="electronic" value="electronic">Electronic</option>
                     <option name="officesupplie" value="officesupplie">Office Supplie</option>
                     <option name="other" value="other">Other</option>
             </select>
-            <button  class="button large success" type="submit">Next</button>
+            <button  class="presel-btn" type="submit">Next</button>
         </form>
     </div>
 </div>
