@@ -288,6 +288,10 @@ body {
     padding-top: 10px;
 }
 
+.pd-tp-rec {
+    padding-top: 50px;
+}
+
 .pd-left-10 {
     padding-left: 10px;
 }
@@ -375,4 +379,8 @@ footer figure {
 
 .error {
     background-color: indianred;
+}
+
+.brd-tp {
+    border-top: solid;
 }
