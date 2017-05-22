@@ -30,8 +30,19 @@ body {
     margin-top: 20px;
 }
 
+
 .login_content > form > button {
     font-weight: bold;
+    background-color: #8bc34a;
+    border: 0;
+    border-radius: 0;
+    color: white;
+}
+
+.login_content > form > a {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 20px;
     background-color: #8bc34a;
     border: 0;
     border-radius: 0;
@@ -53,8 +64,9 @@ body {
 }
 
 .login_content > img {
+    margin: auto;
+    display: block;
     width: 100px;
-    margin-left: 41%;
 }
 
 .login_content > h2 {
@@ -254,6 +266,10 @@ body {
 .mrg-btm {
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.mrg-btm-tw {
+    margin-bottom: 20px;
 }
 
 .wdth-hun {
