@@ -1,9 +1,9 @@
-<div class="col-lg-11 row-l pd-left-100 width-eighty fixed-header fixed-footer">
-    <section class="row">
-        <div class="column">
+<div class="col-lg-11 row-l width-eighty fixed-header fixed-footer">
+    <section class="row container-fluid">
+        <div class="column pd-left-10">
             <h1 class="tbl-header">{{pageTitle}} - {{data.firstname}} {{data.lastname}}</h1>
         </div>
-            <form action="/accounts/{{userid}}" method="post">
+            <form class="pd-left-10" action="/accounts/{{userid}}" method="post">
                 {{> accountform}}
                 <div>
                     <button  class="btn tbl-btn type="submit">Save changes</button>
