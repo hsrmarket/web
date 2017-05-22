@@ -4,10 +4,11 @@
 
 const multer = require('multer');
 const fs = require('fs');
+const path = require('path');
 
 const storage = multer.diskStorage({
     destination: function (request, file, callback) {
-        callback(null, '../public/articleImages');
+        callback(null, path.join(__dirname, '../', 'public/articleImages'));
     },
     filename: function (request, file, callback) {
         console.log(file);
@@ -23,7 +24,8 @@ module.exports.uploadImageEdit = function (req, res, callback) {
         if (req.files[0] != null) {
             if ((req.files[0].originalname !== '' || req.files[0].originalname != null) && (req.files[0].originalname !== req.body.oldimage) && (req.body.oldimage.toString() !== '')) {
                 console.log('DELETING OLD FILE');
-                var fileToDelete = '../public/articleImages/' + req.body.oldimage;
+                const relpath = path.join(__dirname, '../', 'public/articleImages');
+                const fileToDelete = relpath + '/' + req.body.oldimage;
                 fs.unlink(fileToDelete, function (err) {
                     if (err) {
                         res.render('displayError', { title: 'HSRmarket - Error', message: err });
