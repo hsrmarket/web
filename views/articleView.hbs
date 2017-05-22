@@ -14,10 +14,10 @@
                </div>
                <div class="col-xs-4">
                     <p><h4 class="d-gray-fnt">Final price</h4></p>
-                    <div class="pd-left-10">{{articles.price}}</div>
+                    <div class="pd-left-10">{{articles.price}} Fr.</div>
                </div>
                <div class="col-xs-4">
-                   <p><h4 class="d-gray-fnt">Module</h4></p>
+                   <p><h4 class="d-gray-fnt">Name</h4></p>
                    <div class="pd-left-10">{{articles.name}}</div>
                </div>
                <div class="col-xs-4">
@@ -41,26 +41,26 @@
                 <h2 class="tbl-header">Book Specifications</h2>
             <div class="col-xs-4">
                 <h4 class="d-gray-fnt">ISBN</h4>
-                    {{articles.isbn}}
+                <div class="pd-left-10"><p>{{articles.isbn}}</p></div>
             </div>
             <div class="col-xs-4">
-                    <h4 class="d-gray-fnt">publisher</h4>
-                    {{articles.plus}}
+                <h4 class="d-gray-fnt">publisher</h4>
+                <div class="pd-left-10"><p>{{articles.plus}}</p></div>
             </div>
             <div class="col-xs-4">
-                    <h4 class="d-gray-fnt">Author</h4>
-                    {{articles.author}}
+                <h4 class="d-gray-fnt">Author</h4>
+                <div class="pd-left-10"><p>{{articles.author}}</p></div>
             </div>
             {{/equal}}
             {{#equal articles.type "electronic"}}
                 <h2 class="tbl-header">Electronic Specifications</h2>
             <div class="col-xs-4">
-                    <h4 class="d-gray-fnt">Producer</h4>
-                    {{articles.producer}}
+                <h4 class="d-gray-fnt">Producer</h4>
+                <div class="pd-left-10"><p>{{articles.producer}}</p></div>
             </div>
             <div class="col-xs-4">
-                    <h4 class="d-gray-fnt">Model</h4>
-                    {{articles.model}}
+                <h4 class="d-gray-fnt">Model</h4>
+                <div class="pd-left-10"><p>{{articles.model}}</p></div>
             </div>
             {{/equal}}
             {{#if username}}
