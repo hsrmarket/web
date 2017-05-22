@@ -103,6 +103,7 @@ module.exports.getAddPage = function (req, res) {
 
 module.exports.addArticle = function (req, res) {
     storageService.uploadImageAdd(req, res, function (err, data) {
+        //console.log(err);
         if (err) {
             res.render('displayError', { title: 'HSRmarket - Error', message: err });
             return;
