@@ -384,3 +384,12 @@ footer figure {
 .brd-tp {
     border-top: solid;
 }
+
+.glyphicon-lg {
+    font-size: 65px;
+    line-height: 100px;
+}
+
+.btn-cncl {
+    background-color: indianred;
+}
