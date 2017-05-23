@@ -47,7 +47,7 @@ module.exports.saveAccountToDB = function (req, res) {
 
     const data = JSON.stringify(account);
 
-    accountService.save(data, function (error, response, body) {
+    accountService.save(data, req.body.id, function (error, response, body) {
         if (!error && response.statusCode === 200) {
             let redirect = '';
             if (req.session.isadmin) {

@@ -40,9 +40,9 @@ module.exports.delete = function (accountID, callback) {
     });
 };
 
-module.exports.save = function (data, callback) {
+module.exports.save = function (data, id, callback) {
     const options = {
-        url: URL + '/' + data.id,
+        url: URL + '/' + id,
         method: 'PUT',
         headers: headers,
         body: data,
