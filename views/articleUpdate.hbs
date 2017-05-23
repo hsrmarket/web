@@ -2,7 +2,6 @@
     <form method="post" action="/articles/{{article.id}}/edit" enctype="multipart/form-data">
         <input type="text" hidden="hidden" name="id" value="{{article.id}}"/>
         <input type="text" hidden="hidden" name="type" value="{{article.type}}"/>
-        <input type="text" hidden="hidden" name="name" value="{{article.name}}"/>
         <input type="text" hidden="hidden" name="creationDate" value="{{article.creationDate}}"/>
         <input type="text" hidden="hidden" name="oldimage" value="{{article.image}}"/>
     <div class="container-fluid">
@@ -24,7 +23,7 @@
                 </div>
                 <div class="col-xs-4 hgt-hunp">
                     <p><h4 class="d-gray-fnt">Article Name</h4></p>
-                    <div class="pd-left-10">{{article.name}}</div>
+                    <div class="pd-left-10"><input type="text" class="art-input pd-left-10" name="name" value="{{article.name}}"/></div>
                 </div>
                 <div class="col-xs-4 hgt-hunp pd-right-0">
                     <p><h4 class="d-gray-fnt">Condition</h4></p>
