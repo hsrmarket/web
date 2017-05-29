@@ -53,6 +53,8 @@ module.exports.registerUser = function (req, res) {
         if (!error && response.statusCode === 200) {
             res.redirect('/user/login');
         } else {
+            console.log(response);
+            console.log(body);
             res.render('displayError', { title: 'HSRmarket - Error', message: error });
         }
     });
